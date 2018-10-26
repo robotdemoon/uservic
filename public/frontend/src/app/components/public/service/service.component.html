@@ -1,0 +1,194 @@
+<div class="usv-mcontainer" *ngIf="service" [ngClass]="{'angular-opacity': hide, 'angular-opacity-1': !hide}">
+  <div class="row">
+      <div class="clm-xs-12">
+          <div class="usv-s-cabecera usv-g-shadow" [ngStyle]="{'background-image': 'url(' + url.service + service.image + ')'}" *ngIf="service.image">
+              <div class="usv-s-cabecera-title">
+                  <h1 class="usv-t-w-bk usv-t-s-h1 usv-color-light usv-s-cabecera-title_t">{{service.name_service | uppercase}}</h1>
+              </div>
+              <div class="usv-s-cabecera-info">
+                  <div class="usv-s-cabecera-info_bg"></div>
+                  <div class="usv-s-cabecera-info_t">
+                      <h5 class="usv-color-light usv-t-w-r usv-g-align_r usv-g-margin_b">Cobertura: {{service.country_name}}<span *ngIf="service.state_name !== null"> | </span>{{service.state_name}}<span *ngIf="service.city_name !== null"> | </span>{{service.city_name}}</h5>
+                      <h5 class="usv-color-light usv-t-w-r usv-g-align_r usv-g-margin_b">Horario: {{service.open}} - {{service.close}} Hrs.</h5>
+                      <h5 class="usv-color-light usv-t-w-r usv-g-align_r usv-g-margin_b">Dias Habiles: {{service.business_days}} </h5>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="row usv-scontainer">
+      <div class="clm-xs-12 usv-g-margin_t">
+          <div class="usv-mt">
+              <h1 class="usv-mt_h1"><i class="fas fa-heart usv-cursor-hov" *ngIf="isFavs && restrictions" (click)="servicepHelper.removeFavourite(service.id); isFavs = false"></i>
+                  <i class="far fa-heart usv-cursor-hov" *ngIf="!isFavs && restrictions" (click)="servicepHelper.addFavourite(service.id); isFavs = true"></i>
+                  <span  *ngIf="restrictions"> | </span>{{service.name_service | uppercase}}
+              </h1>
+          </div>
+      </div>
+      <div class="clm-xs-12">
+          <div class="row">
+              <div class="clm-xs-12 clm-lg-3">
+                  <a class="usv-btn usv-btn-s_xs usv-btn-a_l usv-btn-co usv-bg-light usv-g-shadow_l" (click)="navigation.goBack();hide = true">Regresar</a>
+              </div>
+              <div class="clm-xs-12 clm-lg-6">
+                  <div class="row">
+                      <div class="clm-xs-12">
+                          <div class="usv-img usv-g-shadow usv-cursor-hov">
+                              <img src="{{url.user + service.image_user}}" *ngIf="service.image_user" routerLink="/p/{{service.username}}/perfil">
+                          </div>
+                      </div>
+                      <div class="clm-xs-12" *ngIf="restrictions && !restrictions.isOwnService">
+                          <div class="usv-page-service-flex">
+                              <a class="usv-page-service-flex-e usv-btn usv-btn-s_xs usv-g-shadow usv-bg-primary usv-color-light" *ngIf="service.settings_conexions == 1 && !restrictions.isConexion" (click)="servicepHelper.addConexion(+service.user); restrictions.isConexion = true">Crear Conexion</a>
+                              <a class="usv-page-service-flex-e usv-btn usv-btn-s_xs usv-btn-co usv-bg-light usv-g-shadow_l" *ngIf="service.settings_budgets == 1 && !isRequest" (click)="(statusRequest) ? statusRequest = false: statusRequest = true" >Solicitar Presupuesto</a>
+                          </div>
+                      </div>
+                      <div class="clm-xs-12" *ngIf="restrictions && !isRequest" [ngClass]="{'usv-g-display_none': !statusRequest}">
+                        <form (submit)="servicepHelper.addBudgetRequest(budgetRequest); statusRequest = false; isRequest = true" #budgetRequestForm="ngForm">
+                            <div class="row">
+                                <div class="clm-xs-12">
+                                    <div class="usv-i-cnt" >
+                                        <label class="usv-i-cnt_lb usv-t-w-r">Escribe una descripción para poder hacerte un presupuesto:</label>
+                                        <textarea class="usv-i usv-i_a usv-i-cnt_i" placeholder="Descripción de la solicitud." [(ngModel)]="budgetRequest.description" name="Bdescription" #Bdescription="ngModel" minlength="30" maxlength="500" required></textarea>
+                                        <div class="usv-i-cnt_e" *ngIf="Bdescription.invalid && (Bdescription.dirty || Bdescription.touched)">
+                                            <span *ngIf="Bdescription.errors.required">* La descripcion es Obligatorio</span>
+                                            <span *ngIf="Bdescription.errors.minlength">* Descripción minima de 30 caracteres</span>
+                                            <span *ngIf="Bdescription.errors.maxlength">* Descripción maximo con 500 caracteres</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="clm-xs-12">
+                                    <!--<a class="usv-page-service-flex-e usv-btn usv-btn-s_xs usv-g-shadow usv-bg-primary usv-color-light">Enviar Solicitud</a>-->
+                                    <input  class="usv-btn usv-btn-s_xs usv-btn-a_r usv-g-shadow usv-bg-primary usv-color-light" type="submit" value="Enviar Solicitud" [disabled]="!budgetRequestForm.form.valid">
+                                </div>
+                                <div class="clm-xs-12 usv-g-margin_t-double">
+                                    <div class="usv-g-line_h"></div>
+                                </div>
+                            </div>
+                        </form>
+                      </div>
+                      <div class="clm-xs-12 clm-lg-8 offs-lg-2">
+                            <h5 class="usv-t-w-l usv-color-secundary usv-g-textalign_c">{{service.description}}</h5>
+                        </div>
+                      <div class="clm-xs-12 usv-g-margin_t-double">
+                          <div class="usv-g-line_h"></div>
+                      </div>
+                  </div>
+              </div>
+              <div class="clm-xs-12 clm-lg-3" *ngIf="contacts && contacts.length">
+                  <div class="row">
+                      <div class="clm-xs-12">
+                          <div class="row">
+                              <div class="clm-xs-10">
+                                  <div class="usv-mt">
+                                      <h4 class="usv-t-w-bk usv-mt_h3">METODOS DE CONTACTO</h4>
+                                  </div>
+                              </div>
+                              <div class="clm-xs-12 clm-sm-6 clm-md-4 clm-lg-12" *ngFor="let contact of contacts">
+                                  <div class="usv-conf">
+                                      <div class="usv-conf-c usv-conf-c_alone">
+                                          <i class="fas fa-envelope-square usv-conf-c-icon" *ngIf="contact.type == 'Email'"></i>
+                                          <i class="fas fa-{{contact.type| lowercase}} usv-conf-c-icon" *ngIf="contact.type == 'Mobile' || contact.type == 'Phone'"></i>
+                                          <h4 class="usv-conf-c-t">{{contact.method}}</h4>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="clm-xs-12" *ngIf="networks && networks.length">
+                <div class="clm-xs-10">
+                    <div class="usv-mt">
+                        <h4 class="usv-t-w-bk usv-mt_h3">REDES SOCIALES</h4>
+                    </div>
+                </div>
+                <div class="clm-xs-12">
+                  <div class="row">
+                    <div class="clm-xs-12 clm-sm-6 clm-md-4" *ngFor="let network of networks">
+                        <div class="usv-conf">
+                            <div class="usv-conf-c usv-conf-c_alone">
+                                <i class="fab fa-{{network.type | lowercase}} usv-conf-c-icon"></i>
+                                <h4 class="usv-conf-c-t">{{network.method}}</h4>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+          <div class="row usv-page-service-container">
+              <div class="clm-xs-12 clm-lg-4 offs-lg-1">
+                  <div class="row">
+                      <div class="clm-xs-12">
+                          <div class="usv-mt">
+                              <h3 class="usv-t-w-bk usv-mt_h3">DATOS PERSONALES</h3>
+                          </div>
+                      </div>
+                      <div class="clm-xs-12">
+                          <div class="usv-g-margin_b">
+                              <h5 class="usv-t-w-bk usv-g-display_inline">Proveedor: </h5>
+                              <p class="usv-t-w-r usv-g-display_inline">{{service.fullname}}</p>
+                          </div>
+                          <div class="usv-g-margin_b">
+                              <h5 class="usv-t-w-bk usv-g-display_inline">Experiencia: </h5>
+                              <p class="usv-t-w-r usv-g-display_inline">{{service.experience}} años</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="clm-xs-12 clm-lg-4">
+                  <div class="clm-xs-12">
+                      <div class="usv-mt">
+                          <h3 class="usv-t-w-bk usv-mt_h3">DATOS DEL SERVICIO</h3>
+                      </div>
+                  </div>
+                  <div class="clm-xs-12">
+                      <div class="usv-g-margin_b">
+                          <h5 class="usv-t-w-bk usv-g-display_inline">Tipo de Servicio: </h5>
+                          <p class="usv-t-w-r usv-g-display_inline">{{service.type_service_T}}</p>
+                      </div>
+                      <div class="usv-g-margin_b">
+                          <h5 class="usv-t-w-bk usv-g-display_inline">Categoria: </h5>
+                          <p class="usv-t-w-r usv-g-display_inline">{{service.category_T}}</p>
+                      </div>
+                      <div class="usv-g-margin_b">
+                          <h5 class="usv-t-w-bk usv-g-display_inline">Covertura: </h5>
+                          <p class="usv-t-w-r usv-g-display_inline">{{service.country_name}}<span *ngIf="service.state_name !== null"> | </span>{{service.state_name}}<span *ngIf="service.city_name !== null"> | </span>{{service.city_name}}</p>
+                      </div>
+                  </div>
+              </div>
+              <div class="clm-xs-12 clm-lg-3">
+                    <div class="clm-xs-12">
+                        <div class="usv-mt">
+                            <h3 class="usv-t-w-bk usv-mt_h3">DATOS ADICIONALES</h3>
+                        </div>
+                    </div>
+                    <div class="clm-xs-12">
+                        <div class="usv-g-margin_b">
+                            <h5 class="usv-t-w-bk usv-g-display_inline">El costo se Realiza: </h5>
+                            <p class="usv-t-w-r usv-g-display_inline">{{service.type_cost_T}}</p>
+                        </div>
+                        <div class="usv-g-margin_b">
+                            <h5 class="usv-t-w-bk usv-g-display_inline">Costo Promedio: </h5>
+                            <p class="usv-t-w-r usv-g-display_inline">{{service.cost * 1.00}} <span>{{service.type_money}}</span></p>
+                        </div>
+                    </div>
+              </div>
+              <div class="clm-xs-12 usv-g-margin_t-double">
+                  <div class="usv-g-line_h"></div>
+              </div>
+          </div>
+      </div>
+      <div class="clm-xs-12">
+          <div class="row">
+              <div class="clm-xs-12 clm-lg-3" *ngIf="service.category && nComments">
+                  <app-service-suggested  [category]="service.category" [ncomments]="nComments" ></app-service-suggested>
+              </div>
+              <div class="clm-xs-12 clm-lg-9" *ngIf="service.id">
+                <app-service-comments [idService]="idService" [id]="+service.id" [status]="status" (ncomments)="nComments = $event"></app-service-comments>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

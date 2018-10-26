@@ -1,0 +1,81 @@
+/*------------------------------------
+Clases Globales
+------------------------------------*/
+.usv-g{
+    &-shadow{
+        box-shadow: 0px 1px 2px 1px lighten(rgba(0,0,0,0.75), 50);
+        &_l{
+            box-shadow: 0px 1px 2px 0px lighten(rgba(0,0,0,0.5), 70);
+        }
+        &_h{
+            box-shadow: 0px 1px 2px 1px lighten(rgba(0,0,0,0.75), 10);
+        }
+    }
+    &-textalign{
+        &_c{
+            text-align: center;
+        }
+        &_l{
+            text-align: left;
+        }
+        &_r{
+            text-align: right;
+        }
+    }
+    &-display{
+        &_block{
+            display:block;
+        }
+        &_none{
+            display:none;
+        }
+        &_inline{
+            display:inline;
+        }
+    }
+    &-margin{
+        &_b{
+            margin-bottom: $space_lines;
+            &-double{
+                margin-bottom: $space_lines * 2;
+            }
+        }
+        &_t{
+            margin-top: $space_lines;
+            &-double{
+                margin-top: $space_lines * 2;
+            }
+        }
+        &_l{
+            margin-left: 10px;
+        }
+        &_r{
+            margin-right: 10px;
+        }
+    }
+    &-align{
+        &_l{
+            text-align:left;
+        }
+        &_r{
+            text-align:right;
+        }
+        &_c{
+            text-align: center;
+        }
+    }
+    &-line{
+        &_h{
+            height: 1px;
+            width: 100%;
+            margin: 0.75rem auto;
+            background: color('secundary');
+            opacity: 0.1;
+        }
+    }
+}
+.usv-cursor-hov{
+    &:hover{
+        cursor: pointer;
+    }
+}

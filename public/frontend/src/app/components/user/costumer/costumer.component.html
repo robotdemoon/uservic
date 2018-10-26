@@ -1,0 +1,39 @@
+<div class="usv-mcontainer" *ngIf="costumers">
+  <div class="row usv-scontainer">
+      <div class="clm-xs-12">
+          <div class="usv-mt">
+              <h1 class="usv-t-s-h1 usv-mt_h1">Mis Clientes</h1>
+          </div>
+      </div>
+      <div class="clm-xs-12">
+          <div class="row">
+              <div class="clm-xs-12 clm-sm-6 clm-lg-4 clm-xl-3" *ngFor="let costumer of costumers">
+                  <div class="usv-s usv-s-s">
+                      <div class="usv-s-s-c usv-g-shadow">
+                          <div class="usv-s-s-c_t usv-g-shadow usv-bg-secundary"></div>
+                          <div class="usv-s-s-c_i">
+                              <p class="usv-t-cut usv-s-s-c_i-p usv-t-w-bd">{{costumer.username}}</p>
+                              <p class="usv-t-cut usv-s-s-c_i-p">Pais: <strong>{{costumer.country_name}}</strong></p>
+                              <p class="usv-t-cut usv-s-s-c_i-p usv-t-w-r">{{costumer.interests}}</p>
+                          </div>
+                      </div>
+                      <div class="usv-s-s-img usv-g-shadow">
+                          <img  src="{{url + costumer.image}}">
+                          <div class="usv-s-s-img-b usv-g-shadow usv-bg-secundary"></div>
+                          <div class="usv-s-s-img-h"></div>
+                      </div>
+                      <div class="usv-s-s-t_double"  clickOutside (clickOutside)="costumer.smenu = false">
+                          <h2 class="usv-t-w-bd usv-t-cut usv-s-s-t_double-h2">{{costumer.fullname}}</h2>
+                          <i class="fas fa-ellipsis-v usv-s-s-t_double-icon usv-s-s-t_double-icon_r usv-cursor-hov" (click)="(costumer.smenu) ? costumer.smenu = false: costumer.smenu = true"></i>
+                          <div class="usv-s-menu" [ngClass]="{'usv-g-display_none': !costumer.smenu}">
+                              <p>Enviar Mensaje</p>
+                              <p routerLink="/p/{{costumer.username}}/perfil">Perfil</p>
+                              <p (click)="costumers = costumerHelper.removeCostumer(costumer,costumers)" >Eliminar Cliente</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

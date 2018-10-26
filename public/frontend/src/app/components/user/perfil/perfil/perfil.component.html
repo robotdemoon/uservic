@@ -1,0 +1,94 @@
+<div class="usv-mcontainer" *ngIf="user">
+  <div class="row usv-scontainer">
+    <div class="clm-xs-12">
+      <div class="usv-mt">
+        <h1 class="usv-mt_h1">PERFIL</h1>
+      </div>
+    </div>
+  </div>
+  <div class="row usv-scontainer">
+    <div class="clm-xs-12 clm-md-4 clm-lg-3">
+      <div class="row">
+        <div class="clm-xs-12">
+          <div class="usv-img usv-g-shadow">
+            <img src="{{url + user.image}}" *ngIf="user.image">
+          </div>
+        </div>
+        <div class="clm-xs-12">
+          <input  routerLink="/usr/edit" class="usv-btn usv-btn-s_xs usv-btn-co usv-bg-light usv-g-shadow_l" type="button" value="Editar Perfil">
+        </div>
+      </div>
+    </div>
+    <div class="clm-xs-12 clm-md-8 clm-lg-9">
+      <div class="usv-left-line">
+        <div class="row usv-scontainer">
+          <div class="clm-xs-12">
+            <div class="usv-mt">
+              <h3 class="usv-t-s-h3 usv-mt_h3">DATOS GENERALES</h3>
+              <div class="usv-mt_h3-lineS"></div>
+            </div>
+          </div>
+          <div class="clm-xs-12">
+            <div class="row">
+              <div class="clm-xs-12 clm-xl-4 usv-g-margin_b">
+                <div><h4 class="usv-t-w-bk usv-g-display_inline">Nombre: </h4><h5 class="usv-t-w-r usv-g-display_inline">{{user.fullname}}</h5></div>
+              </div>
+              <div class="clm-xs-12 clm-xl-4 usv-g-margin_b">
+                <div><h4 class="usv-t-w-bk usv-g-display_inline">Usuario: </h4><h5 class="usv-t-w-r usv-g-display_inline">{{user.username}}</h5></div>
+              </div>
+              <div class="clm-xs-12 clm-xl-4 usv-g-margin_b">
+                <div><h4 class="usv-t-w-bk usv-g-display_inline">Edad: </h4><h5 class="usv-t-w-r usv-g-display_inline">{{user.age}} años</h5></div>
+              </div>
+              <div class="clm-xs-12 clm-xl-4 usv-g-margin_b">
+                <div><h4 class="usv-t-w-bk usv-g-display_inline">Pais: </h4><h5 class="usv-t-w-r usv-g-display_inline">{{user.country_name}}</h5></div>
+              </div>
+              <div class="clm-xs-12 clm-xl-4 usv-g-margin_b">
+                <div><h4 class="usv-t-w-bk usv-g-display_inline">Sector: </h4><h5 class="usv-t-w-r usv-g-display_inline">{{user.sector}}</h5></div>
+              </div>
+              <div class="clm-xs-12 clm-xl-4 usv-g-margin_b">
+                <div><h4 class="usv-t-w-bk usv-g-display_inline">Escolaridad: </h4><h5 class="usv-t-w-r usv-g-display_inline">{{user.scholarship}}</h5></div>
+              </div>
+              <div class="clm-xs-12 usv-g-margin_b">
+                <div><h4 class="usv-t-s-h3">Descripción Personal: </h4><h5 class="usv-t-w-r usv-g-margin_t">{{user.description}}</h5></div>
+              </div>
+            </div>
+          </div>
+          <div class="clm-xs-12 usv-g-margin_t">
+            <div class="usv-mt">
+              <h3 class="usv-mt_h3">METODOS DE CONTACTO</h3>
+            </div>
+          </div>
+          <div class="clm-xs-12">
+            <div class="row">
+              <div class="clm-xs-12 clm-lg-4"  *ngFor="let c of contacts">
+                  <div class="usv-conf">
+                      <div class="usv-conf-c usv-conf-c_alone">
+                          <i class="fas fa-envelope-square usv-conf-c-icon" *ngIf="c.type == 'Email'"></i>
+                          <i class="fas fa-{{c.type| lowercase}} usv-conf-c-icon" *ngIf="c.type == 'Mobile' || c.type == 'Phone'"></i>
+                          <i class="fab fa-{{c.type | lowercase}} usv-conf-c-icon" *ngIf="c.type != 'Mobile' && c.type != 'Phone' && c.type != 'Email'"></i>             
+                          <h3 class="usv-conf-c-t">{{c.method}}</h3>
+                      </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+          <div class="clm-xs-12 usv-g-margin_t">
+            <div class="usv-mt">
+              <h3 class="usv-mt_h3">INTERESES</h3>
+            </div>
+          </div>
+          <div class="clm-xs-12" *ngIf="user.interests != ''">
+            <div class="row">
+              <div class="clm-xs-12 clm-sm-6 clm-xl-4" *ngFor="let interest of user.interests"> 
+                <div class="usv-g-icontext">
+                    <div class="usv-g-icontext-cicon"><i class="fas fa-check"></i></div>
+                    <h2 class="usv-t-s-h2 usv-t-w-bk"> {{interest}} </h2>
+                </div> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

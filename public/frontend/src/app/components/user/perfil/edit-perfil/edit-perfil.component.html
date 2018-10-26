@@ -1,0 +1,175 @@
+
+<div *ngIf="user">
+  <form (submit)="savePerfil()" #edituserForm="ngForm">
+  <div class="usv-mcontainer" *ngIf="user">
+    <div class="row usv-scontainer">
+      <div class="clm-xs-12">
+        <div class="usv-mt">
+          <h1 class="usv-mt_h1">Editar Perfil</h1>
+        </div>
+      </div>
+    </div>
+    <div class="row usv-scontainer">
+      <div class="clm-xs-12 clm-md-4 clm-lg-3">
+        <div class="row">
+          <div class="clm-xs-12">
+            <div class="usv-img usv-g-shadow">
+              <img [src]="url + image " class="usv-cursor-hov" *ngIf="user.image">
+              <input type="file" name="image" class="usv-cursor-hov" [(ngModel)]="imagenUp" (change)="imageUpdate($event)">
+            </div>
+          </div>
+          <div class="clm-xs-12">
+            <input  type="submit" class="usv-btn usv-btn-s_xs usv-btn-co usv-bg-light usv-g-shadow_l" value="Actualizar Perfil" [disabled]="!edituserForm.form.valid">
+          </div>
+        </div>
+      </div>
+      <div class="clm-xs-12 clm-md-8 clm-lg-9">
+        <div class="usv-left-line">
+          <div class="row usv-scontainer">
+            <div class="clm-xs-12">
+              <div class="usv-mt">
+                <h3 class="sv-mt_h3">INFORMACION GENERAL</h3>
+              </div>
+            </div>
+            <div class="clm-xs-12">
+              <div class="row">
+                <div class="clm-xs-12 clm-sm-6 clm-lg-2">
+                  <div class="usv-i-cnt">
+                    <label class="usv-i-cnt_lb usv-t-w-r">Edad:</label>
+                    <input type="number" placeholder="18" min="18" max="100" stem="1" class="usv-i usv-i-cnt_i" [(ngModel)]="+user.age" name="age" #age_user="ngModel" required>
+                    <div class="usv-i-cnt_e" *ngIf="age_user.invalid && (age_user.dirty || age_user.touched)">
+                      *Edad Obligatoria
+                    </div>
+                  </div>
+                </div>
+                <div class="clm-xs-12 clm-sm-6 clm-lg-3">
+                  <div class="usv-i-cnt">
+                    <label class="usv-i-cnt_lb usv-t-w-r">Pais:</label>
+                    <select class="usv-i usv-i_s usv-i-cnt_i"  name="country" [(ngModel)]="+user.country" #country_user ="ngModel" required>
+                      <option value="">Selecciona el Pais donde Vives</option>
+                      <option *ngFor="let country of countries$ | async" [ngValue]="+country.id">{{country.name}}</option>
+                    </select>
+                    <div class="usv-i-cnt_e" *ngIf="country_user.invalid && (country_user.dirty || country_user.touched)">
+                      *Pais Obligatorio
+                    </div>
+                  </div>
+                </div>
+                <div class="clm-xs-12 clm-sm-6 clm-lg-3">
+                  <div class="usv-i-cnt">
+                    <label class="usv-i-cnt_lb usv-t-w-r">Sector:</label>
+                    <select class="usv-i usv-i_s usv-i-cnt_i" [(ngModel)]="user.sector" name="sector" #sector_user="ngModel" required>
+                        <option value="">Selecciona tu Sector</option>
+                        <option *ngFor="let sector of categories" [ngValue]="sector.category">{{sector.value}}</option>
+                    </select>
+                    <div class="usv-i-cnt_e"  *ngIf="sector_user.invalid && (sector_user.dirty || sector_user.touched)">
+                      *Sector Obligatorio
+                    </div>
+                  </div>
+                </div>
+                <div class="clm-xs-12 clm-sm-6 clm-lg-4">
+                  <div class="usv-i-cnt">
+                    <label class="usv-i-cnt_lb usv-t-w-r">Escolaridad:</label>
+                    <select class="usv-i usv-i_s usv-i-cnt_i" [(ngModel)]="user.scholarship" name="scholarship" #scholarship_user="ngModel" required>
+                        <option value="">Escolaridad</option>
+                        <option *ngFor="let scholarship of scholarships" value="{{scholarship.degree}}">{{scholarship.value}}</option>
+                    </select>
+                    <div class="usv-i-cnt_e"  *ngIf="scholarship_user.invalid && (scholarship_user.dirty || scholarship_user.touched)">
+                      *Escolaridad Obligatoria
+                    </div>
+                  </div>
+                </div>
+                <div class="clm-xs-12">
+                  <div class="usv-i-cnt" >
+                    <label class="usv-i-cnt_lb usv-t-w-r">Descripción:</label>
+                    <textarea class="usv-i usv-i_a usv-i-cnt_i" placeholder="Mi descripcion" [(ngModel)]="user.description" name="description" #description_service="ngModel">{{user.description}}</textarea>
+                  </div>
+                </div>
+              </div>
+              <div class="clm-xs-12 usv-g-margin_t-double">
+                <div class="usv-mt">
+                  <h3 class="usv-mt_h3">INTERESES</h3>
+                </div>
+              </div>
+              <div class="clm-xs-12">
+                <div class="row">
+                  <div class="clm-xs-6 clm-md-4 clm-xl-4" *ngFor="let interest of interests">
+                    <div class="usv-g-checkbox-cont usv-g-checkbox-cont_wtext">
+                        <input  type="checkbox" class="usv-g-checkbox-cont_input usv-g-checkbox-cont_input_r" [(ngModel)]="interest.checked" name="interest_{{interest.id}}" #interest_{{interest.id}}="ngModel">
+                        <div class="usv-g-checkbox-cont_sqr usv-g-checkbox-cont_sqr_r usv-g-shadow"><i class="fas fa-check"></i></div>
+                        <span class="usv-g-checkbox-cont_span usv-g-checkbox-cont_span_r">{{interest.value}}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="clm-xs-12 usv-g-margin_t-double">
+                <div class="usv-mt">
+                  <h3 class="usv-mt_h3">FORMAS DE CONTACTO</h3>
+                </div>
+              </div>
+              <div class="clm-xs-12" *ngIf="contacts && contacts.length">
+                <div class="row">
+                  <div class="clm-xs-1">
+                      <div class="usv-plus" (click)="conts.addContact(contacts)">
+                          <i class="fas fa-plus"></i>
+                      </div>
+                  </div>
+                  <div class="clm-xs-11">
+                    <div class="row">
+                      <div class="clm-xs-12" *ngFor="let contact of contacts; let i = index;">
+                        <div class="row">
+                          <div class="clm-xs-12 clm-sm-4">
+                            <div class="usv-i-cnt">
+                              <label class="usv-i-cnt_lb usv-t-w-r">Tipo de Medio:</label>
+                              <select class="usv-i usv-i_s usv-i-cnt_i" [(ngModel)]="contact.type" name="type-{{i}}" #contact_type="ngModel" required>
+                                <option value="">Tipo de Medio de Contacto</option>
+                                <option value="Mobile">Telefono Movil</option>
+                                <option value="Whatsapp">Whatsapp</option>
+                                <option value="Phone">Telefono Fijo</option>
+                                <option value="Facebook">Facebook</option>
+                                <option value="Skype">Skype</option>
+                                <option value="Instagram">Instagram</option>
+                                <option value="Twitter">Twitter</option>
+                                <option value="Youtube">Youtube</option>
+                                <option value="Email">Correo Electronico</option>
+                              </select>
+                              <div class="usv-i-cnt_e"  *ngIf="contact_type.invalid && (contact_type.dirty || contact_type.touched)">*El tipo de medio de contacto es Obligatorio</div>
+                            </div>
+                          </div>
+                          <div class="clm-xs-12 clm-sm-3">
+                            <div class="usv-i-cnt">
+                              <label class="usv-i-cnt_lb usv-t-w-r">Estado:</label>
+                              <select class="usv-i usv-i_s usv-i-cnt_i" [(ngModel)]="contact.status" #contact_status="ngModel" name="status-{{i}}" required>
+                                <option value="">Publico o Privado</option>
+                                <option value="Public">Publico</option>
+                                <option value="Private">Privado</option>
+                              </select>
+                              <div class="usv-i-cnt_e"  *ngIf="contact_status.invalid && (contact_status.dirty || contact_status.touched)">*El estado del medio de contacto es Obligatorio</div>
+                            </div>
+                          </div>
+                          <div class="clm-xs-10 clm-sm-4">
+                            <div class="usv-i-cnt">
+                              <label class="usv-i-cnt_lb usv-t-w-r">Medio de Contacto:</label>
+                              <input type="text" placeholder="Metodo" class="usv-i usv-i-cnt_i" [(ngModel)]="contact.method"
+                              name="method-{{i}}" #contact_method="ngModel" required>
+                              <div class="usv-i-cnt_e"  *ngIf="contact_method.invalid && (contact_method.dirty || contact_method.touched)">*El medio de contacto es Obligatorio</div>
+                            </div>
+                          </div>
+                          <div class="clm-xs-2 clm-sm-1">
+                              <div class="usv-plus" (click)="contacts = conts.removeContact(contact, contacts)">
+                                  <i class="fas fa-times"></i>
+                              </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </form>
+</div>

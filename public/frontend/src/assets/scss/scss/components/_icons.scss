@@ -1,0 +1,38 @@
+/*------------------------------------
+Estilo del elemento Plus
+------------------------------------*/
+.usv-plus{
+    @include size_f(30px, 30px, 1rem auto 0 auto);
+    text-align: center;
+    line-height: 30px;
+    @include back_color('primary', 'light');
+    font-size: 18px;
+    border-radius: 100%;
+    opacity: 0.7;
+    &:hover{
+        cursor:pointer;
+        opacity:1;
+    }
+}
+.usv-g-icontext{
+    @include size_f(30px, 100%);
+    @include flex('no', 'no', 'no', center);
+    opacity: 0.7;
+    h2{
+        color: color('secundary');
+        font-size: text('btn', $titles_proy);
+        text-transform: uppercase;
+    }
+    i{
+        @include position(4px, 'no', 'no', 4px);
+        color: color('light');
+        font-size: 0.5rem;
+    }
+    &-cicon{
+        @include size_f(15px);
+        position:relative;
+        margin-right:0.5rem;
+        background: color('secundary');
+        border-radius: 100%;
+    }
+}

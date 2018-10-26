@@ -1,0 +1,52 @@
+.usv-s-menu{
+    max-width: calc(100% - 0.3rem - 10px);
+    min-width: calc(100% - 75px);
+    @include position(-5px, 30px, 'no', 'no');
+    padding: 2px 0.15rem 0 0.15rem;
+    background:color('light');
+    border-radius: 4px;
+    box-shadow: 2px 2px 10px 0 lighten(color('secundary'), 50);
+    z-index: 2;
+    &_msg{
+        min-width: 150px;
+    }
+    &_header{
+        min-width: 250px;
+        min-height: 200px;
+        max-height: 280px;
+        top: 30px;
+        right: 15px;
+        padding: 5px 0.5rem;
+        overflow:hidden;
+        overflow-y: scroll;
+    }
+    p, a , .usv-i-cnt{
+        @include size_f('no', calc(100% - 0.4rem), 0 auto, 0.3rem 0 0.3rem 0.3rem);
+        font-size: 10px;
+        border-bottom: 1px solid lighten(color('secundary'), 75);
+        padding-bottom: 5px;
+        &:hover{
+            background: lighten(color('secundary'), 75);
+            font-weight: 700;
+            border-color: color('light');
+            border-radius: 3px;
+            cursor: pointer;
+        }
+    }
+    a{
+        display: block;
+    }
+    .usv-i-cnt:hover{
+        background: inherit;
+        font-weight: inherit;
+        border-bottom:1px solid lighten(color('secundary'), 75);
+        cursor: inherit;
+    }
+    &:after{
+        content: '';
+        @include position(10px, -7px, 'no', 'no');
+        border-bottom: 5px solid transparent;
+        border-left: 7px solid color('light');
+        border-top: 5px solid transparent;
+    }
+}

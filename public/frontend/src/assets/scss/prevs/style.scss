@@ -1,0 +1,65 @@
+/*------------------------------
+Configuración Global
+------------------------------*/
+
+/*Variables*/
+
+//Font Family
+
+$font_family:'Lato',sans-serif;
+
+//Tamaños de Texto
+$title:(
+	'html': 12px,
+	'h1': 1.3rem,
+	'h2': 1.2rem,
+	'h3': 1.15rem,
+	'h4': 1.075rem,
+	'p': 1rem,
+	'a': 1rem
+);
+$input:(
+	'height': 40px,
+	'width': 300px,
+	'text-area-height': 120px
+);
+/*---------------------------------------
+ Paleta de Colores
+----------------------------------------*/
+$paleta : (
+	'primary' : #a3f1ee,
+	'secundary' : #95989a,
+	'warning' : #cce641,
+	'alert' : #d60c13,
+	'success' : #1ce47b,
+	'modules' : white,
+	'light' : #fff,
+	'dark' : #676f74
+);
+@function color($color){
+	@return map-get($paleta, $color);
+}
+/*---------------------------------------
+ Paleta de Colores
+----------------------------------------*/
+//Espacio entre lineas
+$space_lines:0.3rem;
+
+//Columnas y Dimensiones
+$ncol : 12;
+
+$max-size-container:1200px; //Max-size for limited Divs or Sections
+
+$breakpoints:(
+	'xs': 0px,
+	'sm': 544px,
+	'md': 768px,
+	'lg': 992px,
+	'xl': 1200px
+);
+
+$lineSection : lighten(#0e1e16, 70);
+/*------------------------------
+Importar Archivos
+------------------------------*/
+@import "_imports.scss";

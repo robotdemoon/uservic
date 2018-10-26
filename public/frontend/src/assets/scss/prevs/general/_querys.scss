@@ -1,0 +1,86 @@
+@media screen and (min-width: 768px) {
+   .serviceFirst{
+    order:1;
+    }
+    .serviceSecond{
+        order:2;
+    }
+    .header{
+        &_container{
+            justify-content: space-between;
+            &_browse{
+                display: flex;
+                align-items:center;
+                width: 70%;
+            }
+            &_links{
+                display: flex;
+            }
+        }
+    }
+}
+@media screen and (min-width: 992px){
+    /*-----------------------------------
+    -----------------------------------*/
+    .table{
+        thead{
+            th.thHidden{
+                display:table-cell;
+            }
+        }
+        tbody{
+            tr{
+                display: table-row;
+            }
+        }
+        &_datosHidden, &_datosnoHidden{
+            display:table-cell;
+            padding-left: 0;
+        }
+        &_plus{
+            display: none;
+            &More{
+                display: none;
+            }
+        }
+    }    
+    /*------------------------------
+    Estilos para ocultar y mostrar el header y navleft
+    ------------------------------*/
+    .navLeft{
+        display: block;
+    }
+    .con_navleft{
+        display: block;
+    }
+    .header{
+        &_container{
+            &_browse{
+                img{
+                display: block;
+                }
+            }
+        }
+    }
+    /*------------------------------
+    Clases para Angualar
+    ------------------------------*/
+    .hiddenNavSecond{
+	display: none !important;
+    }
+    .showNavSecond{
+        display:block !important;
+    }
+     /*------------------------------
+    Service Estilos
+    ------------------------------*/
+    .service{
+        &_container{
+            &_elements{
+                &_description{
+                    display:inline-block;
+                }
+            }
+        }
+    }
+}

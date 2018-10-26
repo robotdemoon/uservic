@@ -1,0 +1,38 @@
+<div class="row">
+    <div class="clm-xs-12">
+        <div class="usv-mt">
+            <h3 class="usv-t-w-bk usv-mt_h3">SERVICIOS SUGERIDOS</h3>
+        </div>
+    </div>
+    <div class="clm-xs-12" *ngFor="let service of services">
+        <div class="row">
+            <div class="clm-xs-12">
+                <a [routerLink]="['/service/', service.identity]" >
+                    <div class="usv-s usv-s-m">
+                        <div class="usv-s-m-c usv-g-shadow">
+                            <div class="usv-s-m-c_t usv-g-shadow usv-bg-secundary"></div>
+                            <div class="usv-s-m-c_i">
+                            <h2 class="usv-t-cut usv-s-m-c_i-h2">{{service.fullname}}</h2>
+                            <p class="usv-t-cut usv-s-m-c_i-p">Covertura: {{service.country_name}} <span *ngIf="service.state_name !== null"> | </span>{{service.state_name}}<span *ngIf="service.city_name !== null"> | </span>{{service.city_name}}</p>
+                            <p class="usv-t-cut usv-s-m-c_i-p">Dias Habiles: {{service.business_days}}</p>
+                            <p class="usv-t-cut usv-s-m-c_i-p">Horario: {{service.open}} - {{service.close}}</p>
+                            </div>
+                            <div class="usv-s-m-c_d">
+                            <p class="usv-t-w-bd usv-s-m-c_d-p">Descripción: </p>
+                            <p class="usv-t-cut usv-s-m-c_d-p">{{service.description}}</p>
+                            </div>
+                        </div>
+                        <div class="usv-s-m-img usv-g-shadow">
+                            <img  src="{{url + service.image}}">
+                            <div class="usv-s-m-img-b usv-g-shadow usv-bg-secundary"></div>
+                            <div class="usv-s-m-img-h"></div>
+                        </div>
+                        <div class="usv-s-m-t">
+                            <h2 class="usv-t-w-bd usv-t-cut usv-s-m-t-h2 usv-t-s-h4">{{service.name_service}}</h2>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

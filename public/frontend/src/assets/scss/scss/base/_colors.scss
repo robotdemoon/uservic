@@ -1,0 +1,11 @@
+/*------------------------------------
+Base de Background
+------------------------------------*/
+@each $e, $color in $paleta {
+    .usv-color-#{$e} {
+        color: $color;
+    }
+    .usv-bg-#{$e} {
+        background: $color;
+    }
+}

@@ -1,0 +1,17 @@
+.usv-img{
+    @include size_f(150px, 150px, 1rem auto);
+    border-radius: 100%;
+    overflow: hidden;
+    position: relative;
+    img, &_cover{
+        @include size_f(100%);
+    }
+    &_cover{
+        @include position(0, 'no', 'no', 0);
+    }
+    input{
+        height:130px;
+        @include position(0, 'no', 'no', 0);
+        opacity:0;
+    }
+}

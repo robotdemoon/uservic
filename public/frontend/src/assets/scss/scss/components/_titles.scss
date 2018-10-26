@@ -1,0 +1,70 @@
+.usv-t{
+    /*------------------------------------
+    Asignamos el tamaño de los titulos
+    del proyecto
+    ------------------------------------*/
+    @each $e, $size in $titles_proy {
+        &-s-#{$e} {
+            font-size: $size;
+        }
+    }
+    /*------------------------------------
+    Grosor de Textos del proyecto
+    ------------------------------------*/
+    @each $e, $weight in $titles-weight {
+        &-w-#{$e} {
+            font-weight: $weight;
+        }
+    }
+}
+/*------------------------------------
+Titulos especiales
+------------------------------------*/
+.usv-mt{
+    width:  100%;
+    margin-bottom: $space_titles_r;
+    position:relative;
+    &-margin-reduced{
+        margin: 0 0 $space_titles_xs 0;
+    }
+    &_h1, &_h2, &_h3{
+        color: lighten(color('secundary'), 20);
+        &:before, &:after{
+            display: block;
+            content: "";
+            background-color: color('primary');
+        }
+        &:after{
+            height: 1px;
+            margin: 3px 0 0 0;
+        }
+        &:before{
+            height: 3px;
+            width: 300px;
+            position: absolute;
+            bottom: -1px;
+        }
+    }
+    &_h1:before{
+        width: 150px; 
+    }
+    &_h2{
+        &:before, &:after{
+            background: color('secundary');
+        }
+        &:before{
+            width:80px;
+        }
+        &:after{
+            width: 200px; 
+        }
+    }
+    &_h3{
+        &:before{
+            width:25px;
+        }
+        &:after{
+            width: 0; 
+        }
+    }
+}

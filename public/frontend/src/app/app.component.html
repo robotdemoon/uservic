@@ -1,0 +1,16 @@
+<!---->
+<div class="usv-m-parent">
+    <div class="usv-m-header"></div>
+    <div class="usv-m-navleft" [ngClass]="{'usv-angular-display_block': navleftDisplay,'usv-angular-display_none': !navleftDisplay}" *ngIf="status"></div>
+    <!-----------------------------------------------------------------
+    ---------------------------------------------------------------->
+   <!-- <main [ngClass]="{'usv-m-content': status, 'usv-bg-light': !status}">-->
+    <main class="usv-m-content">
+      <router-outlet></router-outlet>
+    </main>
+    <!-----------------------------------------------------------------
+    ---------------------------------------------------------------->
+  </div>
+  <app-header [status]="status" (navleft) = "navleftOperation($event)"></app-header>
+  <app-navleft [status]="status" [navleftDisplay]="navleftDisplay"></app-navleft>
+  

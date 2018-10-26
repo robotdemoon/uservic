@@ -1,0 +1,43 @@
+
+/////////////////////////////////
+//Columnas
+/////////////////////////////////
+
+@mixin cols($ncol:12) {
+	@each $element, $breakpoint in $breakpoints{
+	  @media only screen and (min-width: $breakpoint){
+			@for $i from 0 through $ncol {
+				//Crea el sistema de columnas segun las que se requieran
+				@if $i != 0 {
+					.col-#{$element}-#{$i} {
+					width: percentage((1/$ncol) * $i) - 0.25%;
+					margin-bottom: 0.1rem;
+					align-self: stretch;//Utilizado para que ocupe todo el alto
+					padding-bottom: $space_lines / 3;
+					}	
+				}
+				//Crea un espacio por 1,2,3, etc de columnas en fin de dejar un espacio
+				@if $i < $ncol{
+					.offset-#{$element}-#{$i} {
+					margin-left: percentage((1/$ncol) * $i) ;
+					}
+				}
+			}
+		}	
+	}		
+}
+/*------------------------------
+Agregando clase row
+------------------------------*/
+.row{
+	width: 96%;
+	display: flex;
+	flex-wrap: wrap;
+	margin:auto;
+	margin-bottom: 0.25rem;
+	padding: 0 2%;
+}
+/*------------------------------
+Ejecutando cols
+------------------------------*/
+@include cols($ncol);

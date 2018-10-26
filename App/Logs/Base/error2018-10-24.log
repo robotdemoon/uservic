@@ -1,0 +1,9 @@
+IP: ::1, Error in : Base, Description: Metodo Ejecutado, info_Received: id=all::action=get::, Url Received: (coverture/countries), date: 2018-10-24 14:27:01
+IP: ::1, Error in : Base, Description: Invalid Method, info_Received: id=all::action=get::, Url Received: (coverture/countries), date: 2018-10-24 14:27:01
+IP: ::1, Error in : Base, Description: Metodo Ejecutado, info_Received: id=all::action=get::, Url Received: (coverture/countries), date: 2018-10-24 14:27:27
+IP: ::1, Error in : Base, Description: Invalid Method, info_Received: id=all::action=get::, Url Received: (coverture/countries), date: 2018-10-24 14:27:27
+IP: ::1, Error in : Base, Description: Metodo Ejecutado, info_Received: id=0::action=getCountries::, Url Received: (coverture/countries), date: 2018-10-24 14:28:21
+IP: ::1, Error in : Base, Description: Invalid Method, info_Received: id=0::action=getCountries::, Url Received: (coverture/countries), date: 2018-10-24 14:28:21
+IP: ::1, Error in : Base, Description: Metodo Ejecutado, info_Received: id=0::action=getCountries::, Url Received: (coverture/search), date: 2018-10-24 14:28:42
+IP: ::1, Error in : Base, Description: Invalid Method, info_Received: id=0::action=getCountries::, Url Received: (coverture/search), date: 2018-10-24 14:28:42
+IP: ::1, Error in : Base, Description: Metodo Ejecutado, info_Received: id=0::action=getCountries::, Url Received: (coverage/search), date: 2018-10-24 14:29:00

@@ -1,0 +1,31 @@
+<div class="usv-mcontainer" *ngIf="user" [ngClass]="{'angular-opacity': hide, 'angular-opacity-1': !hide}">
+  <div class="row usv-scontainer">
+    <div class="clm-xs-12">
+      <div class="usv-mt">
+        <h1 class="usv-mt_h1" *ngIf="status != 'services'">Perfil de {{user.fullname}}</h1>
+        <h1 class="usv-mt_h1" *ngIf="status == 'services'">Servicios de  {{user.fullname}}</h1>
+      </div>
+    </div>
+  </div>
+  <div class="row usv-scontainer">
+    <div class="clm-xs-12 clm-md-4 clm-lg-3">
+      <div class="row">
+        <div class="clm-xs-12">
+          <div class="usv-img usv-g-shadow">
+            <img src="{{url + image}}" *ngIf="image">
+          </div>
+        </div>
+        <div class="clm-xs-12">
+          <input  routerLink="/p/{{user.username}}/perfil" class="usv-btn usv-btn-s_xs usv-btn-co usv-bg-light usv-g-shadow_l" type="button" value="Perfil" *ngIf="status == 'services'">
+        </div>
+        <div class="clm-xs-12">
+          <input  routerLink="/p/{{user.username}}/services" class="usv-btn usv-btn-s_xs usv-btn-co usv-bg-light usv-g-shadow_l" type="button" value="Servicios" *ngIf="status != 'services'">
+        </div>
+      </div>
+    </div>
+    <div class="clm-xs-12 clm-md-8 clm-lg-9">
+      <app-p-perfil [user]="user" [contacts]="contacts" *ngIf="status != 'services'"></app-p-perfil>
+      <app-p-service [services]="services" *ngIf="status == 'services' && user.username"></app-p-service>
+    </div>
+  </div>
+</div>

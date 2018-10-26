@@ -1,0 +1,57 @@
+<div class="usv-mcontainer" *ngIf="budgetRequests">
+    <div class="row usv-scontainer">
+        <div class="clm-xs-12">
+            <div class="usv-mt">
+                <h1 class="usv-mt_h1">Mis Solicitudes</h1>
+            </div>
+        </div>
+        <div class="clm-xs-12">
+            <div class="row">
+                <div class="clm-xs-12">
+                    <div class="usv-mcontainer">
+                        <div class="usv-table_container usv-g-shadow">
+                            <table class="usv-table">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Nombre del Servicio</th>
+                                        <th class="usv-table-hd">Proveedor</th>
+                                        <th>status</th>
+                                        <th class="usv-table-hd">Fecha</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tfoot>
+                                    <tr>
+                                    <td colspan="7">{{budgetRequests.length}} Solicitudes a Cambiar</td>
+                                    </tr>
+                                </tfoot>
+                                <tbody>
+                                    <tr *ngIf="budgetRequests.length <= 0">
+                                        <td colspan="7">Aun no Tienes Solicitudes Hechas</td>
+                                    </tr>
+                                    <tr *ngFor="let request of budgetRequests; let i = index;" title ="{{request.description}}">
+                                        <td title ="{{request.description}}">{{i + 1}}</td>
+                                        <td>{{request.name_service}}</td>
+                                        <td class="usv-table-hd">{{request.fullname}}</td>
+                                        <td>{{request.status}}</td>
+                                        <td class="usv-table-hd">{{request.date}}</td>
+                                        <td>
+                                            <div class="usv-icon_container">
+                                                <a class="usv-icon-table" routerLink="/usr/budget/w" title="Ver Presupuesto" *ngIf="request.budget" (click)="idBudgetNav.id = +request.budget;idBudgetNav.t='user'"><i class="fas fa-suitcase"></i></a>
+                                                <a class="usv-icon-table" routerLink="/service/{{request.service_identity}}" title="Ver Servicio"><i class="fas fa-eye"></i></a>
+                                                <a class="usv-icon-table" routerLink="/p/{{request.username}}/perfil" title="Ver Perfil del Proveedor"><i class="fas fa-user"></i></a>
+                                                <a class="usv-icon-table" (click)="budgetRequests = requestHelper.removeRequest(request, budgetRequests)" title="Eliminar Solicitud"><i class="fas fa-times"></i></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  

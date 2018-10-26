@@ -1,0 +1,85 @@
+/*------------------------------------
+Mixin para las columnas
+------------------------------------*/
+@mixin cols($ncol:12) {
+	@each $element, $breakpoint in $breakpoints{
+	  @media only screen and (min-width: $breakpoint){
+			@for $i from 0 through $ncol {
+				//Crea el sistema de columnas segun las que se requieran
+				@if $i != 0 {
+					.clm-#{$element}-#{$i} {
+					width: percentage((1/$ncol) * $i);
+					//align-self: stretch;
+					}
+				}
+				//Crea un espacio por 1,2,3, etc de columnas en fin de dejar un espacio
+				@if $i < $ncol{
+					.offs-#{$element}-#{$i} {
+					margin-left: percentage((1/$ncol) * $i);
+					}
+				}
+			}
+		}	
+	}		
+}
+/*------------------------------------
+Mixin para ancho y altura
+------------------------------------*/
+@mixin size_f($h, $w:$h, $m:'no', $p:'no'){
+    @if $h != 'no'{
+        height: $h;
+    }
+    @if $w != 'no'{
+        width: $w;
+    }
+    @if $m != 'no'{
+        margin: $m;
+    }
+    @if $p != 'no'{
+        padding: $p;
+    }
+}
+@mixin border($ancho:1px, $color: 'secundary', $lighten: 70, $radius: 3px) {
+    border:  $ancho solid lighten(color($color), $lighten);
+    @if $radius != 'no' {
+        border-radius: $radius;
+    }
+}
+@mixin back_color($background, $color: 'no'){
+    @if $background != 'no'{
+        background: color($background);
+    }
+    @if $color != 'no' {
+        color: color($color);
+    }
+}
+@mixin position($t, $r, $b, $l, $position: absolute){
+    position: $position;
+    @if $t != 'no' {
+        top: $t;
+    }
+    @if $r != 'no' {
+        right: $r;
+    }
+   @if $b != 'no' {
+        bottom: $b;
+    }
+    @if $l != 'no' {
+        left: $l;
+    }
+}
+@mixin flex($direction, $wrap, $justify, $align) {
+    display: flex;
+    @if $justify != 'no' {
+        justify-content: $justify;
+    }
+    @if $align != 'no' {
+        align-items: $align;
+    }
+    @if $direction != 'no' {
+        flex-direction: $direction;
+    }
+    @if $wrap != 'no' {
+        flex-wrap: $wrap;
+    }
+}

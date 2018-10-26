@@ -1,0 +1,132 @@
+/*------------------------------------
+Estilos para input, textarea y select
+------------------------------------*/
+.usv{
+    &-i, &-a{
+        display: block;
+        margin:auto;
+        font-size: text('btn', $titles_proy);
+        border-radius: 3px;    
+    }
+    &-i{//Input solo
+        @include size_f(25px, calc(100% - 2px - 0.5rem), 0 auto 10px auto, 0 0 0 0.5rem );
+        color: lighten(color('secundary'), 20);
+        border: 1px solid lighten(color('secundary'), 70);
+        &_s{
+            @include size_f(27px, 100%);
+        }
+        &_a{//textarea
+            height: calc(80px - 0.5rem);
+            padding-top: 0.5rem;
+            resize: none;
+        }
+        &:active,&:focus{
+            border-bottom: 2px solid lighten(color('secundary'),50);
+        }
+    }
+    &-i-cnt{//input container
+        width: calc(100% - 5px);
+        margin:0 auto 10px auto; // espacio entre elementos abajo
+        &_lb{
+            font-size: text('btn', $titles_proy);
+            font-weight: 700;
+            opacity: 0.5;
+        }
+        &_i{
+            margin: 1px auto 5px auto;
+        }
+        &_e{
+            padding-left:0.25rem;
+            font-size: text('e', $titles_proy);
+            border-left: 3px solid color('alert');
+            opacity: 0.5;
+        }
+    }
+}
+/*------------------------------------
+Estilos para Select Multiple
+------------------------------------*/
+.usv{
+    &-i-cnt-options_c{//contenedor de el input multiple
+        width: 100%;
+        position:relative;
+        &-icon{
+            @include position(3px, 7px, 'no','no');
+        }
+    }
+    &-i-options{ //contenedor de las opciones
+        width: calc(100% - 2px);
+        position: absolute;
+        margin:-5px auto;
+        background:color('light');
+        @include border(1px, 'secundary', 70, 0 0 3px 3px);
+        z-index:2;
+        &_o{
+            padding: 0.2rem 0 0 0.5rem;
+            height: 20px;
+            border-bottom: 1px solid color('base');
+            &:hover{
+                background: color('base');
+            }
+        }
+    }
+}
+/*------------------------------------
+Estilos para checkbox
+------------------------------------*/
+.usv-g-checkbox-cont{
+    @include size_f(20px, 20px, auto);
+    position:relative;
+    &_wtext{//si contiene algun span
+       width:  calc(100% - 22px); 
+       display: flex;
+       margin: 0 11px 10px 11px;
+    }
+    &_sqr{
+        @include back_color('light', 'light');
+        font-size: 14px;
+        text-align: center;
+        border-radius: 3px;
+        box-shadow: 1px 1px 5px 0px lighten(color('secundary'), 50);
+        &_r{
+            @include size_f(20px);
+            line-height: 22px;
+        }
+        &_xs{
+            @include size_f(15px);
+            font-size: 10px;
+            line-height: 17px;
+        }
+    }
+    &_input{
+        @include position(0, 'no', 'no', 0);
+        opacity:0;
+        &:hover{
+            cursor: pointer;
+        }
+        &_r{
+            @include size_f(22px);
+        }
+        &_xs{
+            @include size_f(17px);
+        }
+    }
+    &_input:checked + &_sqr{
+        color: color('secundary');
+    }
+    &_span{
+        margin-left: 1.25rem;
+        color: color('secundary');
+        font-size: text('h3', $titles);
+        font-weight: 700;
+        text-transform: uppercase;
+        &_r{
+            font-size: text('h4', $titles);
+            line-height: 23px;
+        }
+        &_xs{
+            font-size: text('btn', $titles_proy);
+            line-height: 17px;
+        }
+    }
+}

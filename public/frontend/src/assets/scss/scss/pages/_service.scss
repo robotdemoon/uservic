@@ -1,0 +1,14 @@
+.usv-page-service{
+    &-container{
+        margin-top: 50px;
+        margin-bottom: 30px;
+    }
+    &-flex{
+        display:flex;
+        justify-content: center;
+        margin: 1.5rem auto;
+        &-e{
+            margin: 0 0.5rem;
+        }
+    }
+}

@@ -1,0 +1,69 @@
+@charset 'utf-8';
+/*------------------------------
+Configuración Global
+------------------------------*/
+
+/*Variables*/
+$vGlobal: 'usv';
+//Font Family
+
+$font_family:'Lato', sans-serif;
+
+//Tamaños de Texto
+$title:(
+	'html': 14px,
+	'html_b': 16px, 
+	'h1': 1.25rem,
+	'h2': 1.125rem,
+	'h3': 1rem,
+	'btn': 0.875rem,
+	'p': 0.75rem,
+    'a': 0.75rem, //En duda
+    'e': 0.625rem
+);
+$title-weight:(
+    'l': 300,
+    'r': 400,
+    'bk': 700,
+    'bd': 900
+);
+@function text($i){
+	@return map-get($title, $i);
+}
+/*---------------------------------------
+ Paleta de Colores
+----------------------------------------*/
+$paleta : (
+	'primary' : #1E88E5,
+	'secundary' : #4E1C1C,
+	'alert' : #81090D,
+	'light' : #fff,
+	'base' :#f8f8f8
+);
+@function color($color){
+	@return map-get($paleta, $color);
+}
+/*---------------------------------------
+ Paleta de Colores
+----------------------------------------*/
+//Espacio entre lineas
+$space_lines:10px;
+
+//Columnas y Dimensiones
+$ncol : 12;
+
+$max-size-container:1200px; //Max-size for limited Divs or Sections
+
+$breakpoints:(
+	'xs': 0px,
+	'sm': 544px,
+	'md': 768px,
+	'lg': 992px,
+	'xl': 1200px
+);
+
+$lineSection : lighten(color('secundary'), 70);
+/*------------------------------
+Importar Archivos
+------------------------------*/
+@import "_imports.scss";

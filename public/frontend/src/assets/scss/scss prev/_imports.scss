@@ -1,0 +1,18 @@
+/*------------------------------
+Importar normalize
+------------------------------*/
+@import "globals/_normalize.scss";
+@import "globals/_g_elements.scss";
+@import "globals/_cols.scss";
+@import "globals/_tables.scss";
+/*------------------------------
+Elementos Proyecto
+------------------------------*/
+@import "elements/_header.scss";
+@import "elements/_navleft.scss";
+@import "elements/_distribution.scss";
+@import "elements/_elem_proy.scss";
+/*------------------------------
+Querys
+------------------------------*/
+@import "querys/_querys_elements.scss";

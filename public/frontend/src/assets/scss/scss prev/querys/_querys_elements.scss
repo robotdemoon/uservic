@@ -1,0 +1,70 @@
+@media screen and (min-width: 768px) {
+    html{
+        font-size: text('html_b');
+    }
+    .usv{
+        &-m-navleft{
+            display: block;
+        }
+        &-m-content{
+            margin: 1rem auto 0 auto;
+            width: calc(100vw - 220px - 2rem);
+            min-height: calc(100vh - 50px - 2rem);
+        }
+        &-header{
+            &-mr{
+                width: 15%;
+                img{
+                    display: block;
+                }
+            }
+            &-btn{
+                width: 25%;
+                input{
+                    display: block;
+                }
+                p{
+                    margin-left: 0.75rem;
+                }
+            }
+            &-br{
+                width: 60%;
+                &-browse{
+                    width: calc(100% - 30%);
+                }
+                &-m{
+                    width: 30%;
+                    a{
+                        display: block;
+                    }
+                }
+            }
+        }
+    }  
+    .usv-mcontainer{
+        width: calc(100% - 2rem);
+    }
+    .usv-scontainer{
+        width:  calc(100% - 3rem);
+        margin: 0 1.5rem;
+    }
+    .usv-left-line{
+        width: calc(100% - 1px);
+        border-left: 1px solid lighten(color('secundary'), 70);
+    }
+    .usv-table-hd{
+        display: table-cell;
+    }
+    .usv-table{
+        thead tr th{
+            font-size: text('h2');
+        }
+    }
+ }
+ @media screen and (min-width: 992px) {
+    .usv{
+          &-m-content{
+              min-height: calc(100vh - 50px - 4rem);
+        }
+    }  
+}

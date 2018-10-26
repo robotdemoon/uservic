@@ -1,0 +1,66 @@
+.usv-page-home{
+    &-images{
+        @include size_f(350px, 100%, 1rem auto);
+        &-img{
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            position:relative;
+            overflow: hidden;
+            &_main{
+                @include size_f(100%);                
+            }
+            &_sec{
+                @include size_f(50%, 100%);
+            }
+            &-hover{
+                @include position(100%, 0, -100%, 0);
+                @include size_f(100%);
+                background: rgba(0,0,0,0.7);
+                transition: 0.5s all ease;
+                &_subs{
+                    @include position(1rem, 'no', 'no', 1rem);
+                }
+                &_data{
+                    @include position('no',1rem, 1rem, 'no');
+                }
+            }
+            &-info{
+                @include size_f(100%);
+                @include flex(column, 'no', center, center);
+                &_title{
+                    border-bottom:1px solid color('light');
+                }
+            }
+            &:hover > &-hover, &:hover > &-info{
+                @include position(0, 0, 0, 0);
+            }
+            &:hover > &-info{
+                z-index: 10;
+            }
+        }
+    }
+}
+.usv-page-home{
+    &-category{
+        width: calc(100% - 2px - 4%);
+        height: 40px;
+        line-height: 40px;
+        margin:auto;
+        @include border;
+        overflow: hidden;
+        position: relative;
+        &_front{
+            @include size_f(100%);
+            background: color('light');
+        }
+        &_hover{
+            @include position(100%, 0, -100%, 0);
+            @include size_f(100%);
+            transition: 0.25s all ease;
+        }
+        &:hover > &_hover{
+            @include position(0, 0, 0, 0);
+        }
+    }
+}

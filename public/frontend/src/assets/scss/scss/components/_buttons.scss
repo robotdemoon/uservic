@@ -1,0 +1,37 @@
+.usv-btn{
+    @include size_f(30px, 100%, auto);
+    display: block;
+    font-size: text('btn', $titles_proy);  
+    text-align: center;
+    line-height: 30px;
+    border:0px;
+    border-radius: 3px;  
+    opacity: 0.65;
+    transition: 0.25s all ease-out;
+    &:hover{
+        cursor: pointer;
+        opacity: 1;
+    }
+    &-s{//size
+        max-width: 250px;
+        &_xs{
+            max-width: 150px;
+        }
+    }
+    &-a{//align
+        &_l{
+            float: left;
+        }
+        &_r{
+            float: right;
+        }
+    }
+    &-co{
+        color: lighten(color('secundary'), 20);
+        border: 1px solid lighten(color('secundary'), 50);
+    }
+    :disabled{
+        cursor: not-allowed;
+        opacity: 0;
+    }
+}

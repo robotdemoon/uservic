@@ -1,0 +1,8 @@
+/*------------------------------------
+Cortar Texto
+------------------------------------*/
+.usv-t-cut{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

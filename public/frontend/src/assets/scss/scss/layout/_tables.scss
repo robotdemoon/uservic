@@ -1,0 +1,71 @@
+.usv-icon{
+    &_container{
+        @include flex('no', wrap, center, center);
+    }   
+    &-table{
+        @include size_f(22px, 22px,  2px 0.3rem);
+        line-height: 22px;
+        text-align: center;
+        color: lighten(color('secundary'), 10);
+        font-size: 15px;
+        @include border(1px, 'secundary', 50, 3px);
+        &:hover{
+            background: color('light');
+            color: darken(color('secundary'), 50);
+            cursor:  pointer;
+        }
+    }
+}
+//Clases para la Tabla
+.usv-table{
+    width: 96%;
+    margin: auto;
+    background: color('light');
+    border-collapse: collapse;
+    &_container{
+        @include size_f('none', 96%, 10px auto, 10px 0);
+        background: color('light');
+        border-radius: 3px;
+    }
+    &-hd{
+        display: none;
+    }
+    thead{
+        tr th{
+            padding: 0.25rem 0.25rem 0.5rem 0.25rem;
+            font-size: text('p', $titles);
+            font-weight: 900;
+            border-bottom: 2px solid lighten(color('primary'),20);
+            opacity: 0.5;
+        }
+    }
+    tbody{
+        tr{
+            td{
+                position: relative;
+                padding: 0.5rem 0;
+                text-align: center;
+                font-size: text('p', $titles);
+                border-bottom: 1px solid lighten(color('secundary'), 70);
+                opacity: 0.75;
+            }
+            &:nth-child(odd) { background: lighten(color('base'), 0);}
+            &:hover{
+                font-weight: 900;
+                background: lighten(color('primary'), 45);
+                opacity: 1;
+            }
+        }
+    }
+    tfoot{
+        background: lighten(color('primary'), 10);
+        opacity: 0.9;
+        tr td{
+            padding: 0.35rem;
+            font-size: 10px;
+            color: color('light');
+            text-align: center;
+            opacity: 0.6;
+        }
+    }
+}

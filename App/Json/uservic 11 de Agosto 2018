@@ -1,0 +1,1299 @@
+{
+	"info": {
+		"_postman_id": "2dde0e92-48d7-4d5a-adc7-fb4b7f4f5bf3",
+		"name": "uservic_namespaces",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "user",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "d",
+									"value": "{\"token\":{{tokenG}},\"action\":\"getperfil\"}",
+									"description": "get perfil",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "d",
+									"value": "{\"token\":{{tokenG}},\"action\":\"geteditperfil\"}",
+									"description": "get edit perfil",
+									"type": "text"
+								},
+								{
+									"key": "d",
+									"value": "{\"token\":{{tokenG}},\"action\":\"update\",\"data\":{\"user\":{\"fullname\":\"Jose Ivan Martinez Larios\",\"age\":31,\"country\":10,\"country_name\":\"Argentina\",\"scholarship\":\"University\",\"sector\":\"Architecture\",\"interests\":\"Business,Creativity,Sports\",\"image\":\"assets/images/user/picture17.jpg\",\"description\":\"Me encanta ayudar\"},\"contacts\":[{\"id\":1,\"status\":\"Public\",\"type\":\"Mobile\",\"method\":\"56738922\"}, {\"id\":\"2\",\"status\":\"Public\",\"type\":\"Mobile\",\"method\":\"31111\"},{\"id\":\"5\",\"status\":\"Public\",\"type\":\"Mobile\",\"method\":\"559999\"}]}}",
+									"description": "update",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "d",
+									"value": "{\"token\":{{tokenG}},\"action\":\"logout\"}",
+									"description": "logOut",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/uservic_test/public/user/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"uservic_test",
+								"public",
+								"user",
+								"user"
+							]
+						},
+						"description": "http://localhost/uservic_test/public/user/user/get"
+					},
+					"response": []
+				}
+			],
+			"description": "datos del usuario"
+		},
+		{
+			"name": "user_contacts",
+			"item": [
+				{
+					"name": "user_contacts",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "d",
+									"value": "{\"token\":{{tokenG}},\"action\":\"remove\",\"data\":{\"t\":\"user\",\"id\":5}}",
+									"type": "text",
+									"description": "remove contact user",
+									"disabled": true
+								},
+								{
+									"key": "d",
+									"value": "{\"token\":{{tokenG}}, \"action\":\"remove\", \"id\":\"YHOXV4IC0WM0TM2031\",\"data\":{\"t\":\"service\",\"id\":46}}",
+									"type": "text",
+									"description": "remove contact service"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/uservic_test/public/user/contacts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"uservic_test",
+								"public",
+								"user",
+								"contacts"
+							]
+						},
+						"description": "remove contacts"
+					},
+					"response": []
+				}
+			],
+			"description": "eliminar contactos"
+		},
+		{
+			"name": "user_budgets",
+			"item": [
+				{
+					"name": "user budgets",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "d",
+									"value": "{\"token\":{{tokenG}},\"action\":\"get\"}",
+									"description": "get",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "d",
+									"value": "{\"token\":{{tokenG}}, \"action\":\"getedit\", \"id\":\"11113456899ASA\"}",
+									"description": "getedit",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "d",
+									"value": "{\"token\":{{tokenG}}, \"action\":\"getview\", \"id\":\"11113456899ASA\"}",
+									"description": "getview",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "d",
+									"value": "{\"token\":{{tokenG}},\"action\":\"add\",\"data\":{\"budget\":{\"costumer\":\"1018850UKIOGVU\",\"service\":\"1030293YUDPFFB\",\"title\":\"Presupuesto 5 Mobiles\",\"costumer_name\":\"Alan Montes\",\"total\":400.00},\"budget_s\":[{\"name\":\"Reparacion de Mobiles\",\"cost\":200.00,\"number\":1,\"total\":200.00,\"description\":\"laptops hp\"},{\"name\":\"Reparacion de Mobiles\",\"cost\":200.00,\"number\":2,\"total\":200.00,\"description\":\"laptop ASUS\"}]}}",
+									"description": "add",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "d",
+									"value": "{\"token\":{{tokenG}}, \"action\":\"remove\", \"id\":\"QWLVXJG8L7MNRW2\"}",
+									"description": "remove",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "d",
+									"value": "{\"token\":{{tokenG}},\"action\":\"update\",\"data\":{\"budget\":{\"costumer\":\"1018850UKIOGVU\",\"title\":\"Presupuesto 5 Laptops\",\"costumer_name\":\"Lucia Mungia\",\"total\":\"400.00\",\"date\":\"2018-06-01 15:54:56\",\"service\":\"1030293YUDPFFB\",\"id\":\"11113456899ASA\"},\"budget_s\":[{\"name\":\"Reparacion de Laptops\",\"cost\":\"200.00\",\"number\":1,\"total\":\"200.00\",\"description\":\"laptops hp\"},{\"name\":\"Reparacion de Laptops\",\"cost\":\"200.00\",\"number\":2,\"total\":\"200.00\",\"description\":\"laptop ASUS\"}]}}",
+									"description": "update",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "d",
+									"value": "{\"token\":{{tokenG}},\"action\":\"addrequest\",\"data\":{\"service_provider\":\"1040126WLGASGF\",\"service\":\"D2DD4RSDJH0CKE\",\"description\":\"me podrias mandar un presupuesto para dos computadoras\"}}",
+									"sessionValue": "{\"token\":{{tokenG}},\"action\":\"add\",\"data\":{}}",
+									"description": "add request budget",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "d",
+									"value": "{\"token\":{{tokenG}},\"action\":\"findrequest\",\"data\":{\"service_provider\":\"1052292WCPXQQF\",\"service\":\"1217033HTCAPIB\",\"status\":\"Pending\" }}",
+									"sessionValue": "{\"token\":{{tokenG}},\"action\":\"addrequest\",\"data\":{\"service_provider\":\"1040126WLGASGF\",\"service\":\"D2DD4RSDJH0CKE\",\"description\":\"me podrias mandar un presupuesto para dos computadoras\"}}",
+									"description": "find request",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "d",
+									"value": "{\"token\":{{tokenG}},\"action\":\"getrequest\",\"data\":{\"as\":\"service_provider\" }}",
+									"sessionValue": "{\"token\":{{tokenG}},\"action\":\"findrequest\",\"data\":{\"service_provider\":\"1040126WLGASGF\",\"service\":\"D2DD4RSDJH0CJ\",\"status\":\"Pending\" }}",
+									"description": "get request as service provider",
+									"type": "text"
+								},
+								{
+									"key": "d",
+									"value": "{\"token\":{{tokenG}},\"action\":\"getrequest\",\"data\":{\"as\":\"user\" }}",
+									"sessionValue": "{\"token\":{{tokenG}},\"action\":\"getrequest\",\"data\":{\"as\":\"service_provider\" }}",
+									"description": "get request as user ",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "d",
+									"value": "{\"token\":{{tokenG}},\"action\":\"removerequest\",\"id\":15}",
+									"sessionValue": "{\"token\":{{tokenG}},\"action\":\"getrequest\",\"data\":{\"as\":\"user\" }}",
+									"description": "remove requests",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "d",
+									"value": "{\"token\":{{tokenG}},\"action\":\"updaterequest\",\"data\":{\"id\":14,\"status\":\"Ejected\"}}",
+									"sessionValue": "{\"token\":{{tokenG}},\"action\":\"rupdaterequest\",\"data\":{\"id\":,\"\"}}",
+									"description": "update request",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/uservic_test/public/user/budgets",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"uservic_test",
+								"public",
+								"user",
+								"budgets"
+							]
+						},
+						"description": "http://localhost/uservic_test/public/user/budgets"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "user_image",
+			"item": [
+				{
+					"name": "user_image",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "d",
+									"value": "{\"token\":{{tokenG}},\"action\":\"get\"}",
+									"description": "get",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "d",
+									"value": "{\"token\":{{tokenG}}, \"action\":\"add\", \"id\":\"1011917DULRKGW\"}",
+									"description": "add",
+									"type": "text"
+								},
+								{
+									"key": "d",
+									"value": "{\"token\":{{tokenG}}, \"action\":\"remove\", \"id\":\"1040126WLGASGF\"}",
+									"description": "remove",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/uservic_test/public/user/image",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"uservic_test",
+								"public",
+								"user",
+								"image"
+							]
+						},
+						"description": "user and service image"
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost/uservic_test/public/user/image",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "d",
+									"type": "text",
+									"value": "{\"token\":{{tokenG}},\"action\":\"update\",\"data\":{\"name\":\"nopicture.jpg\",\"t\":\"user\"}}",
+									"disabled": true
+								},
+								{
+									"key": "image",
+									"type": "file"
+								},
+								{
+									"key": "d",
+									"type": "text",
+									"value": "{\"token\":{{tokenG}},\"action\":\"update\",\"data\":{\"name\":\"275dad898106b6e3c63dc5c01bf8365a4900256.jpg\",\"t\":\"user\"}}"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/uservic_test/public/user/image",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"uservic_test",
+								"public",
+								"user",
+								"image"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "user_services",
+			"item": [
+				{
+					"name": "user services",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "d",
+									"value": "{\"token\":{{tokenG}},\"action\":\"add\",\"data\":{\"service\":{\"name_service\":\"Mecanica Master\",\"category\":\"Engineering\",\"experience\":1,\"type_service\":\"face to face\",\"type_cost\":\"repair\",\"cost\":1500,\"type_money\":\"MXN\",\"business_days\":\" L,J\",\"open\":\"09:00\",\"close\":\"21:00\",\"country\":14,\"state\":80,\"city\":9,\"description\":\"El costo depende de la reparacion del vehiculo\",\"image\":\"nopicture.jpg\",\"status\":\"Active\"},\"contacts\":[{\"status\":\"Public\",\"type\":\"Mobile\",\"method\":\"5332211\"},{\"status\":\"Public\",\"type\":\"Mobile\",\"method\":\"44442211\"}]}}",
+									"description": "add",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"disabled": true
+								},
+								{
+									"key": "d",
+									"value": "{\"token\":{{tokenG}},\"action\":\"getAll\"}",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "d",
+									"value": "{\"token\":{{tokenG}},\"action\":\"remove\", \"id\":\"1V5ZNH2LQLJV4K2030\"}",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "d",
+									"value": "{\"token\":{{tokenG}},\"action\":\"update\",\"data\":{\"service\":{\"id\":\"RF824K55KBLJ562017\",\"name_service\":\"Mecanica Master\",\"category\":\"Engineering\",\"experience\":1,\"type_service\":\"face to face\",\"type_cost\":\"repair\",\"cost\":1500,\"type_money\":\"MXN\",\"business_days\":\" L,J\",\"open\":\"09:00\",\"close\":\"21:00\",\"country\":14,\"state\":80,\"city\":9,\"description\":\"El costo depende de la reparacion del vehiculo\",\"image\":\"nopicture.jpg\",\"status\":\"Active\"},\"contacts\":[{\"id\":25,\"status\":\"Public\",\"type\":\"Mobile\",\"method\":\"5332211\"},{\"id\":null,\"status\":\"Public\",\"type\":\"Mobile\",\"method\":\"44442211\"}]}}",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "d",
+									"value": "{\"token\":{{tokenG}},\"action\":\"get\",\"id\":\"RF824K55KBLJ562017\"}",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "d",
+									"value": "{\"token\":{{tokenG}},\"action\":\"getNames\"}",
+									"sessionValue": "{\"token\":{{tokenG}},\"action\":\"getNames\"}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/uservic_test/public/user/services",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"uservic_test",
+								"public",
+								"user",
+								"services"
+							]
+						},
+						"description": "http://localhost/uservic_test/public/user/services"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "user_settings",
+			"item": [
+				{
+					"name": "user settings",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "d",
+									"value": "{\"token\":{{tokenG}},\"action\":\"get\"}",
+									"description": "get",
+									"type": "text"
+								},
+								{
+									"key": "d",
+									"value": "{\"token\":{{tokenG}},\"data\": {\"settings\":{\"location\":false,\"networks\":true,\"private_contacts\":false,\"scholarship\":true,\"private_messages\":false,\"conexions\":true,\"uservic_changes\":false,\"budgets\":true}}, \"action\":\"update\"}",
+									"description": "update",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/uservic_test/public/user/settings",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"uservic_test",
+								"public",
+								"user",
+								"settings"
+							]
+						},
+						"description": "http://localhost/uservic_test/public/user/settings/get"
+					},
+					"response": []
+				}
+			],
+			"description": "configuraciones del usuario"
+		},
+		{
+			"name": "user_conexions",
+			"item": [
+				{
+					"name": "user conexions",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "d",
+									"value": "{\"token\":{{tokenG}},\"action\":\"get\"}",
+									"description": "get obtiene todas",
+									"type": "text"
+								},
+								{
+									"key": "d",
+									"value": "{\"token\":{{tokenG}}, \"action\":\"add\", \"id\":\"1011917DULRKGW\"}",
+									"description": "add",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "d",
+									"value": "{\"token\":{{tokenG}}, \"action\":\"remove\", \"id\":4}",
+									"description": "remove",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "d",
+									"value": "{\"token\":{{tokenG}},\"action\":\"getValid\"}",
+									"sessionValue": "{\"token\":{{tokenG}},\"action\":\"get\"}",
+									"description": "obtiene solo las Acceptadas y Pendientes",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "d",
+									"value": "{\"token\":{{tokenG}}, \"action\":\"update\", \"data\":{\"id\":4,\"status\":\"Accepted\"}}",
+									"sessionValue": "{\"token\":{{tokenG}}, \"action\":\"update\", \"id\":\"1011917DULRKGW\"}",
+									"description": "actualizar status de la conexion",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/uservic_test/public/user/conexions",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"uservic_test",
+								"public",
+								"user",
+								"conexions"
+							]
+						},
+						"description": "http://localhost/uservic_test/public/user/conexions"
+					},
+					"response": []
+				}
+			],
+			"description": "conexiones del usuario"
+		},
+		{
+			"name": "user_comments",
+			"item": [
+				{
+					"name": "user comments",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "d",
+									"value": "{\"token\":{{tokenG}},\"action\":\"add\", \"data\":{\"comment\":{\"service\":\"1008472SZKBSPW\",\"answer\":12,\"msg\":\"mi mensaje\"}}}",
+									"description": "add",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/uservic_test/public/user/comments",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"uservic_test",
+								"public",
+								"user",
+								"comments"
+							]
+						},
+						"description": "http://localhost/uservic_test/public/user/comments"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "user_costumers",
+			"item": [
+				{
+					"name": "user_costumer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "d",
+									"value": "{\"token\":{{tokenG}},\"action\":\"add\",\"id\":\"1072612XXAYUFG\"}",
+									"sessionValue": "{\"token\":{{tokenG}},\"action\":\"add\",\"id\":15}",
+									"description": "agrregar costumer",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "d",
+									"value": "{\"token\":{{tokenG}},\"action\":\"remove\",\"id\":7}",
+									"sessionValue": "{\"token\":{{tokenG}},\"action\":\"remove\",\"id\":\"1\"}",
+									"description": "remove costumer",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "d",
+									"value": "{\"token\":{{tokenG}},\"action\":\"get\"}",
+									"sessionValue": "{\"token\":{{tokenG}},\"action\":\"get\"}",
+									"description": "get all costumers",
+									"type": "text"
+								},
+								{
+									"key": "d",
+									"value": "{\"token\":{{tokenG}},\"action\":\"getnames\"}",
+									"sessionValue": "{\"token\":{{tokenG}},\"action\":\"get\"}",
+									"description": "get names costumers",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/uservic_test/public/user/costumers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"uservic_test",
+								"public",
+								"user",
+								"costumers"
+							]
+						},
+						"description": "user costumers"
+					},
+					"response": []
+				}
+			],
+			"description": "user costumers"
+		},
+		{
+			"name": "user_favouriteservices",
+			"item": [
+				{
+					"name": "user favourite services",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "d",
+									"value": "{\"token\":{{tokenG}},\"action\":\"get\"}",
+									"description": "get",
+									"type": "text"
+								},
+								{
+									"key": "d",
+									"value": "{\"token\":{{tokenG}}, \"action\":\"add\", \"id\":\"1067988RVCYQVT\"}",
+									"description": "add",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "d",
+									"value": "{\"token\"{{tokenG}}, \"action\":\"remove\",\"id\":\"1069680OOOFUKN\"}",
+									"description": "remove",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/uservic_test/public/user/favouriteservices",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"uservic_test",
+								"public",
+								"user",
+								"favouriteservices"
+							]
+						},
+						"description": "http://localhost/uservic_test/public/user/favouriteservices"
+					},
+					"response": []
+				}
+			],
+			"description": "servicios favoritos del usuario"
+		},
+		{
+			"name": "user_messages",
+			"item": [
+				{
+					"name": "user_messages",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "d",
+									"value": "{\"token\":{{tokenG}},\"action\":\"getAll\",\"data\":\"unread\"}",
+									"description": "get unread messages view for new messages",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "d",
+									"value": "{\"token\":{{tokenG}},\"action\":\"getAll\",\"data\":\"all\"}",
+									"description": "get all messages view for messages",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "d",
+									"value": "{\"token\":{{tokenG}},\"action\":\"get\",\"id\":\"1015725FSXLQJO\"}",
+									"description": "get specific messages",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "d",
+									"value": "{\"token\":{{tokenG}},\"action\":\"add\",\"data\":{\"msg\":{\"receptor\":\"9941205YXHNUHK\", \"msg\":\"mi mensaje\"}}}",
+									"description": "add",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/uservic_test/public/user/messages",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"uservic_test",
+								"public",
+								"user",
+								"messages"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "user messages"
+		},
+		{
+			"name": "login",
+			"item": [
+				{
+					"name": "login user",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "d",
+									"value": "{\"data\":{\"fullname\":\"Jose C\",\"username\":\"joseCal\",\"email\":\"recsdsd@amipuas.com\",\"age\":12,\"country\":12,\"scholarship\":\"University\",\"sector\":\"Architecture\", \"password\":\"1234\"},\"action\":\"add\"}",
+									"description": "add",
+									"type": "text"
+								},
+								{
+									"key": "d",
+									"value": "{\"data\":{\"email\":\"ivan@ivan.com\", \"pwd\":\"ivan\"}, \"action\":\"verify\"}",
+									"description": "verify",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/uservic_test/public/login/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"uservic_test",
+								"public",
+								"login",
+								"user"
+							]
+						},
+						"description": "http://localhost/uservic_test/public/login/user"
+					},
+					"response": []
+				}
+			],
+			"description": "login y registro del usuario"
+		},
+		{
+			"name": "coverture",
+			"item": [
+				{
+					"name": "obtener countries",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "d",
+									"value": "{\"token\":\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Iml2YW5AaXZhbi5jb20iLCJ0aW1ldXNlciI6IjE1MzAzNDMxZGU5YzIzMDc5ODIwNTc0MjY1MWUxNDZkODJjMGUzYTJhOWI1NzMzNzcyY2MyMDMxZWY5MWY5MTkiLCJpbWFnZSI6IjI3NWRhZDg5ODEwNmI2ZTNjNjNkYzVjMDFiZjgzNjVhNTcxNTI4OTAuanBnIiwidXNlcm5hbWUiOiJpdmFubWxhciIsImlhdCI6MTUzMjMwMTI3NCwiZXhwIjoxNTMyMzA0ODc0fQ.AIVhUz7P1tebfzXL_V0XQ3l_lwWFv7iw0WbGvZ3qL4I\",\"id\":\"all\",\"action\":\"get\"}",
+									"type": "text",
+									"description": "get with token",
+									"disabled": true
+								},
+								{
+									"key": "d",
+									"value": "{\"id\":\"all\",\"action\":\"get\"}",
+									"description": "get without token",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/uservic_test/public/coverture/countries",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"uservic_test",
+								"public",
+								"coverture",
+								"countries"
+							]
+						},
+						"description": "http://localhost/uservic_test/public/coverture/cities"
+					},
+					"response": []
+				},
+				{
+					"name": "obtener estados",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "d",
+									"value": "{\"id\":10,\"action\":\"get\"}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/uservic_test/public/coverture/states",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"uservic_test",
+								"public",
+								"coverture",
+								"states"
+							]
+						},
+						"description": "http://localhost/uservic_test/public/coverture/states/"
+					},
+					"response": []
+				},
+				{
+					"name": "obtener ciudades",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "d",
+									"value": "{\"id\":212,\"action\":\"get\"}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/uservic_test/public/coverture/cities",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"uservic_test",
+								"public",
+								"coverture",
+								"cities"
+							]
+						},
+						"description": "http://localhost/uservic_test/public/coverture/cities"
+					},
+					"response": []
+				}
+			],
+			"description": "covertura tanto para servicios como para usuario"
+		},
+		{
+			"name": "public_services",
+			"item": [
+				{
+					"name": "Busqueda de servicios",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "d",
+									"value": "{\"data\":{\"query\":\"salsa \", \"filter\":\"\"},\"action\":\"getAll\"}",
+									"description": "busqueda solo con query",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "d",
+									"value": "{\"data\":{\"query\":\"jose ivan\",\"filter\":{\"business_days\":\"L\",\"open\":\"09:00\",\"close\":\"12:00\",\"category\":\"Engineering\",\"experience\":1,\"type_service\":\"face to face\",\"type_cost\":\"repair\",\"type_money\":\"MXN\",\"country\":14,\"state\":null,\"city\":null, \"cost\":null}},\"action\":\"getAll\"}",
+									"description": "busqueda con todos los parametros",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "d",
+									"value": "{\"data\":{\"query\":\"salsa \",\"filter\":{\"business_days\":\"\",\"open\":null,\"close\":null,\"category\":\"\",\"experience\":null,\"type_service\":\"\",\"type_cost\":\"\",\"type_money\":\"\",\"country\":null,\"state\":null,\"city\":null, \"cost\":null}},\"action\":\"getAll\"}",
+									"description": "busqueda con filtro nulo",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "d",
+									"value": "{\"data\":{\"query\":\"salsa\",\"filter\":{\"business_days\":\"\",\"open\":null,\"close\":\"16:00\",\"category\":\"\",\"experience\":3,\"type_service\":\"\",\"type_cost\":\"\",\"type_money\":\"\",\"country\":null,\"state\":null,\"city\":null, \"cost\": null}},\"action\":\"getAll\"}",
+									"description": "busqueda con experiencia y close",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "d",
+									"value": "{\"data\":{\"query\":\"salsa\",\"filter\":{\"business_days\":\"\",\"open\":\"10:00\",\"close\":null,\"category\":\"\",\"experience\":null,\"type_service\":\"\",\"type_cost\":\"\",\"type_money\":\"\",\"country\":null,\"state\":null,\"city\":null, \"cost\":4000.00}},\"action\":\"getAll\"}",
+									"description": "busqueda con open y cost",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "d",
+									"value": "{\"data\":{\"query\":\"ventas\",\"filter\":{\"business_days\":\"\",\"open\":null,\"close\":null,\"category\":\"\",\"experience\":null,\"type_service\":\"\",\"type_cost\":\"\",\"type_money\":\"\",\"country\":null,\"state\":null,\"city\":null, \"cost\":null}},\"action\":\"getAll\"}",
+									"description": "busqueda de ventas",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "d",
+									"value": "{\"data\":{\"query\":\"ventas\",\"filter\":{\"business_days\":\"\",\"open\":null,\"close\":null,\"category\":\"\",\"experience\":null,\"type_service\":\"\",\"type_cost\":\"\",\"type_money\":\"\",\"country\":null,\"state\":null,\"city\":null, \"cost\":null},\"min\":\"60\",\"max\":\"90\"}, \"action\":\"getAll\"}",
+									"description": "busqueda con min y max",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "d",
+									"value": "{\"data\":{\"query\":\"ventas\",\"filter\":{\"business_days\":\"\",\"open\":null,\"close\":null,\"category\":\"\",\"experience\":null,\"type_service\":\"\",\"type_cost\":\"\",\"type_money\":\"MXN\",\"country\":null,\"state\":null,\"city\":null,\"cost\":null}}, \"action\":\"getall\"}",
+									"description": "business days",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "d",
+									"value": "{\"data\":{\"query\":\"ventas\",\"filter\":{\"business_days\":\"L,Ma,Mi,J,V\",\"open\":null,\"close\":null,\"category\":\"\",\"experience\":null,\"type_service\":\"\",\"type_cost\":\"\",\"type_money\":\"MXN\",\"country\":null,\"state\":null,\"city\":null,\"cost\":null}}, \"action\":\"getall\"}",
+									"description": "nueva estructura",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "d",
+									"value": "{\"data\":{\"query\":\"s \",\"filter\":{\"business_days\":\"\",\"open\":null,\"close\":null,\"category\":\"Engineering\",\"experience\":null,\"type_service\":\"\",\"type_cost\":\"\",\"type_money\":\"\",\"country\":10,\"state\":null,\"city\":null, \"cost\":null}},\"action\":\"getAll\"}",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "d",
+									"value": "{\"data\":{\"query\":\"sala\",\"filter\":{\"business_days\":\"\",\"open\":null,\"close\":null,\"category\":\"\",\"experience\":null,\"type_service\":\"\",\"type_cost\":\"\",\"type_money\":\"\",\"country\":null,\"state\":null,\"city\":null, \"cost\":null},\"min\":\"30\",\"max\":\"30\"}, \"action\":\"getAll\"}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/uservic_test/public/service/service",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"uservic_test",
+								"public",
+								"service",
+								"service"
+							]
+						},
+						"description": "http://localhost/uservic_test/public/service/service"
+					},
+					"response": []
+				},
+				{
+					"name": "obtener un servicio",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "d",
+									"value": "{\"token\":{{tokenG}}, \"action\":\"get\",\"id\":\"D2DD4RSDJH0CKE\"}",
+									"description": "obtener un servicios conectado",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "d",
+									"value": "{\"id\":\"D2DD4RSDJH0CKE\", \"action\":\"get\"}",
+									"description": "obtener un servicio offline",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "d",
+									"value": "{\"token\":{{tokenG}},\"id\":\"1008472SZKBSPW\", \"action\":\"get\"}",
+									"description": "obtener un servicios conectado",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "d",
+									"value": "{\"id\":\"1008472SZKBSPW\", \"action\":\"get\"}",
+									"description": "obtener un servicio offline",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "d",
+									"value": "{\"action\":\"getCategories\",\"data\":\"\"}",
+									"description": "obtiene las categorias y su cantidad",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "d",
+									"value": "{\"action\":\"getRelevance\",\"data\":\"\"}",
+									"description": "obtiene los servicios mas relevantes",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "d",
+									"value": "{\"action\":\"getMainView\",\"data\":\"\"}",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "d",
+									"value": "{\"token\":{{tokenG}}, \"action\":\"get\",\"id\":\"5759957ZLZZSVZ\"}",
+									"sessionValue": "{\"token\":{{tokenG}}, \"action\":\"get\",\"id\":\"D2DD4RSDJH0CKE\"}",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "d",
+									"value": "{\"token\":{{tokenG}}, \"action\":\"get\",\"id\":\"1030293YUDPFFB\"}",
+									"sessionValue": "{\"token\":{{tokenG}}, \"action\":\"get\",\"id\":\"5759957ZLZZSVZ\"}",
+									"description": "1030293YUDPFFB",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "d",
+									"value": "{\"token\":{{tokenG}}, \"action\":\"get\",\"id\":\"1217033HTCAPIB\"}",
+									"sessionValue": "{\"token\":{{tokenG}}, \"action\":\"get\",\"id\":\"1030293YUDPFFB\"}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/uservic_test/public/service/service",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"uservic_test",
+								"public",
+								"service",
+								"service"
+							]
+						},
+						"description": "obtener servicio"
+					},
+					"response": []
+				},
+				{
+					"name": "obtener la vista principal de uservic",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "d",
+									"value": "{\"action\":\"get\",\"data\":\"\"}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/uservic_test/public/service/servicepview",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"uservic_test",
+								"public",
+								"service",
+								"servicepview"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "public_user",
+			"item": [
+				{
+					"name": "public_user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "d",
+									"value": "{\"id\":\"ivanmlar\",\"action\":\"getperfil\"}",
+									"sessionValue": "{\"token\":{{tokenG}},\"action\":\"getperfil\"}",
+									"type": "text"
+								},
+								{
+									"key": "d",
+									"value": "{\"token\":{{tokenG}},\"id\":\"TonyPerez823\",\"action\":\"getperfil\"}",
+									"sessionValue": "{\"id\":\"ivanmlar\",\"action\":\"getperfil\"}",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "d",
+									"value": "{\"id\":\"0011223AAABBCC\", \"action\":\"getservices\"}",
+									"sessionValue": "{\"id\":\"\"}",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/uservic_test/public/pviews/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"uservic_test",
+								"public",
+								"pviews",
+								"user"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "http://localhost/uservic_test/testphp/",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost/uservic_test/testphp/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"uservic_test",
+						"testphp",
+						""
+					]
+				},
+				"description": "test CrudS\n"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "63ffe8bd-ad2f-44e9-b827-357969b83f45",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "d8830996-c7c8-414b-8241-a67994b32963",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "0655caab-e5f5-43c4-b4c4-894e602124ec",
+			"key": "tokenG",
+			"value": "\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Iml2YW5AaXZhbi5jb20iLCJ0aW1ldXNlciI6IjE1MzAzNDMxZGU5YzIzMDc5ODIwNTc0MjY1MWUxNDZkODJjMGUzYTJhOWI1NzMzNzcyY2MyMDMxZWY5MWY5MTkiLCJpbWFnZSI6IjI3NWRhZDg5ODEwNmI2ZTNjNjNkYzVjMDFiZjgzNjVhNTcxNTI4OTAuanBnIiwidXNlcm5hbWUiOiJpdmFubWxhciIsImlhdCI6MTUzMjM3NzAzNywiZXhwIjoxNTMyNTQ5ODM3fQ.ch9FslzOuHGiZW-N5KjgAhxMvbGaJUxN6JRn6vcFARY\"",
+			"type": "string"
+		}
+	]
+}

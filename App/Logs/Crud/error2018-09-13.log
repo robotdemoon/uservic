@@ -1,0 +1,11 @@
+IP: ::1, Error in : Crud, Description: PDOException: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`uservic_testhoy`.`uservic_services`, CONSTRAINT `city_services` FOREIGN KEY (`city`) REFERENCES `uservic_coverture_cities` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION) in C:\Users\ivanm\Documents\proyectos_web\uservic_test\App\Models\CrudHelper\CrudA.php:61
+Stack trace:
+#0 C:\Users\ivanm\Documents\proyectos_web\uservic_test\App\Models\CrudHelper\CrudA.php(61): PDOStatement->execute()
+#1 C:\Users\ivanm\Documents\proyectos_web\uservic_test\App\Models\CrudHelper\CrudA.php(50): App\Models\CrudHelper\CrudA->setData(Array, true)
+#2 C:\Users\ivanm\Documents\proyectos_web\uservic_test\App\Models\CrudHelper\CrudA.php(30): App\Models\CrudHelper\CrudA->implementCrud('INSERT INTO use...', Array, true)
+#3 C:\Users\ivanm\Documents\proyectos_web\uservic_test\App\Controllers\Helpers\User\Services.php(40): App\Models\CrudHelper\CrudA->add(Array, 'INSERT INTO use...', true)
+#4 C:\Users\ivanm\Documents\proyectos_web\uservic_test\App\Controllers\Main\Main.php(17): App\Controllers\Helpers\User\Services->add()
+#5 C:\Users\ivanm\Documents\proyectos_web\uservic_test\App\Controllers\Main\Standard\Standard.php(43): App\Controllers\Main\Main->callMethod('add', Array, 'User\\Services')
+#6 C:\Users\ivanm\Documents\proyectos_web\uservic_test\Core\App.php(46): App\Controllers\Main\Standard\Standard->UserServices('add')
+#7 C:\Users\ivanm\Documents\proyectos_web\uservic_test\public\index.php(30): Core\App->__construct()
+#8 {main}, info_Received: token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Iml2YW5AaXZhbi5jb20iLCJ0aW1ldXNlciI6ImUyZmJlOGNlZGNjMWNhNzVhODI0YmZiNWZhMDFjMTUwNjhlYzgxODIwY2JlNTczMGEyMmVkNDVlZDFhYzZkN2IiLCJpbWFnZSI6ImI5MjJiNGFmMDAzYjExYzI5NjU3OGMzOGUzOTYzZDEyLmpwZyIsInVzZXJuYW1lIjoiaXZhbm1sYXIiLCJpYXQiOjE1MzYyNDQ5OTgsImV4cCI6MTUzODgzNjk5OH0.xAf-7tc-OkuEynSWKCMddik1j3aBRdfBV-DPtNCyIOo::action=add::Is an Array with size of: 2 and with name keys of: (data), and with values of: (service,contacts), Url Received: (user/services), date: 2018-09-13 02:10:05

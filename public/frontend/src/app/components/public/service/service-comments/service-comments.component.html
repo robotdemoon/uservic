@@ -1,0 +1,89 @@
+  <div class="usv-left-line usv-left-line_xs">
+      <div class="row usv-scontainer">
+          <div class="clm-xs-12">
+              <div class="usv-mt">
+                  <h3 class="usv-t-w-bk usv-mt_h3">COMENTARIOS</h3>
+              </div>
+          </div>
+          <div class="clm-xs-12" *ngIf="status">
+              <div class="usv-comment usv-comment_main">
+                  <textarea class="usv-comment-i" placeholder="Escribe un comentario..." [(ngModel)]="newComment" name="newComment"></textarea>
+                  <input type="button" class="usv-comment-b usv-cursor-hov" value="Enviar" (click)="sendComment(newComment); newComment = ''">
+              </div>
+          </div>
+          <div class="clm-xs-12" *ngIf="comments">
+              <div class="row" *ngFor="let comment of comments">
+                  <div class="clm-xs-12">
+                      <div class="usv-msg usv-msg_resp">
+                          <div class="usv-msg-img">
+                              <img src="{{url + comment.image}}" alt="" class="usv-g-shadow">
+                          </div>
+                          <div class="usv-msg-m">
+                              <div class="usv-msg-m-top">
+                                  <div class="usv-msg-m-top_i">
+                                      {{comment.username}}
+                                  </div>
+                                  <div class="usv-msg-m-top_d" clickOutside (clickOutside)="comment.smenu = false">
+                                      <div>{{comment.date}}</div>
+                                      <i class="fas fa-ellipsis-v usv-cursor-hov" (click)="comment.smenu = design.visibilityItem(comment.smenu)" *ngIf="status"></i>
+                                      <div class="usv-s-menu usv-s-menu_msg" [ngClass]="{'usv-g-display_none': !comment.smenu}" *ngIf="status">
+                                          <p (click)="comment.showAnswer = design.visibilityItem(comment.showAnswer); comment.smenu = false">Responder</p>
+                                          <p>Compartir</p>
+                                          <p>Editar</p>
+                                          <p>Eliminar</p>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="usv-msg-m-down">
+                                  {{comment.msg}}
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="clm-xs-12" *ngFor="let element of comment.elements">
+                      <div class="usv-msg usv-msg_cont">
+                          <div class="usv-msg-m">
+                              <div class="usv-msg-m-top">
+                                  <div class="usv-msg-m-top_i">
+                                      {{element.username}}
+                                  </div>
+                                  <div class="usv-msg-m-top_d" clickOutside (clickOutside)="element.smenu = false">
+                                      <div>{{element.date}}</div>
+                                      <i class="fas fa-ellipsis-v usv-cursor-hov" (click)="element.smenu = design.visibilityItem(element.smenu)" *ngIf="status"></i>
+                                      <div class="usv-s-menu usv-s-menu_msg" [ngClass]="{'usv-g-display_none': !element.smenu}" *ngIf="status">
+                                          <p (click)="comment.showAnswer = design.visibilityItem(comment.showAnswer); element.smenu = false">Responder</p>
+                                          <p>Compartir</p>
+                                          <p>Editar</p>
+                                          <p>Eliminar</p>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="usv-msg-m-down">
+                                 {{element.msg}}
+                              </div>
+                          </div>
+                          <div class="usv-msg-img">
+                              <img src="{{url + element.image}}" alt="" class="usv-g-shadow">
+                          </div>
+                      </div>
+                  </div>
+                  <div class="clm-xs-12" *ngIf="comment.answer == 0" [ngClass]="{'usv-g-display_none': !comment.showAnswer}">
+                      <form (submit)="sendComment(comment.msgAnswer, comment.id); comment.msgAnswer = ''; comment.showAnswer = false" #commentForm="ngForm">
+                          <div class="usv-comment usv-comment_answ">
+                              <textarea class="usv-comment-i" placeholder="Escribe un comentario..." [(ngModel)]="comment.msgAnswer" name="msg" autofocus required></textarea>
+                              <input type="submit" class="usv-comment-b usv-cursor-hov" value="Enviar">
+                          </div>
+                      </form>
+                  </div>
+                  <div class="clm-xs-12" *ngIf="comment.answer != 0" [ngClass]="{'usv-g-display_none': !comment.showAnswer}">
+                    <form (submit)="sendComment(comment.msgAnswer, comment.anwser); comment.msgAnswer = ''; comment.showAnswer = false" #commentForm="ngForm">
+                        <div class="usv-comment usv-comment_answ">
+                            <textarea class="usv-comment-i" placeholder="Escribe un comentario..." [(ngModel)]="comment.msgAnswer" name="msg" autofocus required></textarea>
+                            <input type="submit" class="usv-comment-b usv-cursor-hov" value="Enviar">
+                        </div>
+                    </form>
+                </div>
+              </div>
+          </div>
+      </div>
+  </div>

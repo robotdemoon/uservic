@@ -1,0 +1,42 @@
+<div class="usv-mcontainer">
+  <div class="row usv-scontainer">
+      <div class="clm-xs-12">
+          <div class="usv-mt">
+              <h1 class="usv-t-s-h1 usv-mt_h1">Mis Conexiones</h1>
+          </div>
+      </div>
+      <div class="clm-xs-12">
+          <div class="row">
+              <div class="clm-xs-12 clm-sm-6 clm-lg-4 clm-xl-3" *ngFor="let conexion of conexions">
+                  <div class="usv-s usv-s-s">
+                      <div class="usv-s-s-c usv-g-shadow">
+                          <div class="usv-s-s-c_t usv-g-shadow usv-bg-secundary"></div>
+                          <div class="usv-s-s-c_i">
+                              <p class="usv-t-cut usv-s-s-c_i-p usv-t-w-bd">{{conexion.sector}}</p>
+                              <p class="usv-t-cut usv-s-s-c_i-p">Pais: <strong>{{conexion.country_name}}</strong></p>
+                              <p class="usv-t-cut usv-s-s-c_i-p usv-t-w-r">{{conexion.description}}</p>
+                          </div>
+                      </div>
+                      <div class="usv-s-s-img usv-g-shadow">
+                          <img  src="{{url + conexion.image}}">
+                          <div class="usv-s-s-img-b usv-g-shadow usv-bg-secundary"></div>
+                          <div class="usv-s-s-img-h"></div>
+                      </div>
+                      <div class="usv-s-s-t_double" clickOutside (clickOutside)="conexion.smenu = false">
+                        <h2 class="usv-t-w-bd usv-t-cut usv-s-s-t_double-h2">{{conexion.fullname}}</h2>
+                        <i class="fas fa-ellipsis-v usv-s-s-t_double-icon usv-s-s-t_double-icon_r usv-cursor-hov" (click)="(conexion.smenu) ? conexion.smenu = false: conexion.smenu = true"></i>
+                        <div class="usv-s-menu" [ngClass]="{'usv-g-display_none': !conexion.smenu}" *ngIf="conexion.property" >
+                            <p *ngIf="conexion.status == 'Accepted'">Enviar Mensaje</p>
+                            <p *ngIf="conexion.status == 'Accepted'">Servicios</p>
+                            <p routerLink="/p/{{conexion.username}}/perfil" *ngIf="conexion.status == 'Accepted'">Perfil</p>
+                            <p (click)="updateData(conexion, 'Accepted'); conexion.status = 'Accepted'" *ngIf="conexion.status == 'Pending' && conexion.property == 'Conexion'">Aceptar Conexion</p>
+                            <p (click)="updateData(conexion, 'Ejected')"  *ngIf="conexion.property == 'Conexion'"><span *ngIf="conexion.status == 'Pending'">Rechazar Conexion</span><span *ngIf="conexion.status == 'Accepted'">Eliminar Conexion</span></p>
+                            <p (click)="removeConexion(conexion)" *ngIf="conexion.property == 'Own'">Eliminar Conexion</p>
+                        </div>
+                    </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

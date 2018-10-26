@@ -1,0 +1,158 @@
+<div class="usv-mcontainer" *ngIf="budget">
+  <div class="row usv-scontainer">
+    <div class="clm-xs-12">
+      <div class="usv-mt">
+        <h1 class="usv-mt_h1">Presupuesto / {{budget.name_service}} /</h1>
+      </div>
+    </div>
+  </div>
+  <div class="row usv-scontainer">
+    <div class="clm-xs-12 clm-md-4 clm-lg-4 clm-xl-3">
+      <div class="row usv-scontainer">
+        <div class="clm-xs-12">
+          <div class="usv-img usv-g-shadow">
+            <img src="{{url + budget.image_service}}">
+          </div>
+        </div>
+        <div class="clm-xs-12">
+          <div class="usv-mt usv-mt-margin-reduced">
+            <h3 class="usv-mt_h3">DATOS GENERALES</h3>
+          </div>
+        </div>
+        <div class="clm-xs-12">
+          <div><h2 class="usv-t-s-btn usv-t-w-bk usv-g-display_inline">Servicio: </h2><p class="usv-g-display_inline usv-t-s-p">{{budget.name_service}}</p></div>
+        </div>
+        <div class="clm-xs-12">
+          <div><h2 class="usv-t-s-btn usv-t-w-bk usv-g-display_inline">Dias Habiles: </h2><p class="usv-g-display_inline usv-t-s-p">{{budget.business_days}}</p></div>
+        </div>
+        <div class="clm-xs-12">
+          <div><h2 class="usv-t-s-btn usv-t-w-bk usv-g-display_inline">Horario: </h2><p class="usv-g-display_inline usv-t-s-p">{{budget.open}} a {{budget.close}}</p></div>
+        </div>
+        <div class="clm-xs-12">
+          <div><h2 class="usv-t-s-btn usv-t-w-bk usv-g-display_inline">Cobertura: </h2><p class="usv-g-display_inline usv-t-s-p">{{budget.country_name}}<span *ngIf="budget.state_name !== null"> | </span>{{budget.state_name}}<span *ngIf="budget.city_name !== null"> | </span>{{budget.city_name}}</p></div>
+        </div>
+        <div class="clm-xs-12 usv-g-margin_t" *ngIf="contacts.length">
+          <div class="usv-mt usv-mt-margin-reduced">
+            <h3 class="usv-mt_h3">METODOS DE CONTACTO</h3>
+          </div>
+        </div>
+        <div class="clm-xs-12" *ngIf="contacts.length">
+          <div class="row">
+            <div class="clm-xs-12" *ngFor="let contact of contacts">
+              <div class="usv-conf">
+                  <div class="usv-conf-c usv-conf-c_alone">
+                      <i class="fas fa-envelope-square usv-conf-c-icon" *ngIf="contact.type == 'Email'"></i>
+                      <i class="fas fa-{{contact.type| lowercase}} usv-conf-c-icon" *ngIf="contact.type == 'Mobile' || contact.type == 'Phone'"></i>
+                      <h4 class="usv-conf-c-t">{{contact.method}}</h4>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="clm-xs-12 usv-g-margin_t" *ngIf="networks.length">
+          <div class="usv-mt usv-mt-margin-reduced">
+            <h3 class="usv-mt_h3">REDES SOCIALES</h3>
+          </div>
+        </div>
+        <div class="clm-xs-12" *ngIf="networks.length">
+          <div class="row">
+            <div class="clm-xs-12" *ngFor="let network of networks">
+              <div class="usv-conf">
+                  <div class="usv-conf-c usv-conf-c_alone">
+                      <i class="fab fa-{{network.type | lowercase}} usv-conf-c-icon"></i>
+                      <h4 class="usv-conf-c-t">{{network.method}}</h4>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="clm-xs-12 clm-md-8 clm-lg-8 clm-xl-9">
+      <div class="usv-left-line">
+        <div class="row usv-scontainer">
+          <div class="clm-xs-12">
+            <div class="usv-mt">
+              <h3 class="usv-mt_h3">INFORMACION GENERAL</h3>
+            </div>
+          </div>
+          <div class="clm-xs-12">
+            <div class="row">
+              <div class="clm-xs-12 clm-xl-6 usv-g-margin_b">
+                <h4 class="usv-t-w-bd">#Servicio: </h4>
+                <h5 class="usv-t-w-r">{{budget.service_identity}}</h5>
+              </div>
+              <div class="clm-xs-12 clm-xl-6 usv-g-margin_b">
+                <h4 class="usv-t-w-bd">Date: </h4>
+                <h5 class="usv-t-w-r">{{budget.date}}</h5>
+              </div>
+              <div class="clm-xs-12 clm-lg-6 usv-g-margin_b">
+                <h4 class="usv-t-w-bd">Proveedor: </h4>
+                <h5 class="usv-t-w-r">{{budget.fullname_provider}}</h5>
+              </div>
+              <div class="clm-xs-12 clm-lg-6 usv-g-margin_b">
+                <h4 class="usv-t-w-bd">Cliente: </h4>
+                <h5 class="usv-t-w-r">{{budget.fullname_costumer}}</h5>
+              </div>
+              <div class="clm-xs-12 clm-lg-6 clm-xl-4 usv-g-margin_b">
+                <h4 class="usv-t-w-bd">Categoria: </h4>
+                <h5 class="usv-t-w-r">{{budget.category}}</h5>
+              </div>
+              <div class="clm-xs-12 clm-lg-6 clm-xl-4 usv-g-margin_b">
+                <h4 class="usv-t-w-bd">Tipo de Servicio: </h4>
+                <h5 class="usv-t-w-r">{{budget.type_service}}</h5>
+              </div>
+              <div class="clm-xs-12 clm-lg-6 clm-xl-4 usv-g-margin_b">
+                <h4 class="usv-t-w-bd">Tipo de Costo: </h4>
+                <h5 class="usv-t-w-r">{{budget.type_cost}}</h5>
+              </div>
+              <div class="clm-xs-12 usv-g-margin_b">
+                <h4 class="usv-t-w-bd">Descripción General del Servicio: </h4>
+                <h5 class="usv-t-w-r">{{budget.description}}</h5>
+              </div>
+            </div>
+          </div>
+          <div class="clm-xs-12 usv-g-martin_t-double" *ngIf="budgetServices">
+            <div class="usv-mt">
+              <h3 class="usv-mt_h3">DESGLOSE DEL PRESUPUESTO</h3>
+            </div>
+          </div>
+          <div class="clm-xs-12" *ngIf="budgetServices">
+            <div class="usv-table_container usv-g-shadow">
+              <table class="usv-table" >
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Name Service</th>
+                    <th class="usv-table-hd">Descripción</th>
+                    <th>Cost ({{budget.type_money}})</th>
+                    <th>Cantidad</th>
+                    <th>Total ({{budget.type_money}})</th>
+                  </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                    <td colspan="6">Presupuesto por {{budget.fullname_user | uppercase}}</td>
+                    </tr>
+                </tfoot>
+                <tbody>
+                  <tr *ngFor="let service of budgetServices; let i = index">
+                    <td>{{i + 1}}</td>
+                    <td>{{service.name}}</td>
+                    <td class="usv-table-hd">{{service.description}}</td>
+                    <td>{{service.cost}} {{budget.type_money}}</td>
+                    <td>{{service.number}}</td>
+                    <td>{{service.total}} {{budget.type_money}}</td>
+                  </tr>
+                  <tr>
+                    <td colspan="6">Tota Final: ${{budget.total}} {{budget.type_money}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

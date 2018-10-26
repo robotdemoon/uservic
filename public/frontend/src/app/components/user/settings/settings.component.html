@@ -1,0 +1,82 @@
+<div class="usv-mcontainer" *ngIf="settings">
+    <div class="row usv-scontainer">
+        <div class="clm-xs-12">
+            <div class="usv-mt">
+                <h1 class="usv-mt_h1">CONFIGURACIONES</h1>
+            </div>
+        </div>
+        <div class="clm-xs-12 clm-lg-10 clm-xl-6 offs-lg-1 offs-xl-0 usv-g-margin_t">
+            <div class="row usv-scontainer">
+                <div class="clm-xs-12">
+                    <div class="usv-mt">
+                        <h3 class="usv-mt_h3">CUENTA DE USUARIO</h3>
+                    </div>
+                </div>
+                <div class="clm-xs-12">
+                    <div class="usv-conf">
+                        <div class="usv-conf-c">
+                            <i class="fas fa-user-plus usv-conf-c-icon"></i>
+                            <h3 class="usv-conf-c-t">PERMITIR CONEXIONES</h3>
+                        </div> 
+                        <div class="usv-conf-ck">
+                            <input type="checkbox" [(ngModel)]="settings.conexions">
+                            <i class="fas fa-check"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="clm-xs-12">
+                    <div class="usv-conf">
+                        <div class="usv-conf-c">
+                            <i class="fas fa-suitcase usv-conf-c-icon"></i>
+                            <h3 class="usv-conf-c-t">PERMITIR SOLICITUDES DE PRESUPUESTO</h3>
+                        </div> 
+                        <div class="usv-conf-ck">
+                            <input type="checkbox" [(ngModel)]="settings.budgets">
+                            <i class="fas fa-check"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="clm-xs-12">
+                    <div class="usv-conf">
+                        <div class="usv-conf-c">
+                            <i class="fas fa-redo usv-conf-c-icon"></i>
+                            <h3 class="usv-conf-c-t">NOTIFICAR CAMBIOS DE USERVIC</h3>
+                        </div> 
+                        <div class="usv-conf-ck">
+                            <input type="checkbox" [(ngModel)]="settings.uservic_changes">
+                            <i class="fas fa-check"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="clm-xs-12 clm-lg-10 clm-xl-6 offs-lg-1 offs-xl-0 usv-g-margin_t">
+            <div class="row usv-scontainer">
+                <div class="clm-xs-12">
+                    <div class="usv-mt">
+                        <h3 class="usv-mt_h3">INFORMACIÓN PUBLICA</h3>
+                    </div>
+                </div>
+                <div class="clm-xs-12">
+                    <div class="usv-conf">
+                        <div class="usv-conf-c">
+                            <i class="fas fa-map-marker-alt usv-conf-c-icon"></i>
+                            <h3 class="usv-conf-c-t">UBICACIÓN</h3>
+                        </div> 
+                        <div class="usv-conf-ck">
+                            <input type="checkbox" [(ngModel)]="settings.location">
+                            <i class="fas fa-check"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="clm-xs-12 clm-lg-11 clm-xl-12 usv-g-dm_t">
+            <div class="row usv-scontainer">
+                <div  class="clm-xs-12">
+                    <input  class="usv-btn usv-btn-s_xs usv-btn-a_r usv-g-shadow usv-bg-primary usv-color-light" type="button" (click)="userHelper.updateSettings(settings)" value="Guardar Cambios">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

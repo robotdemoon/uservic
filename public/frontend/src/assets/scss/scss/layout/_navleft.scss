@@ -1,0 +1,32 @@
+.usv-navleft{
+    @include size_f(calc(100vh - 50px), calc(220px - 0.5rem), 'no', 1rem 0 0.25rem 0.5rem);
+    @include position(50px, 'no', 'no', 0, fixed);
+    background: color('light');
+    overflow:hidden;
+    z-index: 10000;
+    &-vm{
+        @include size_f('no', 200px, 0 auto, 0.5rem 0);
+        display: block;
+        color: color('secundary');
+        font-size: text('h4', $titles);
+        opacity: 0.6;
+        outline:none;
+        text-decoration: none;
+        i{
+            margin-right: 0.35rem;
+        }
+        &:hover{
+            width: calc(200px - 0.5rem - 3px);
+            padding-left: 0.5rem;
+            background: lighten(color('primary'), 47);
+            font-weight: 700;
+            border-left: 3px solid color('secundary');
+            cursor: pointer;
+            transition: 0.35s all ease-in-out;
+            opacity:1;
+        }
+    }
+    &:hover{
+        overflow-y: scroll;
+    }
+}

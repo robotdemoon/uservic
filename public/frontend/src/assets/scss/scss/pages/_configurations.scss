@@ -1,0 +1,54 @@
+/*------------------------------------
+Configuraciones
+------------------------------------*/
+.usv{
+    &-conf, &-conf-c{
+        display: flex;
+        align-items: center;
+    }
+    &-conf{
+        @include size_f(30px, 100%, 0 0 10px 0);
+        justify-content: space-between;
+        &-c, &-c_alone{
+            @include size_f(100%, calc(100% - 60px));
+            justify-content: space-around;
+            background: color('light');
+            @include border;
+            &-t, &-icon{
+                opacity:0.5;
+            }
+            &-t{
+                width: calc(100% - 40px);
+                font-size: text('h4', $titles);
+            }
+            &-icon{
+                font-size: 1rem;
+            }
+        }
+        &-c_alone{
+            width: calc(100% - 1.5rem);
+            &-xs{
+                width: 225px; 
+            }
+        }
+        &-ck{
+            @include size_f(30px);
+            position: relative;
+            text-align: center;
+            background: color('light');
+            border: 1px solid lighten(color('secundary'), 70);
+            input[type='checkbox']{
+                @include size_f(30px);
+                @include position(0, 'no', 'no', 0);
+                opacity:0;
+            }
+            input[type='checkbox']:checked ~ i{
+                color: color('secundary');
+            }
+            i{
+                line-height: 30px;
+                color: color('light');
+            }
+        }
+    }
+}

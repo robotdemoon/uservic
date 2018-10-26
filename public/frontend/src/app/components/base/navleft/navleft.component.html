@@ -1,0 +1,29 @@
+<nav class="usv-navleft usv-g-shadow" [ngClass]="{'usv-g-display_block':navleftDisplay,'usv-g-display_none': !navleftDisplay}" id="navleft" *ngIf="status">
+  <div class="usv-mt">
+      <h2 class="usv-t-s-h2 usv-mt_h2">Uservic</h2>
+      <div class="usv-mt_h2-lineB"></div>
+      <div class="usv-mt_h2-lineS"></div>
+  </div>
+  <a class="usv-navleft-vm usv-cursor-hov" routerLink="/"><i class="fas fa-home"></i>Home</a>
+  <a class="usv-navleft-vm usv-cursor-hov" routerLink="/usr"><i class="fas fa-user"></i>Perfil</a>
+  <a class="usv-navleft-vm usv-cursor-hov" routerLink="/usr/conexions"><i class="fas fa-users"></i>Mis conexiones</a>
+  <a class="usv-navleft-vm usv-cursor-hov" routerLink="/usr/settings"><i class="fas fa-cogs"></i>Configuraciones</a>
+  <div class="usv-mt">
+      <h2 class="usv-t-s-h2 usv-mt_h2">Servicios</h2>
+      <div class="usv-mt_h2-lineB"></div>
+      <div class="usv-mt_h2-lineS"></div>
+  </div>
+  <a class="usv-navleft-vm usv-cursor-hov" routerLink="/usr/service/create"><i class="far fa-file"></i>Crear Servicio</a>
+  <a class="usv-navleft-vm usv-cursor-hov" routerLink="/usr/my-services"><i class="fas fa-book"></i>Mis Servicios</a>
+  <a class="usv-navleft-vm usv-cursor-hov" routerLink="/usr/favs-services"><i class="fas fa-star"></i>Servicios Favoritos</a>
+  <a class="usv-navleft-vm usv-cursor-hov" routerLink="/usr/costumers"><i class="fas fa-users"></i>Mis Clientes</a>
+  <a class="usv-navleft-vm usv-cursor-hov" routerLink="/usr/messages"><i class="fas fa-comment"></i>Mensajes Privados</a>
+  <div class="usv-mt">
+      <h2 class="usv-t-s-h2 usv-mt_h2">Presupuestos</h2>
+      <div class="usv-mt_h2-lineB"></div>
+      <div class="usv-mt_h2-lineS"></div>
+  </div>
+  <a class="usv-navleft-vm usv-cursor-hov" routerLink="/usr/budget/request"><i class="fas fa-reply-all"></i>Solicitudes de Presupuestos</a>
+  <a class="usv-navleft-vm usv-cursor-hov" routerLink="/usr/budget/my-request"><i class="fas fa-archive"></i>Mis Solicitudes</a>
+  <!--<a class="usv-navleft-vm usv-cursor-hov" routerLink="/usr/chat"><i class="far fa-comments"></i>Chat</a>-->
+</nav>

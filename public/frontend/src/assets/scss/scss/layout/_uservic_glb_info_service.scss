@@ -1,0 +1,50 @@
+/*------------------------------------
+Servicio Vista Global Completa
+------------------------------------*/
+.usv-s-cabecera{
+    width: 100%;
+    min-width: 280px;
+    min-height: 250px;
+    position:relative;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: bottom;
+    @include flex('no', wrap, space-between, 'no');
+    overflow:hidden;
+    &-title{
+        width: 100%;
+        &_t{
+            @include position(20px, 'no', 'no', 20px);
+            &:after{
+                content: '';
+                @include position('no', 'no', -10px, 0);
+                @include size_f(5px, 30px);
+                background:color('primary');
+            }
+        }
+    }
+    &-info{
+        width: 100%;
+        position:relative;
+        border-bottom: 3px solid color('light');
+        &_bg{
+            @include position(0, 0, 'no', 'no');
+            border-bottom: 300px solid color('primary');
+            border-left: 161px solid transparent;
+            border-right: 161px solid color('primary');
+            opacity: 0.3;
+        }
+        &_t{
+            min-width: 100%;
+            @include position('no', 20px, 20px, 'no');
+        }
+    }
+    &:before{
+        content: '';
+        @include position(0, 'no', 'no', 0);
+        @include size_f(100%);
+        background:color('secundary');
+        opacity:0.4;
+    }
+}

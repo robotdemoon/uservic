@@ -1,0 +1,64 @@
+@charset 'utf-8';
+/*------------------------------------
+Importamos las variables del Proyecto
+------------------------------------*/
+@import 'abstracts/_variables.scss',
+		'abstracts/_functions.scss',
+		'abstracts/_mixins.scss';
+/*------------------------------------
+Importamos los vendors o librerias
+------------------------------------*/
+@import 'vendors/_normalize.scss';
+/*------------------------------------
+Importamos la base
+------------------------------------*/
+@import 'base/_reset.scss',
+		'base/_text.scss', //Clases de textos
+		'base/_globals.scss', //Clases utilizados en Elementos Cambiantes o especificos
+		'base/_colors.scss'; // backgrounds y colores base
+
+/*------------------------------------
+Importamos los elementos o componentes
+------------------------------------*/
+@import 'components/_buttons.scss',
+		'components/_inputs.scss',
+		'components/_titles.scss',
+		'components/_alerts.scss',
+		'components/_image.scss',
+		'components/_icons.scss';
+
+/*------------------------------------
+Importamos el layout
+------------------------------------*/
+@import 'layout/_grid.scss',
+		'layout/_header.scss',
+		'layout/_navleft.scss',
+		'layout/_forms.scss',
+		'layout/_tables.scss',
+		'layout/_uservic_srch_service.scss',
+		'layout/_uservic_glb_info_service.scss',
+		'layout/_uservic_comments.scss',
+		'layout/_uservic_smenu.scss';
+
+/*------------------------------------
+Importamos los estilos de paginas
+------------------------------------*/
+@import 'pages/_home.scss',
+		'pages/_login_signin.scss',
+		'pages/_configurations.scss',
+		'pages/_service.scss';
+
+
+/*------------------------------------
+Importamos los temas
+------------------------------------*/
+
+/*------------------------------------
+Importamos las clases de angular
+------------------------------------*/
+@import 'angular/_angular_classes.scss';
+
+/*------------------------------------
+Importamos las querys necesarias
+------------------------------------*/
+@import '_querys.scss';

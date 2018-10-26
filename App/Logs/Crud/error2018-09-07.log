@@ -1,0 +1,66 @@
+IP: ::1, Error in : Crud, Description: PDOException: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in C:\Users\ivanm\Documents\proyectos_web\uservic_test\App\Models\CrudHelper\CrudA.php:61
+Stack trace:
+#0 C:\Users\ivanm\Documents\proyectos_web\uservic_test\App\Models\CrudHelper\CrudA.php(61): PDOStatement->execute()
+#1 C:\Users\ivanm\Documents\proyectos_web\uservic_test\App\Models\CrudHelper\CrudA.php(50): App\Models\CrudHelper\CrudA->setData(Array, false)
+#2 C:\Users\ivanm\Documents\proyectos_web\uservic_test\App\Models\CrudHelper\CrudA.php(35): App\Models\CrudHelper\CrudA->implementCrud('UPDATE uservic_...', Array, false)
+#3 C:\Users\ivanm\Documents\proyectos_web\uservic_test\App\Controllers\Helpers\User\Perfil.php(42): App\Models\CrudHelper\CrudA->update(Array, 'UPDATE uservic_...')
+#4 C:\Users\ivanm\Documents\proyectos_web\uservic_test\App\Controllers\Main\Main.php(17): App\Controllers\Helpers\User\Perfil->update()
+#5 C:\Users\ivanm\Documents\proyectos_web\uservic_test\App\Controllers\Main\Standard\Standard.php(30): App\Controllers\Main\Main->callMethod('update', Array, 'User\\Perfil')
+#6 C:\Users\ivanm\Documents\proyectos_web\uservic_test\Core\App.php(46): App\Controllers\Main\Standard\Standard->UserPerfil('update')
+#7 C:\Users\ivanm\Documents\proyectos_web\uservic_test\public\index.php(30): Core\App->__construct()
+#8 {main}, info_Received: token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Iml2YW5AaXZhbi5jb20iLCJ0aW1ldXNlciI6ImUyZmJlOGNlZGNjMWNhNzVhODI0YmZiNWZhMDFjMTUwNjhlYzgxODIwY2JlNTczMGEyMmVkNDVlZDFhYzZkN2IiLCJpbWFnZSI6ImI5MjJiNGFmMDAzYjExYzI5NjU3OGMzOGUzOTYzZDEyLmpwZyIsInVzZXJuYW1lIjoiaXZhbm1sYXIiLCJpYXQiOjE1MzYyNDQ5OTgsImV4cCI6MTUzODgzNjk5OH0.xAf-7tc-OkuEynSWKCMddik1j3aBRdfBV-DPtNCyIOo::id=0::Is an Array with size of: 2 and with name keys of: (data), and with values of: (perfil,contacts)action=update::, Url Received: (user/perfil), date: 2018-09-07 01:11:02
+IP: ::1, Error in : Crud, Description: PDOException: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in C:\Users\ivanm\Documents\proyectos_web\uservic_test\App\Models\CrudHelper\CrudA.php:61
+Stack trace:
+#0 C:\Users\ivanm\Documents\proyectos_web\uservic_test\App\Models\CrudHelper\CrudA.php(61): PDOStatement->execute()
+#1 C:\Users\ivanm\Documents\proyectos_web\uservic_test\App\Models\CrudHelper\CrudA.php(50): App\Models\CrudHelper\CrudA->setData(Array, false)
+#2 C:\Users\ivanm\Documents\proyectos_web\uservic_test\App\Models\CrudHelper\CrudA.php(35): App\Models\CrudHelper\CrudA->implementCrud('UPDATE uservic_...', Array, false)
+#3 C:\Users\ivanm\Documents\proyectos_web\uservic_test\App\Controllers\Helpers\User\Perfil.php(42): App\Models\CrudHelper\CrudA->update(Array, 'UPDATE uservic_...')
+#4 C:\Users\ivanm\Documents\proyectos_web\uservic_test\App\Controllers\Main\Main.php(17): App\Controllers\Helpers\User\Perfil->update()
+#5 C:\Users\ivanm\Documents\proyectos_web\uservic_test\App\Controllers\Main\Standard\Standard.php(30): App\Controllers\Main\Main->callMethod('update', Array, 'User\\Perfil')
+#6 C:\Users\ivanm\Documents\proyectos_web\uservic_test\Core\App.php(46): App\Controllers\Main\Standard\Standard->UserPerfil('update')
+#7 C:\Users\ivanm\Documents\proyectos_web\uservic_test\public\index.php(30): Core\App->__construct()
+#8 {main}, info_Received: token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Iml2YW5AaXZhbi5jb20iLCJ0aW1ldXNlciI6ImUyZmJlOGNlZGNjMWNhNzVhODI0YmZiNWZhMDFjMTUwNjhlYzgxODIwY2JlNTczMGEyMmVkNDVlZDFhYzZkN2IiLCJpbWFnZSI6ImI5MjJiNGFmMDAzYjExYzI5NjU3OGMzOGUzOTYzZDEyLmpwZyIsInVzZXJuYW1lIjoiaXZhbm1sYXIiLCJpYXQiOjE1MzYyNDQ5OTgsImV4cCI6MTUzODgzNjk5OH0.xAf-7tc-OkuEynSWKCMddik1j3aBRdfBV-DPtNCyIOo::id=0::Is an Array with size of: 2 and with name keys of: (data), and with values of: (perfil,contacts)action=update::, Url Received: (user/perfil), date: 2018-09-07 01:11:10
+IP: ::1, Error in : Crud, Description: PDOException: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in C:\Users\ivanm\Documents\proyectos_web\uservic_test\App\Models\CrudHelper\CrudA.php:61
+Stack trace:
+#0 C:\Users\ivanm\Documents\proyectos_web\uservic_test\App\Models\CrudHelper\CrudA.php(61): PDOStatement->execute()
+#1 C:\Users\ivanm\Documents\proyectos_web\uservic_test\App\Models\CrudHelper\CrudA.php(50): App\Models\CrudHelper\CrudA->setData(Array, false)
+#2 C:\Users\ivanm\Documents\proyectos_web\uservic_test\App\Models\CrudHelper\CrudA.php(35): App\Models\CrudHelper\CrudA->implementCrud('UPDATE uservic_...', Array, false)
+#3 C:\Users\ivanm\Documents\proyectos_web\uservic_test\App\Controllers\Helpers\User\Perfil.php(42): App\Models\CrudHelper\CrudA->update(Array, 'UPDATE uservic_...')
+#4 C:\Users\ivanm\Documents\proyectos_web\uservic_test\App\Controllers\Main\Main.php(17): App\Controllers\Helpers\User\Perfil->update()
+#5 C:\Users\ivanm\Documents\proyectos_web\uservic_test\App\Controllers\Main\Standard\Standard.php(30): App\Controllers\Main\Main->callMethod('update', Array, 'User\\Perfil')
+#6 C:\Users\ivanm\Documents\proyectos_web\uservic_test\Core\App.php(46): App\Controllers\Main\Standard\Standard->UserPerfil('update')
+#7 C:\Users\ivanm\Documents\proyectos_web\uservic_test\public\index.php(30): Core\App->__construct()
+#8 {main}, info_Received: token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Iml2YW5AaXZhbi5jb20iLCJ0aW1ldXNlciI6ImUyZmJlOGNlZGNjMWNhNzVhODI0YmZiNWZhMDFjMTUwNjhlYzgxODIwY2JlNTczMGEyMmVkNDVlZDFhYzZkN2IiLCJpbWFnZSI6ImI5MjJiNGFmMDAzYjExYzI5NjU3OGMzOGUzOTYzZDEyLmpwZyIsInVzZXJuYW1lIjoiaXZhbm1sYXIiLCJpYXQiOjE1MzYyNDQ5OTgsImV4cCI6MTUzODgzNjk5OH0.xAf-7tc-OkuEynSWKCMddik1j3aBRdfBV-DPtNCyIOo::id=0::Is an Array with size of: 2 and with name keys of: (data), and with values of: (perfil,contacts)action=update::, Url Received: (user/perfil), date: 2018-09-07 01:11:25
+IP: ::1, Error in : Crud, Description: PDOException: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens in C:\Users\ivanm\Documents\proyectos_web\uservic_test\App\Models\CrudHelper\CrudA.php:61
+Stack trace:
+#0 C:\Users\ivanm\Documents\proyectos_web\uservic_test\App\Models\CrudHelper\CrudA.php(61): PDOStatement->execute()
+#1 C:\Users\ivanm\Documents\proyectos_web\uservic_test\App\Models\CrudHelper\CrudA.php(50): App\Models\CrudHelper\CrudA->setData(Array, false)
+#2 C:\Users\ivanm\Documents\proyectos_web\uservic_test\App\Models\CrudHelper\CrudA.php(35): App\Models\CrudHelper\CrudA->implementCrud('UPDATE uservic_...', Array, false)
+#3 C:\Users\ivanm\Documents\proyectos_web\uservic_test\App\Controllers\Helpers\User\Perfil.php(42): App\Models\CrudHelper\CrudA->update(Array, 'UPDATE uservic_...')
+#4 C:\Users\ivanm\Documents\proyectos_web\uservic_test\App\Controllers\Main\Main.php(17): App\Controllers\Helpers\User\Perfil->update()
+#5 C:\Users\ivanm\Documents\proyectos_web\uservic_test\App\Controllers\Main\Standard\Standard.php(30): App\Controllers\Main\Main->callMethod('update', Array, 'User\\Perfil')
+#6 C:\Users\ivanm\Documents\proyectos_web\uservic_test\Core\App.php(46): App\Controllers\Main\Standard\Standard->UserPerfil('update')
+#7 C:\Users\ivanm\Documents\proyectos_web\uservic_test\public\index.php(30): Core\App->__construct()
+#8 {main}, info_Received: token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Iml2YW5AaXZhbi5jb20iLCJ0aW1ldXNlciI6ImUyZmJlOGNlZGNjMWNhNzVhODI0YmZiNWZhMDFjMTUwNjhlYzgxODIwY2JlNTczMGEyMmVkNDVlZDFhYzZkN2IiLCJpbWFnZSI6ImI5MjJiNGFmMDAzYjExYzI5NjU3OGMzOGUzOTYzZDEyLmpwZyIsInVzZXJuYW1lIjoiaXZhbm1sYXIiLCJpYXQiOjE1MzYyNDQ5OTgsImV4cCI6MTUzODgzNjk5OH0.xAf-7tc-OkuEynSWKCMddik1j3aBRdfBV-DPtNCyIOo::id=0::Is an Array with size of: 2 and with name keys of: (data), and with values of: (perfil,contacts)action=update::, Url Received: (user/perfil), date: 2018-09-07 01:12:05
+IP: ::1, Error in : Crud, Description: PDOException: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined in C:\Users\ivanm\Documents\proyectos_web\uservic_test\App\Models\CrudHelper\CrudA.php:61
+Stack trace:
+#0 C:\Users\ivanm\Documents\proyectos_web\uservic_test\App\Models\CrudHelper\CrudA.php(61): PDOStatement->execute()
+#1 C:\Users\ivanm\Documents\proyectos_web\uservic_test\App\Models\CrudHelper\CrudA.php(50): App\Models\CrudHelper\CrudA->setData(Array, false)
+#2 C:\Users\ivanm\Documents\proyectos_web\uservic_test\App\Models\CrudHelper\CrudA.php(35): App\Models\CrudHelper\CrudA->implementCrud('UPDATE uservic_...', Array, false)
+#3 C:\Users\ivanm\Documents\proyectos_web\uservic_test\App\Controllers\Helpers\User\Perfil.php(42): App\Models\CrudHelper\CrudA->update(Array, 'UPDATE uservic_...')
+#4 C:\Users\ivanm\Documents\proyectos_web\uservic_test\App\Controllers\Main\Main.php(17): App\Controllers\Helpers\User\Perfil->update()
+#5 C:\Users\ivanm\Documents\proyectos_web\uservic_test\App\Controllers\Main\Standard\Standard.php(30): App\Controllers\Main\Main->callMethod('update', Array, 'User\\Perfil')
+#6 C:\Users\ivanm\Documents\proyectos_web\uservic_test\Core\App.php(46): App\Controllers\Main\Standard\Standard->UserPerfil('update')
+#7 C:\Users\ivanm\Documents\proyectos_web\uservic_test\public\index.php(30): Core\App->__construct()
+#8 {main}, info_Received: token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Iml2YW5AaXZhbi5jb20iLCJ0aW1ldXNlciI6ImUyZmJlOGNlZGNjMWNhNzVhODI0YmZiNWZhMDFjMTUwNjhlYzgxODIwY2JlNTczMGEyMmVkNDVlZDFhYzZkN2IiLCJpbWFnZSI6ImI5MjJiNGFmMDAzYjExYzI5NjU3OGMzOGUzOTYzZDEyLmpwZyIsInVzZXJuYW1lIjoiaXZhbm1sYXIiLCJpYXQiOjE1MzYyNDQ5OTgsImV4cCI6MTUzODgzNjk5OH0.xAf-7tc-OkuEynSWKCMddik1j3aBRdfBV-DPtNCyIOo::id=0::Is an Array with size of: 2 and with name keys of: (data), and with values of: (perfil,contacts)action=update::, Url Received: (user/perfil), date: 2018-09-07 01:15:40
+IP: ::1, Error in : Crud, Description: PDOException: SQLSTATE[21S01]: Insert value list does not match column list: 1136 Column count doesn't match value count at row 1 in C:\Users\ivanm\Documents\proyectos_web\uservic_test\App\Models\CrudHelper\CrudA.php:61
+Stack trace:
+#0 C:\Users\ivanm\Documents\proyectos_web\uservic_test\App\Models\CrudHelper\CrudA.php(61): PDOStatement->execute()
+#1 C:\Users\ivanm\Documents\proyectos_web\uservic_test\App\Models\CrudHelper\CrudA.php(50): App\Models\CrudHelper\CrudA->setData(Array, false)
+#2 C:\Users\ivanm\Documents\proyectos_web\uservic_test\App\Models\CrudHelper\CrudA.php(35): App\Models\CrudHelper\CrudA->implementCrud('INSERT INTO use...', Array, false)
+#3 C:\Users\ivanm\Documents\proyectos_web\uservic_test\App\Controllers\Helpers\Contacts\Contacts.php(32): App\Models\CrudHelper\CrudA->update(Array, 'INSERT INTO use...')
+#4 C:\Users\ivanm\Documents\proyectos_web\uservic_test\App\Controllers\Main\Main.php(17): App\Controllers\Helpers\Contacts\Contacts->remove()
+#5 C:\Users\ivanm\Documents\proyectos_web\uservic_test\App\Controllers\Main\Standard\Standard.php(67): App\Controllers\Main\Main->callMethod('remove', Array, 'Contacts\\Contac...')
+#6 C:\Users\ivanm\Documents\proyectos_web\uservic_test\Core\App.php(46): App\Controllers\Main\Standard\Standard->ContactsContacts('remove')
+#7 C:\Users\ivanm\Documents\proyectos_web\uservic_test\public\index.php(30): Core\App->__construct()
+#8 {main}, info_Received: token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Iml2YW5AaXZhbi5jb20iLCJ0aW1ldXNlciI6ImUyZmJlOGNlZGNjMWNhNzVhODI0YmZiNWZhMDFjMTUwNjhlYzgxODIwY2JlNTczMGEyMmVkNDVlZDFhYzZkN2IiLCJpbWFnZSI6ImI5MjJiNGFmMDAzYjExYzI5NjU3OGMzOGUzOTYzZDEyLmpwZyIsInVzZXJuYW1lIjoiaXZhbm1sYXIiLCJpYXQiOjE1MzYyNDQ5OTgsImV4cCI6MTUzODgzNjk5OH0.xAf-7tc-OkuEynSWKCMddik1j3aBRdfBV-DPtNCyIOo::action=remove::Is an Array with size of: 1 and with name keys of: (data), and with values of: (id_contact), Url Received: (contacts/contacts), date: 2018-09-07 16:24:33

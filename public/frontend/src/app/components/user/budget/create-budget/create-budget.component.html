@@ -1,0 +1,125 @@
+<form (submit)="budgetHelper.addBudget({budget:budget, budget_s:budgetServices, id_request: idRequest})" #budgetForm="ngForm">
+  <div class="usv-mcontainer">
+      <div class="row usv-scontainer">
+          <div class="clm-xs-12">
+              <div class="usv-mt">
+                  <h1 class="usv-mt_h1">Crear Presupuesto <span *ngIf="budget.title != ''">/ {{budget.title}} /</span></h1>
+              </div>
+          </div>
+          <div class="clm-xs-12" *ngIf="idRequest && budget.service != '' && budget.costumer != null">
+              <div class="row">
+                  <div class="clm-xs-12">
+                    <div class="row">
+                        <div class="clm-xs-12 clm-md-6 clm-xl-4">
+                            <div class="usv-i-cnt">
+                                <label class="usv-i-cnt_lb usv-t-w-r">TItulo del Presupuesto:</label>
+                                <input type="text" placeholder="Titulo del Presupuesto" class="usv-i usv-i-cnt_i" [(ngModel)]="budget.title" name="title" #title_budget="ngModel" minlength="10" maxlength="50" required>
+                                <div class="usv-i-cnt_e"  *ngIf="title_budget.invalid && (title_budget.dirty || title_budget.touched)">
+                                    <span *ngIf="title_budget.errors.required">*Titulo Obligatorio</span>
+                                    <span *ngIf="title_budget.errors.minlength">*Minimo 10 Caracteres</span>
+                                    <span *ngIf="title_budget.errors.maxlength">*Maximo 25 Caracteres</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clm-xs-12 clm-md-6 clm-xl-3">
+                                <div class="usv-i-cnt">
+                                    <label class="usv-i-cnt_lb usv-t-w-r">Cliente:</label>
+                                    <input type="text" placeholder="Nombre del Cliente" class="usv-i usv-i-cnt_i" name="costumer_budget" [(ngModel)]="budgetnav.costumer_name" #costumer_budget="ngModel" autofocus="autofocus" required disabled>
+                                    <div class="usv-i-cnt_e" *ngIf="costumer_budget.invalid && (costumer_budget.dirty || costumer_budget.touched)">
+                                        <span *ngIf="costumer_budget.errors.required">El Cliente es Obligatorio</span>
+                                    </div>
+                                </div>
+                        </div>
+                        <div class="clm-xs-12 clm-md-6 clm-xl-3">
+                                <div class="usv-i-cnt">
+                                    <label class="usv-i-cnt_lb usv-t-w-r">Servicio:</label>
+                                    <input type="text" placeholder="Nombre del Servicio" class="usv-i usv-i-cnt_i" name="service" [(ngModel)]="budgetnav.name_service" #service="ngModel" required disabled>
+                                    <div class="usv-i-cnt_e" *ngIf="service.invalid && (service.dirty || service.touched)">
+                                        <span *ngIf="service.errors.required">El Servicio es Obligatorio</span>
+                                    </div>
+                                </div>
+                        </div>
+                        <div class="clm-xs-12 clm-md-6 clm-xl-2">
+                            <div class="usv-i-cnt">
+                                <label class="usv-i-cnt_lb usv-t-w-r">Total:</label>
+                                <input type="text" placeholder="0" class="usv-i usv-i-cnt_i" [(ngModel)]="budget.total" name="total" required disabled>
+                            </div>
+                        </div>
+                        <div class="clm-xs-12">
+                            <input  class="usv-btn usv-btn-s_xs usv-btn-a_r usv-g-shadow usv-bg-primary usv-color-light" type="submit" value="Crear Presupuesto" [disabled]="!budgetForm.form.valid">
+                        </div>
+                    </div>
+                    <div class="row">
+                      <div class="clm-xs-12">
+                          <div class="usv-g-line_h"></div>
+                      </div>
+                    </div>
+                    <div class="row">
+                        <div class="clm-xs-1">
+                            <div class="usv-plus" (click)="budgetServices = budgetHelper.addOneBudget(budgetServices)">
+                                <i class="fas fa-plus"></i>
+                            </div>
+                        </div>
+                        <div class="clm-xs-11">
+                          <div class="row">
+                            <div class="clm-xs-12" *ngFor="let service of budgetServices; let i = index">
+                              <div class="row">
+                                <div class="clm-xs-12 clm-md-6 clm-xl-5">
+                                    <div class="usv-i-cnt">
+                                        <label class="usv-i-cnt_lb usv-t-w-r">Nombre de Servicio:</label>
+                                        <input type="text" placeholder="Nombre de Servicio" class="usv-i usv-i-cnt_i" [(ngModel)]="service.name" name="name-{{i}}" #service_name="ngModel" minlength="10" required>
+                                        <div class="usv-i-cnt_e"  *ngIf="service_name.invalid && (service_name.dirty || service_name.touched)">
+                                            <span *ngIf="service_name.errors.required">*Nombre de Servicio Obligatorio</span>
+                                            <span *ngIf="service_name.errors.minlength">*Minimo 10 Caracteres</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="clm-xs-4 clm-md-6 clm-xl-3">
+                                    <div class="usv-i-cnt">
+                                        <label class="usv-i-cnt_lb usv-t-w-r">Costo:</label>
+                                        <input type="number" placeholder="0.0" min="0" step="0.01" class="usv-i usv-i-cnt_i" [(ngModel)]="service.cost" name="cost-{{i}}" #service_cost="ngModel" (change)="service.total = +((service.number * service.cost)).toFixed(2);budget.total = budgetHelper.calcTotal(budgetServices)" required>
+                                        <div class="usv-i-cnt_e"  *ngIf="service_cost.invalid && (service_cost.dirty || service_cost.touched)">
+                                            <span *ngIf="service_cost.errors.required">*Costo Obligatorio</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="clm-xs-4 clm-md-6 clm-xl-2">
+                                    <div class="usv-i-cnt">
+                                        <label class="usv-i-cnt_lb usv-t-w-r">Cantidad:</label>
+                                        <input type="number" placeholder="0" min="1" step="1" class="usv-i usv-i-cnt_i"  [(ngModel)]="service.number" name="number-{{i}}" #service_quantity="ngModel" (change)="service.total = +((service.number * service.cost)).toFixed(2);budget.total = budgetHelper.calcTotal(budgetServices)" required>
+                                        <div class="usv-i-cnt_e"  *ngIf="service_quantity.invalid && (service_quantity.dirty || service_quantity.touched)">
+                                            <span *ngIf="service_quantity.errors.required">*Cantidad Obligatorio</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="clm-xs-4 clm-md-6 clm-xl-2">
+                                    <div class="usv-i-cnt">
+                                        <label class="usv-i-cnt_lb usv-t-w-r">Total:</label>
+                                        <input type="number" placeholder="0.0" min="0" step="0.01" class="usv-i usv-i-cnt_i"  [(ngModel)]="service.total" name="total-{{i}}" required disabled>
+                                    </div>
+                                </div>
+                                <div class="clm-xs-10 clm-xl-11">
+                                    <div class="usv-i-cnt" >
+                                        <label class="usv-i-cnt_lb usv-t-w-r">Descripción:</label>
+                                        <textarea class="usv-i usv-i_a usv-i-cnt_i" placeholder="Mi descripcion" [(ngModel)]="service.description" name="description-{{i}}" maxlength="500"></textarea>
+                                    </div>
+                                </div>
+                                <div class="clm-xs-2 clm-xl-1">
+                                    <div class="usv-plus" (click)="budgetServices = budgetHelper.removeOneBudget(service, budgetServices); budget.total = budgetHelper.calcTotal(budgetServices)">
+                                        <i class="fas fa-times"></i>
+                                    </div>
+                                </div>
+                                <div class="clm-xs-12">
+                                    <div class="usv-g-line_h"></div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</form>

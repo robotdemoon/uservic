@@ -1,0 +1,54 @@
+/////////////////////////////////
+//Columnas
+/////////////////////////////////
+
+@mixin cols($ncol:12) {
+	@each $element, $breakpoint in $breakpoints{
+	  @media only screen and (min-width: $breakpoint){
+			@for $i from 0 through $ncol {
+				//Crea el sistema de columnas segun las que se requieran
+				@if $i != 0 {
+					.clm-#{$element}-#{$i} {
+					width: percentage((1/$ncol) * $i);
+					//align-self: stretch;
+					}
+				}
+				//Crea un espacio por 1,2,3, etc de columnas en fin de dejar un espacio
+				@if $i < $ncol{
+					.offs-#{$element}-#{$i} {
+					margin-left: percentage((1/$ncol) * $i);
+					}
+				}
+			}
+		}	
+	}		
+}
+/*------------------------------
+Agregando clase row
+------------------------------*/
+.row{
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	&_center{
+		align-items: center;
+	}
+}
+.usv-mcontainer{
+	width: calc(100% - 1rem);
+	margin: 1rem auto;
+}
+.usv-scontainer{
+	width:  calc(100% - 2rem);
+	margin: 0 1rem;
+	padding-bottom: 0.5rem;
+}
+.usv-left-line{
+	width: calc(100% - 0px);
+	min-height: calc(100vh - 180px);
+	border-left: 0px solid lighten(color('secundary'), 70);
+}
+/*------------------------------
+Ejecutando cols
+------------------------------*/
+@include cols($ncol);

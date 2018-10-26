@@ -1,0 +1,14 @@
+/*------------------------------------
+Funcion para obtener el texto de los
+predeterminados en las variables
+------------------------------------*/
+@function text($var, $item){
+	@return map-get($item, $var);
+}
+/*------------------------------------
+Funcion para obtener el color de los
+predeterminados en las variables
+------------------------------------*/
+@function color($color){
+	@return map-get($paleta, $color);
+}

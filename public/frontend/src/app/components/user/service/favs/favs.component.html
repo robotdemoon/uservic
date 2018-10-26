@@ -1,0 +1,34 @@
+<div class="usv-mcontainer">
+  <div class="row usv-scontainer">
+      <div class="clm-xs-12">
+          <div class="usv-mt">
+              <h1 class="usv-mt_h1">Mis Servicios Favoritos</h1>
+          </div>
+      </div>
+      <div class="clm-xs-12">
+          <div class="row usv-scontainer-line">
+              <div class="clm-xs-12 clm-sm-6 clm-lg-4 clm-xl-3" *ngFor="let service of services">
+                <div class="usv-s usv-s-s">
+                    <div class="usv-s-s-c usv-g-shadow usv-cursor-hov" routerLink="/service/{{service.identity}}">
+                        <div class="usv-s-s-c_t usv-g-shadow usv-bg-primary"></div>
+                        <div class="usv-s-s-c_i">
+                            <p class="usv-t-cut usv-s-s-c_i-p usv-t-w-bd">{{service.fullname}}</p>
+                            <p class="usv-t-cut usv-s-s-c_i-p">Dias: {{service.business_days}}</p>
+                            <p class="usv-t-cut usv-s-s-c_i-p">Horario: {{service.open}} - {{service.close}}</p>
+                        </div>
+                    </div>
+                    <div class="usv-s-s-img usv-g-shadow usv-cursor-hov" routerLink="/service/{{service.identity}}">
+                        <img  src="{{url + service.image}}">
+                        <div class="usv-s-s-img-b usv-g-shadow usv-bg-primary"></div>
+                        <div class="usv-s-s-img-h"></div>
+                    </div>
+                    <div class="usv-s-s-t_double">
+                        <h2 class="usv-t-w-bd usv-t-cut usv-s-s-t_double-h2 usv-cursor-hov" routerLink="/service/{{service.identity}}">{{service.name_service}}</h2>
+                        <i class="fas fa-star usv-s-s-t_double-icon usv-s-s-t_double-icon_xs usv-cursor-hov" (click)="removeFavs(service)"></i>
+                    </div>
+                </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

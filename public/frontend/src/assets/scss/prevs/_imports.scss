@@ -1,0 +1,26 @@
+/*------------------------------
+Importar normalize
+------------------------------*/
+@import "configs/_normalize.scss";
+@import "configs/_elements.scss";
+/*------------------------------
+Importar modules
+------------------------------*/
+@import "modules/_header.scss";
+@import "modules/_navleft.scss";
+@import "modules/_settings.scss";
+@import "modules/_chat.scss";
+@import "modules/_scroll.scss";
+@import "modules/_service.scss";
+/*------------------------------
+Importar estilos globales
+------------------------------*/
+@import "general/_cols.scss";
+@import "general/_buttons.scss";
+@import "general/_querys.scss";
+@import "general/_inputs.scss";
+@import "general/_alerts.scss";
+/*------------------------------
+Importar estilos de Angular
+------------------------------*/
+@import "angular-class/_angular-class.scss";

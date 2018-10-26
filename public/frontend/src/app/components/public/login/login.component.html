@@ -1,0 +1,170 @@
+<div class="usv-page-login usv-g-shadow">
+	<div class="usv-page-login-slogan">
+		<div class="row">
+			<div class="clm-xs-12 usv-page-login-slogan_div">
+				<h2 class="usv-color-light usv-g-display_inline usv-t-w-l"><h2 class="usv-t-w-bd usv-g-display_inline usv-color-light">USERVIC,</h2> la mejor forma de encontrar <strong>un buen servicio</strong> y la de poder <strong>crearlo tu mismo.</strong></h2>
+			</div>
+			<div class="clm-xs-4 usv-page-login-slogan_div">
+				<img class="usv-page-login-slogan-image-xs usv-cursor-hov" src="{{url}}app1.png">
+			</div>
+			<div class="clm-xs-8 usv-page-login-slogan_div">
+				<img class="usv-page-login-slogan-image-lg" src="{{url}}app2.png">
+			</div>
+		</div>
+	</div>
+	<div class="usv-page-login-forms">
+		<div class="row" [ngClass]="{'usv-angular-display_none': hideForm}">
+			<div class="clm-xs-12">
+				<form (submit)="logIn()" #userForm="ngForm">
+					<div class="row">
+						<div class="clm-xs-12 usv-g-margin_b-double usv-g-margin_t-double">
+								<a class="usv-btn usv-btn-s_xs usv-btn-a_r usv-btn-co usv-bg-light usv-g-shadow_l" (click) = "hideForm = true">Registrarse</a>
+						</div>
+						<div class="clm-xs-12">
+							<div class="usv-mt">
+								<h3 class="usv-t-w-bk usv-mt_h3">INICIAR SESIÓN</h3>
+							</div>
+						</div>
+						<div class="clm-xs-6">
+							<div class="usv-i-cnt">
+								<label class="usv-i-cnt_lb usv-t-w-r">Correo:</label>
+								<input type="email" name="email" placeholder="E-mail" class="usv-i usv-i-cnt_i" [(ngModel)]="user_login.email" #email="ngModel" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" required>
+								<div class="usv-i-cnt_e" *ngIf="email.invalid && (email.dirty || email.touched)">
+									<span *ngIf="email.errors.required">El email es Obligatorio</span>
+									<span *ngIf="email.errors.pattern">El email es invalido</span>
+								</div>
+							</div>
+						</div>
+						<div class="clm-xs-6">
+							<div class="usv-i-cnt">
+								<label class="usv-i-cnt_lb usv-t-w-r">Contraseña:</label>
+								<input type="password" name="password" placeholder="Contraseña" class="usv-i usv-i-cnt_i" [(ngModel)]="user_login.password" #password="ngModel" required>
+								<div class="usv-i-cnt_e" *ngIf="!password.valid && password.touched">Contraseña Obligatoria</div>
+							</div>
+						</div>
+						<div class="clm-xs-12">
+							<input  class="usv-btn usv-btn-s_xs usv-btn-a_r usv-g-shadow usv-bg-primary usv-color-light" type="submit" value="Iniciar Sesion" [disabled]="!userForm.form.valid">
+						</div>
+						<div class="clm-xs-12 usv-g-margin_t-double usv-margin_b-double">
+							<a class="usv-t-w-bk usv-g-display_block usv-g-textalign_r">* Recuperar Contraseña</a>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="row" [ngClass]="{'usv-angular-display_none': !hideForm}">
+			<div class="clm-xs-12 usv-g-margin_b-double usv-g-margin_t-double">
+				<a class="usv-btn usv-btn-s_xs usv-btn-a_r usv-btn-co usv-bg-light usv-g-shadow_l" (click) = "hideForm = false">Iniciar Sesión</a>
+			</div>
+			<div class="clm-xs-12">
+				<div class="usv-mt">
+					<h3 class="usv-t-w-bk usv-mt_h3">REGISTRARSE</h3>
+				</div>
+      </div>
+			<div class="clm-xs-12">
+          <form (submit)="signIn()" #signInForm="ngForm">
+          <div class="row">
+            <div class="clm-xs-8">
+              <div class="usv-i-cnt">
+                <label class="usv-i-cnt_lb usv-t-w-r">Nombre:</label>
+                <input type="text" name="fullname" placeholder="Nombre" class="usv-i usv-i-cnt_i" [(ngModel)]="user_signin.fullname" #fullname="ngModel" required>
+                <div class="usv-i-cnt_e" *ngIf="fullname.invalid && (fullname.dirty || fullname.touched)">
+                  <span *ngIf="fullname.errors.required">* El nombre Completo es Obligatorio</span>
+                </div>
+              </div>
+            </div>
+            <div class="clm-xs-4">
+              <div class="usv-i-cnt">
+                <label class="usv-i-cnt_lb usv-t-w-r">Edad:</label>
+                <input type="number" name="age" placeholder="Edad" class="usv-i usv-i-cnt_i" [(ngModel)]="user_signin.age" #age="ngModel" min="16" max="99" step="1" required>
+                <div class="usv-i-cnt_e" *ngIf="age.invalid && (age.dirty || age.touched)">
+                  <span *ngIf="age.errors.required">* La Edad es Obligatorio</span>
+                </div>
+              </div>
+            </div>
+            <div class="clm-xs-6">
+              <div class="usv-i-cnt">
+                <label class="usv-i-cnt_lb usv-t-w-r">Nombre de Usuario:</label>
+                <input type="text" name="username" placeholder="Nombre de Usuario" class="usv-i usv-i-cnt_i" [(ngModel)]="user_signin.username" #username="ngModel" required>
+                <div class="usv-i-cnt_e" *ngIf="username.invalid && (username.dirty || username.touched)">
+                  <span *ngIf="username.errors.required">* El nombre de usuario es Obligatorio</span>
+                </div>
+              </div>
+            </div>
+            <div class="clm-xs-6">
+              <div class="usv-i-cnt">
+                <label class="usv-i-cnt_lb usv-t-w-r">E-mail:</label>
+                <input type="email"  name="email" placeholder="E-mail" class="usv-i usv-i-cnt_i" [(ngModel)]="user_signin.email" #email="ngModel" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" required>
+                <div class="usv-i-cnt_e" *ngIf="email.invalid && (email.dirty || email.touched)">
+                  <span *ngIf="email.errors.required">El email es Obligatorio</span>
+                  <span *ngIf="email.errors.pattern">El email es invalido</span>
+                </div>
+              </div>
+            </div>
+            <div class="clm-xs-12 clm-md-4">  
+              <div class="usv-i-cnt">
+                <label class="usv-i-cnt_lb usv-t-w-r">Pais:</label>
+                <select class="usv-i usv-i_s usv-i-cnt_i" name="country" [(ngModel)]="user_signin.country" #country="ngModel" required>
+                  <option [ngValue]="+0">Selecciona un Pais</option>
+                  <option [ngValue]="+country.id" *ngFor="let country of countries$ | async">{{country.name}}</option>
+                </select>
+                <div class="usv-i-cnt_e" *ngIf="country.invalid && (country.dirty || country.touched)">
+                  <span *ngIf="country.errors.required">El Pais es Obligatorio</span>
+                </div>
+              </div>
+            </div>
+            <div class="clm-xs-12 clm-md-4">  
+              <div class="usv-i-cnt">
+                <label class="usv-i-cnt_lb usv-t-w-r">Campo de Preferencia:</label>
+                <select class="usv-i usv-i_s usv-i-cnt_i" name="sector" [(ngModel)]="user_signin.sector" #sector="ngModel" required>
+                  <option value="">Selecciona una Categoria</option>
+                  <option *ngFor="let category of categories" value="{{category.category}}">{{category.value}}</option>
+                </select>
+                <div class="usv-i-cnt_e" *ngIf="sector.invalid && (sector.dirty || sector.touched)">
+                  <span *ngIf="sector.errors.required">El Pais es Obligatorio</span>
+                </div>
+              </div>
+            </div>
+            <div class="clm-xs-12 clm-md-4">  
+              <div class="usv-i-cnt">
+                <label class="usv-i-cnt_lb usv-t-w-r">Escolaridad:</label>
+                <select class="usv-i usv-i_s usv-i-cnt_i" name="scholarship" [(ngModel)]="user_signin.scholarship" #scholarship="ngModel" required>
+                  <option value="">Selecciona una Categoria</option>
+                  <option *ngFor="let scholarship of scholarships" value="{{scholarship.degree}}">{{scholarship.value}}</option>
+                </select>
+                <div class="usv-i-cnt_e" *ngIf="scholarship.invalid && (scholarship.dirty || scholarship.touched)">
+                  <span *ngIf="scholarship.errors.required">La Escolaridad es Obligatoria</span>
+                </div>
+              </div>
+            </div>
+            <div class="clm-xs-6">
+              <div class="usv-i-cnt">
+                <label class="usv-i-cnt_lb usv-t-w-r">Contraseña:</label>
+                <input type="password" name="pwd" placeholder="Contraseña" class="usv-i usv-i-cnt_i" [(ngModel)]="user_signin.password" #pwd="ngModel" required>
+								<div class="usv-i-cnt_e" *ngIf="!pwd.valid && pwd.touched">Contraseña Obligatoria</div>
+              </div>
+            </div>
+            <div class="clm-xs-6">
+              <div class="usv-i-cnt">
+                <label class="usv-i-cnt_lb usv-t-w-r">Validar Contraseña:</label>
+                <input type="password" name="pwd2" placeholder="Contraseña" class="usv-i usv-i-cnt_i" [(ngModel)]="pwd_confirm" #pwd2="ngModel" required>
+                <div class="usv-i-cnt_e" *ngIf="pwd2.invalid && (pwd2.dirty || pwd2.touched)">
+                  <span *ngIf="pwd2.errors.required">Verificar la Contraseña es Obligatorio</span>
+                </div>
+                <div class="usv-i-cnt_e" *ngIf="(pwd2.dirty || pwd2.touched) && pwd_confirm != user_signin.password">
+                  <span>Las Contraseñas no coinciden</span>
+                </div>
+              </div>
+            </div>
+            <div class="clm-xs-12 usv-g-margin_t-double usv-g-margin_b-double">
+              <p class="usv-t-w-r">* Al hacer clic en Registrase, Aceptas las Politicas de Privacidad y Condiciones de Uso</p>
+            </div>
+            <div class="clm-xs-12">
+              <input  class="usv-btn usv-btn-s_xs usv-btn-a_r usv-g-shadow usv-bg-primary usv-color-light" type="submit" value="Registrarse"  [disabled]="!signInForm.form.valid || pwd_confirm != user_signin.password">
+            </div>
+          </div>
+        </form>
+			</div>
+		</div>
+	</div>
+</div>

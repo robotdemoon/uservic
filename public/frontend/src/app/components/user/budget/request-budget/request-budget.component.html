@@ -1,0 +1,61 @@
+<div class="usv-mcontainer" *ngIf="budgetRequests">
+    <div class="row usv-scontainer">
+        <div class="clm-xs-12">
+            <div class="usv-mt">
+                <h1 class="usv-mt_h1">Solicitudes de Presupuestos</h1>
+            </div>
+        </div>
+        <div class="clm-xs-12">
+            <div class="row">
+                <div class="clm-xs-12">
+                    <div class="usv-mcontainer">
+                        <div class="usv-table_container usv-g-shadow">
+                            <table class="usv-table">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Nombre del Usuario</th>
+                                        <th class="usv-table-hd">Email</th>
+                                        <th>Descripcin</th>
+                                        <th>Status</th>
+                                        <th class="usv-table-hd">Fecha</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tfoot>
+                                    <tr>
+                                        <td colspan="7">{{budgetRequests.length}} Solicitudes a Cambiar</td>
+                                    </tr>
+                                </tfoot>
+                                <tbody>
+                                    <tr *ngIf="budgetRequests.length <= 0">
+                                        <td colspan="7">Aun no Tienes Solicitudes de Presupuestos</td>
+                                    </tr>
+                                    <tr *ngFor="let request of budgetRequests; let i = index;">
+                                        <td>{{i + 1}}</td>
+                                        <td>{{request.fullname}}</td>
+                                        <td class="usv-table-hd">{{request.email}}</td>
+                                        <td style="max-width: 150px">{{request.description}}</td>
+                                        <td>{{request.status}}</td>
+                                        <td class="usv-table-hd">{{request.date}}</td>
+                                        <td>
+                                            <div class="usv-icon_container">
+                                                <a class="usv-icon-table" routerLink="/p/{{request.username}}/perfil"><i class="fas fa-user" title="Ver Perfil"></i></a>
+                                                <a class="usv-icon-table" routerLink="/usr/budget/w" title="Ver Presupuesto" *ngIf="request.isCostumer == 1 && request.budget != null"><i class="fas fa-suitcase" (click)="idBudgetNav.id = +request.budget;idBudgetNav.t='provider'"></i></a>
+                                                <a class="usv-icon-table" routerLink="/usr/budget/create" (click)="requestHelper.updateRequest('Pending Provider', request);request.status = 'Pending Provider';setData(request)" title="Crear Presupuesto" *ngIf="request.isCostumer == 1 && request.budget == null"><i class="fas fa-dollar-sign"></i></a>
+                                                <a class="usv-icon-table" title="Agregar como Cliente" (click)="costumerHelper.addCostumer(+request.user);request.isCostumer = 1;requestHelper.updateRequest('Pending Provider', request);request.status = 'Pending Provider'" *ngIf="request.isCostumer == 0"><i class="fas fa-user-plus"></i></a>
+                                                <a class="usv-icon-table" (click)="budgetRequests = requestHelper.updateRequest('Ejected', request, budgetRequests)" title="Rechazar" *ngIf="(request.status == 'Pending' || request.status == 'Pending Provider') && request.budget == null"><i class="fas fa-times"></i></a>
+                                                <a class="usv-icon-table" (click)="budgetRequests = requestHelper.updateRequest('Completed Deleted', request, budgetRequests)" title="Eliminar Solicitud" *ngIf="request.status == 'Completed' || request.budget != null"><i class="fas fa-times"></i></a><!--Falta este Metodo-->
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  

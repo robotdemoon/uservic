@@ -1,0 +1,64 @@
+/*------------------------------------
+Clases de contenedores
+------------------------------------*/
+.row{
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	&_center{
+		align-items: center;
+	}
+}
+.usv-mcontainer{
+	width: calc(100% - 1rem);
+	margin: 1rem auto;
+}
+.usv-scontainer{
+	width:  calc(100% - 2rem);
+	margin: 0 1rem;
+	padding-bottom: 0.5rem;
+}
+.usv-left-line{
+	width: calc(100% - 0px);
+	min-height: calc(100vh - 180px);
+    border-left: 0px solid lighten(color('secundary'), 70);
+    &_xs{
+        min-height: 100%;
+    }
+}
+/*------------------------------------
+Agregando el mixin para columnas
+------------------------------------*/
+@include cols($ncol);
+/*------------------------------------
+Distribución global
+------------------------------------*/
+.usv-m{
+    &-header{
+        grid-area: header;
+        width: 100%;
+        height: 50px;
+    }
+    &-navleft{
+        grid-area: nav;
+        width: 220px;
+        height: calc( 100vh - 50px);
+        min-height: 400px;
+        display:none;
+    }
+    &-content{
+		@include size_f(calc(100% - 2rem), calc(100vw - 2rem), 0.5rem auto 0 auto);
+        min-height: calc(100vh - 50px - 2rem);
+        max-width: 1200px;
+        grid-area: main;
+        background: color('light');
+    }
+    &-parent{
+        display: grid;
+        grid-template-areas: 
+            'header header header header header header header header header header'
+            'nav main main main main main main main main main'
+            'nav main main main main main main main main main'
+            'nav main main main main main main main main main';
+    }
+}

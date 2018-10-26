@@ -1,0 +1,618 @@
+{
+	"info": {
+		"_postman_id": "65734ad3-8f7d-4b84-bbd8-953c7ff6aa31",
+		"name": "uservic_php",
+		"description": "Reediseño de Uservic PHP",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "user_perfil",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "d",
+									"value": "{\"token\":{{tokenG}},\"action\":\"get\"}",
+									"description": "Usuario conectado accesa a: get, getEdit, getPublic",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "d",
+									"value": "{\"token\":{{tokenG}},\"action\":\"getEdit\"}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/php/proyectos/uservic/public/user/perfil",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"php",
+								"proyectos",
+								"uservic",
+								"public",
+								"user",
+								"perfil"
+							]
+						},
+						"description": "perfil del usuario"
+					},
+					"response": []
+				},
+				{
+					"name": "user_settings",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "d",
+									"value": "{\"token\":{{tokenG}}, \"action\":\"get\"}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/php/proyectos/uservic/public/user/settings",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"php",
+								"proyectos",
+								"uservic",
+								"public",
+								"user",
+								"settings"
+							]
+						},
+						"description": "Preferencias del usuario"
+					},
+					"response": []
+				},
+				{
+					"name": "user_favs",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "d",
+									"value": "{\"token\":{{tokenG}}, \"action\":\"get\"}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/php/proyectos/uservic/public/user/favs",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"php",
+								"proyectos",
+								"uservic",
+								"public",
+								"user",
+								"favs"
+							]
+						},
+						"description": "Servicios favoritos del usuario"
+					},
+					"response": []
+				},
+				{
+					"name": "user_services",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "d",
+									"value": "{\"token\":{{tokenG}},\"id\":\"SERGUPZFTN6ZCBI7ZVIC\", \"action\":\"getEdit\"}",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "d",
+									"value": "{\"token\":{{tokenG}}, \"action\":\"getNames\"}",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "d",
+									"value": "{\"token\":{{tokenG}}, \"action\":\"getAll\"}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/php/proyectos/uservic/public/user/services",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"php",
+								"proyectos",
+								"uservic",
+								"public",
+								"user",
+								"services"
+							]
+						},
+						"description": "Servicios del Usuario"
+					},
+					"response": []
+				},
+				{
+					"name": "user_conexions",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "d",
+									"value": "{\"token\":{{tokenG}},\"action\":\"get\"}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/php/proyectos/uservic/public/user/conexions",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"php",
+								"proyectos",
+								"uservic",
+								"public",
+								"user",
+								"conexions"
+							]
+						},
+						"description": "User's conexions"
+					},
+					"response": []
+				},
+				{
+					"name": "user_costumers",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "d",
+									"value": "{\"token\":{{tokenG}},\"action\":\"get\"}",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "d",
+									"value": "{\"token\":{{tokenG}}, \"id\":\"US1041966IOMGIJHER\",\"action\":\"find\"}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/php/proyectos/uservic/public/user/costumers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"php",
+								"proyectos",
+								"uservic",
+								"public",
+								"user",
+								"costumers"
+							]
+						},
+						"description": "user costumers \n"
+					},
+					"response": []
+				},
+				{
+					"name": "user_requests",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "d",
+									"value": "{\"token\":{{tokenG}},\"action\":\"get\", \"data\":{\"t\":\"user\"}}",
+									"type": "text"
+								},
+								{
+									"key": "d",
+									"value": "{\"token\":{{tokenG}},\"action\":\"get\", \"data\":{\"t\":\"provider\"}}",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/php/proyectos/uservic/public/user/requests",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"php",
+								"proyectos",
+								"uservic",
+								"public",
+								"user",
+								"requests"
+							]
+						},
+						"description": "budget requests\n"
+					},
+					"response": []
+				},
+				{
+					"name": "user_budgets",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "d",
+									"value": "{\"token\":{{tokenG}},\"action\":\"get\", \"id\":\"BUD2034LAJSADGET\", \"data\":{\"t\":\"provider\"}}",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "d",
+									"value": "{\"token\":{{tokenG}},\"action\":\"get\", \"id\":\"BUD2034LAJSADGET\", \"data\":{\"t\":\"user\"}}",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "d",
+									"value": "{\"token\":{{tokenG}},\"action\":\"get\", \"id\":\"BUDIQZ1WL49IZU4DN2GET\", \"data\":{\"t\":\"provider\"}}",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "d",
+									"value": "{\"token\":{{tokenG}},\"action\":\"getAll\"}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/php/proyectos/uservic/public/user/budgets",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"php",
+								"proyectos",
+								"uservic",
+								"public",
+								"user",
+								"budgets"
+							]
+						},
+						"description": "user's budgets"
+					},
+					"response": []
+				}
+			],
+			"description": "Propiedades de Usuario"
+		},
+		{
+			"name": "Services",
+			"item": [
+				{
+					"name": "Search",
+					"item": [
+						{
+							"name": "search_perfil",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "d",
+											"value": "{\"id\":\"US9967742JOGPUGOER\",\"action\":\"getPublic\"}",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "d",
+											"value": "{\"token\":{{tokenG}}, \"id\":\"US9967742JOGPUGOER\",\"action\":\"getPublic\"}",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost/php/proyectos/uservic/public/search/perfil",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"php",
+										"proyectos",
+										"uservic",
+										"public",
+										"search",
+										"perfil"
+									]
+								},
+								"description": "buscar perfil de usuario"
+							},
+							"response": []
+						},
+						{
+							"name": "search_services",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "d",
+											"value": "{\"action\":\"getSearch\",\"data\":{\"filter\":{\"category\":\"Healthy\"},\"query\":\"salsa me\"}}",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "d",
+											"value": "{\"action\":\"getSearch\",\"data\":{\"filter\":{\"category\":\"Healthy\"},\"query\":\"co\"}}",
+											"description": "Obtiene el Servicio por Busqueda",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "d",
+											"value": "{\"action\":\"getBy\",\"data\":{\"filter\":{\"category\":\"Engineering\"}}}",
+											"description": "Obtiene el Servicio Por Query o Filtro o Ambos ",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "d",
+											"value": "{\"token\":{{tokenG}},\"action\":\"getBy\",\"data\":{\"filter\":{\"category\":\"Engineering\"}}}",
+											"description": "Obtiene el Servicio Por Query o Filtro o Ambos ",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "d",
+											"value": "{\"action\":\"getPublic\",\"id\":\"SERD2DD4RSDJH0CKEVIC\"}",
+											"description": "Obtiene un Servicio Publico con Id",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "d",
+											"value": "{\"token\":{{tokenG}},\"action\":\"getPublic\",\"id\":\"SERGUPZFTN6ZCBI7ZVIC\"}",
+											"description": "Obtiene un servicio propio Publico con Id",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "d",
+											"value": "{\"token\":{{tokenG}},\"action\":\"getPublic\",\"id\":\"SER1058148QHDVYDMVIC\"}",
+											"description": "Obtiene un servicio ajeno Publico con Id",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "d",
+											"value": "{\"action\":\"getPublic\",\"id\":\"SER1058148QHDVYDMVIC\"}",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "d",
+											"value": "{\"action\":\"getPublic\",\"id\":\"SER1058148AAQHDVYDMVIC\"}",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "d",
+											"value": "{\"action\":\"getCategories\",\"id\":\"xASASs\"}",
+											"description": "Obtiene los servicios por categorias",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "d",
+											"value": "{\"action\":\"getTop\",\"id\":\"xs\"}",
+											"description": "Obtiene los top 3 por categorias",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "d",
+											"value": "{\"action\":\"getSearch\",\"data\":{\"filter\":{\"category\":\"Healthy\"},\"query\":\"salsa me\",\"min\":10,\"max\":32}}",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "d",
+											"value": "{\"token\":{{tokenG}},\"action\":\"getSearch\",\"data\":{\"filter\":{\"category\":\"Healthy\"},\"query\":\"salsa me\",\"min\":10,\"max\":2}}",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost/php/proyectos/uservic/public/search/services",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"php",
+										"proyectos",
+										"uservic",
+										"public",
+										"search",
+										"services"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Busqueda de Perfil y Services",
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "services_comments",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "d",
+									"value": "{\"token\":{{tokenG}},\"action\":\"get\", \"id\":\"SER1008472SZKBSPWVIC\"}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/php/proyectos/uservic/public/services/comments",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"php",
+								"proyectos",
+								"uservic",
+								"public",
+								"services",
+								"comments"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Entidad de Servicio"
+		},
+		{
+			"name": "Coverage",
+			"item": [
+				{
+					"name": "coverage",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "d",
+									"value": "{\"id\":\"sends\",\"action\":\"getCountries\"}",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "d",
+									"value": "{\"id\":10,\"action\":\"getStates\"}",
+									"type": "text"
+								},
+								{
+									"key": "d",
+									"value": "{\"id\":212,\"action\":\"getCities\"}",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/php/proyectos/uservic/public/coverage/search",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"php",
+								"proyectos",
+								"uservic",
+								"public",
+								"coverage",
+								"search"
+							]
+						},
+						"description": "get all coverage"
+					},
+					"response": []
+				}
+			],
+			"description": "Get countries, states and cities\n"
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "71eb956e-60c1-49b7-88b0-caa1d30f8830",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "73afaade-e395-4899-8a28-c39c237d507e",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "985a8887-3e03-4c20-9af8-1317738718fe",
+			"key": "tokenG",
+			"value": "\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Iml2YW5AaXZhbi5jb20iLCJ0aW1ldXNlciI6IjE1MzAzNDMxZGU5YzIzMDc5ODIwNTc0MjY1MWUxNDZkODJjMGUzYTJhOWI1NzMzNzcyY2MyMDMxZWY5MWY5MTkiLCJpbWFnZSI6IjMuanBnIiwidXNlcm5hbWUiOiJpdmFubWxhciIsImlhdCI6MTUzMzgyMjk1NywiZXhwIjoxNTM2NDE0OTU3fQ.YnU6QCDYT3gCXiHGSaTPnwWtl5QlSZif1e_kbQVg1A4\"",
+			"type": "string"
+		}
+	]
+}

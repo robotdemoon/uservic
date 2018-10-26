@@ -1,0 +1,271 @@
+<div *ngIf="service">
+  <form (submit)="updateService()" #serviceForm="ngForm" >
+    <div class="usv-mcontainer">
+        <div class="row usv-scontainer">
+            <div class="clm-xs-12">
+                <div class="usv-mt">
+                    <h1 class="usv-mt_h1">Editar Servicio <span *ngIf="service.name_service != ''"> / {{service.name_service | uppercase}}</span></h1>
+                </div>
+            </div>
+        </div>
+        <div class="row usv-scontainer">
+            <div class="clm-xs-12 clm-md-4 clm-lg-3">
+              <div class="row">
+                <div class="clm-xs-12">
+                  <div class="usv-img usv-g-shadow usv-cursor-hov">
+                      <img src="{{url + image}}" class="usv-cursor-hov" *ngIf="image">
+                      <input type="file" name="image" [(ngModel)]="imagenUp" (change)="imageUpdate($event);" class="usv-cursor-hov" >
+                  </div>
+                </div>
+                <div class="clm-xs-12">
+                  <input  class="usv-btn usv-btn-s_xs usv-btn-co usv-bg-light usv-g-shadow_l" type="submit" value="Guardar" [disabled]="!serviceForm.form.valid">
+                </div>
+              </div>
+            </div>
+            <div class="clm-xs-12 clm-md-8 clm-lg-9">
+                <div class="usv-left-line">
+                    <div class="row usv-scontainer">
+                        <div class="clm-xs-12">
+                            <div class="usv-mt">
+                                <h3 class="usv-mt_h3">INFORMACIÓN GENERAL</h3>
+                            </div>
+                        </div>
+                        <div class="clm-xs-12">
+                          <div class="row">
+                            <div class="clm-xs-12 clm-sm-6 clm-xl-5">
+                              <div class="usv-i-cnt">
+                                <label class="usv-i-cnt_lb usv-t-w-r">Nombre de Servicio:</label>
+                                <input type="text" class="usv-i usv-i-cnt_i"  minlength="4" placeholder="Nombre de Servicio" [(ngModel)]="service.name_service" name="name_service" #name_service="ngModel" minlength="5" maxlength="20" required>
+                                <div class="usv-i-cnt_e" *ngIf="name_service.invalid && (name_service.dirty || name_service.touched)">
+                                    <p class="alert-text alert-textSmall" *ngIf="name_service.errors.required">El nombre del Servicio es Obligatorio</p>
+                                    <p class="alert-text alert-textSmall" *ngIf="name_service.errors.minlength">El nombre del Servicio debe tener al menos 5 Caracteres</p>
+                                    <p class="alert-text alert-textSmall" *ngIf="name_service.errors.maxlength">>El nombre del Servicio debe tener maximo 20 Caracteres</p>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="clm-xs-12 clm-sm-6 clm-xl-5">
+                                <div class="usv-i-cnt">
+                                    <label class="usv-i-cnt_lb usv-t-w-r">Categoria:</label>
+                                    <select class="usv-i usv-i_s usv-i-cnt_i" [(ngModel)]="service.category" name="category" #category_service="ngModel" required>
+                                        <option value="">Categoria</option>
+                                        <option *ngFor="let category of categories" value="{{category.category}}">{{category.value}}</option>
+                                    </select>
+                                    <div class="usv-i-cnt_e" *ngIf="category_service.invalid && (category_service.dirty || category_service.touched)">
+                                        <span *ngIf="category_service.errors.required">El nombre del Servicio es Obligatorio</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clm-xs-12 clm-sm-6 clm-xl-2">
+                                <div class="usv-i-cnt">
+                                    <label class="usv-i-cnt_lb usv-t-w-r">Experiencia:</label>
+                                    <input type="number" placeholder="0" min="0" max="100" class="usv-i usv-i-cnt_i" [(ngModel)]="service.experience" name="experience">
+                                </div>
+                            </div>
+                            <div class="clm-xs-12 clm-sm-6 clm-xl-4">
+                                <div class="usv-i-cnt">
+                                  <label class="usv-i-cnt_lb usv-t-w-r">Tipo de Servicio:</label>
+                                  <select class="usv-i usv-i_s usv-i-cnt_i" [(ngModel)]="service.type_service" name="typeService" #typeService_service="ngModel" required>
+                                      <option value="">Escoge tipo de Costo</option>
+                                      <option value="{{typeservice.name}}" *ngFor="let typeservice of typeservices">{{typeservice.value}}</option>
+                                    </select>
+                                  <div class="usv-i-cnt_e" *ngIf="typeService_service.invalid && (typeService_service.dirty || typeService_service.touched)">
+                                      <span *ngIf="typeService_service.errors.required">El Tipo de Servicio  es Obligatorio</span>
+                                  </div>
+                                </div>
+                              </div>
+                            <div class="clm-xs-12 clm-sm-6 clm-xl-4">
+                                <div class="usv-i-cnt">
+                                  <label class="usv-i-cnt_lb usv-t-w-r">Tipo de Costo:</label>
+                                  <select class="usv-i usv-i_s usv-i-cnt_i" [(ngModel)]="service.type_cost" name="typeCost" #typeCost_service="ngModel" required>
+                                      <option value="">Escoge tipo de Costo</option>
+                                      <option value="{{typecost.name}}" *ngFor="let typecost of typecosts">{{typecost.value}}</option>
+                                    </select>
+                                  <div class="usv-i-cnt_e" *ngIf="typeCost_service.invalid && (typeCost_service.dirty || typeCost_service.touched)">
+                                      <span *ngIf="typeCost_service.errors.required">El Tipo de Costo es Obligatorio</span>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="clm-xs-12 clm-sm-6 clm-xl-2">
+                                <div class="usv-i-cnt">
+                                    <label class="usv-i-cnt_lb usv-t-w-r">Tipo de Moneda:</label>
+                                    <select class="usv-i usv-i_s usv-i-cnt_i" [(ngModel)]="service.type_money" name="typeMoney" #typeMoney_service="ngModel" required>
+                                        <option value="">Tipo de Moneda</option>
+                                        <option value="MXN">Peso Méxicano</option>
+                                        <option value="USD">Dolares</option>
+                                        <option value="EUR">Euros</option>
+                                    </select>
+                                    <div class="usv-i-cnt_e" *ngIf="typeMoney_service.invalid && (typeMoney_service.dirty || typeMoney_service.touched)">
+                                        <span *ngIf="typeMoney_service.errors.required">El Tipo de Moneda es Obligatorio</span>
+                                    </div>
+                                </div>
+                            </div>
+                              <div class="clm-xs-12 clm-sm-6 clm-xl-2">
+                                  <div class="usv-i-cnt">
+                                      <label class="usv-i-cnt_lb usv-t-w-r">Costo Promedio:</label>
+                                      <input class="usv-i usv-i-cnt_i" type="number" step = "100" placeholder="Costo Promedio" [(ngModel)]="+service.cost" name="cost" #cost_service="ngModel" required>
+                                      <div class="usv-i-cnt_e" *ngIf="cost_service.invalid && (cost_service.dirty || cost_service.touched)">
+                                          <span *ngIf="cost_service.errors.required">El Costo Promedio es Obligatorio</span>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="clm-xs-12">
+                                  <div class="usv-i-cnt" >
+                                      <label class="usv-i-cnt_lb usv-t-w-r">Descripción:</label>
+                                      <textarea class="usv-i usv-i_a usv-i-cnt_i" placeholder="Descripcion del Servicio" [(ngModel)]="service.description" name="description"></textarea>
+                                  </div>
+                              </div>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="row usv-scontainer">
+                        <div class="clm-xs-12">
+                            <div class="usv-mt">
+                                <h3 class="usv-mt_h3">HORARIO DEL SERVICIO</h3>
+                            </div>
+                        </div>
+                        <div class="clm-xs-12 clm-sm-6 clm-lg-4">
+                            <div class="usv-i-cnt">
+                                <label class="usv-i-cnt_lb usv-t-w-r">Dias Habiles:</label>
+                                <div class="usv-i-cnt-options_c" clickOutside (clickOutside)="days_menu = false">
+                                    <input type="text" class="usv-i usv-i-cnt_i usv-cursor-hov" placeholder="Dias que ofreces tu servicio" (click)="days_menu = design.visibilityItem(days_menu)" [(ngModel)]="daysSelected" name="days" autocomplete="off">
+                                    <i class="fas fa-sort-down usv-i-cnt-options_c-icon usv-cursor-hov"></i>
+                                    <div class="usv-i-options" [ngClass]="{'usv-g-display_none':!days_menu}">
+                                        <div class="usv-i-options_o" *ngFor="let day of days">
+                                            <div class="usv-g-checkbox-cont usv-g-checkbox-cont_wtext">
+                                                <input  type="checkbox" class="usv-g-checkbox-cont_input usv-g-checkbox-cont_input_xs" (change)="daysSelected = input.filterCheckbox(days, true,false, 'value'); service.business_days = input.filterCheckbox(days, true)" [(ngModel)]="day.checked" name="day" name="day_{{day.id}}" >
+                                                <div class="usv-g-checkbox-cont_sqr usv-g-checkbox-cont_sqr_xs usv-g-shadow"><i class="fas fa-check"></i></div>
+                                                <span class="usv-g-checkbox-cont_span usv-g-checkbox-cont_span_xs">{{day.value}}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clm-xs-12 clm-sm-3 clm-lg-4">
+                            <div class="usv-i-cnt">
+                                <label class="usv-i-cnt_lb usv-t-w-r">Horario de Inicio:</label>
+                                <input type="time" placeholder="00:00" class="usv-i usv-i-cnt_i" [(ngModel)]="service.open" name="from" #from_service="ngModel" required>
+                                <div class="usv-i-cnt_e" *ngIf="from_service.invalid && (from_service.dirty || from_service.touched)">
+                                    <span *ngIf="from_service.errors.required">El Horario de Inicio es Obligatorio</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clm-xs-12 clm-sm-3 clm-lg-4">
+                            <div class="usv-i-cnt">
+                                <label class="usv-i-cnt_lb usv-t-w-r">Horario de Clausura:</label>
+                                <input type="time" placeholder="00:00" class="usv-i usv-i-cnt_i" [(ngModel)]="service.close" name="to" #to_service="ngModel" required>
+                                <div class="usv-i-cnt_e" *ngIf="to_service.invalid && (to_service.dirty || to_service.touched)">
+                                    <span *ngIf="to_service.errors.required">El Horario de Clausura es Obligatorio</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row usv-scontainer">
+                        <div class="clm-xs-12">
+                            <div class="usv-mt">
+                                <h3 class="usv-mt_h3">COBERTURA DEL SERVICIO</h3>
+                            </div>
+                        </div>
+                        <div class="clm-xs-12 clm-sm-6 clm-lg-4">
+                            <div class="usv-i-cnt">
+                                <label class="usv-i-cnt_lb usv-t-w-r">Pais:</label>
+                                <select class="usv-i usv-i_s usv-i-cnt_i" [(ngModel)]="service.country" (ngModelChange)="covertureChange(service.country, 'States'); service.state = 0; service.city = 0 " name="coun" #country_service="ngModel" required>
+                                    <option [ngValue]="0">Selecciona un Pais</option>
+                                    <option *ngFor="let country of countries$ | async" [ngValue]="+country.id">{{country.name}}</option>
+                                </select>
+                                <div class="usv-i-cnt_e" *ngIf="country_service.invalid && (country_service.dirty || country_service.touched)">
+                                  <span *ngIf="country_service.errors.required">El pais de cortura es Obligatorio</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clm-xs-12 clm-sm-6 clm-lg-4">
+                            <div class="usv-i-cnt">
+                                <label class="usv-i-cnt_lb usv-t-w-r">Estado:</label>
+                                <select class="usv-i usv-i_s usv-i-cnt_i" [(ngModel)]="service.state" (ngModelChange)="covertureChange(service.state, 'Cities'); service.city = 0" name="stat">
+                                    <option [ngValue]="0">Selecciona un Estado</option>
+                                    <option *ngFor="let state of states$ | async" [ngValue]="+state.id">{{state.name}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="clm-xs-12 clm-sm-6 clm-lg-4">
+                            <div class="usv-i-cnt">
+                                <label class="usv-i-cnt_lb usv-t-w-r">Ciudad:</label>
+                                <select class="usv-i usv-i_s usv-i-cnt_i" [(ngModel)]="service.city" id="serviceCity" name="city">
+                                    <option [ngValue]="0">Selecciona una Ciudad</option>
+                                    <option *ngFor="let city of cities$ | async" [ngValue]="+city.id">{{city.name}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row usv-scontainer">
+                        <div class="clm-xs-12">
+                            <div class="usv-mt">
+                                <h3 class="usv-mt_h3">INFORMACIÓN DE CONTACTO</h3>
+                            </div>
+                        </div>
+                        <div class="clm-xs-12">
+                            <div class="row">
+                              <div class="clm-xs-1">
+                                  <div class="usv-plus" (click)="conts.addContact(contacts)">
+                                      <i class="fas fa-plus"></i>
+                                  </div>
+                              </div>
+                              <div class="clm-xs-11">
+                                <div class="row">
+                                  <div class="clm-xs-12" *ngFor="let contact of contacts; let i = index">
+                                    <div class="row">
+                                      <div class="clm-xs-12 clm-sm-4">
+                                        <div class="usv-i-cnt">
+                                          <label class="usv-i-cnt_lb usv-t-w-r">Tipo de Medio:</label>
+                                          <select class="usv-i usv-i_s usv-i-cnt_i" [(ngModel)]="contact.type" name="type-{{i}}" #contact_type="ngModel" required>
+                                            <option value="">Tipo de Medio de Contacto</option>
+                                            <option value="Mobile">Telefono Movil</option>
+                                            <option value="Whatsapp">Whatsapp</option>
+                                            <option value="Phone">Telefono Fijo</option>
+                                            <option value="Facebook">Facebook</option>
+                                            <option value="Skype">Skype</option>
+                                            <option value="Instagram">Instagram</option>
+                                            <option value="Twitter">Twitter</option>
+                                            <option value="Youtube">Youtube</option>
+                                            <option value="Email">Correo Electronico</option>
+                                          </select>
+                                          <div class="usv-i-cnt_e"  *ngIf="contact_type.invalid && (contact_type.dirty || contact_type.touched)">*El tipo de medio de contacto es Obligatorio</div>
+                                        </div>
+                                      </div>
+                                      <div class="clm-xs-12 clm-sm-3">
+                                        <div class="usv-i-cnt">
+                                          <label class="usv-i-cnt_lb usv-t-w-r">Estado:</label>
+                                          <select class="usv-i usv-i_s usv-i-cnt_i" [(ngModel)]="contact.status" #contact_status="ngModel" name="status-{{i}}" required>
+                                            <option value="">Publico o Privado</option>
+                                            <option value="Public">Publico</option>
+                                            <option value="Private">Privado</option>
+                                          </select>
+                                          <div class="usv-i-cnt_e"  *ngIf="contact_status.invalid && (contact_status.dirty || contact_status.touched)">*El estado del medio de contacto es Obligatorio</div>
+                                        </div>
+                                      </div>
+                                      <div class="clm-xs-10 clm-sm-4">
+                                        <div class="usv-i-cnt">
+                                            <label class="usv-i-cnt_lb usv-t-w-r">Medio de Contacto:</label>
+                                            <input type="text" placeholder="Metodo" class="usv-i usv-i-cnt_i" [(ngModel)]="contact.method"
+                                            name="method-{{i}}" #contact_method="ngModel" required>
+                                            <div class="usv-i-cnt_e"  *ngIf="contact_method.invalid && (contact_method.dirty || contact_method.touched)">*El medio de contacto es Obligatorio</div>
+                                          </div>
+                                      </div>
+                                      <div class="clm-xs-2 clm-sm-1">
+                                        <div class="usv-plus" (click)="contacts = conts.removeContact(contact, contacts, service.id)">
+                                            <i class="fas fa-times"></i>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </form>
+</div>

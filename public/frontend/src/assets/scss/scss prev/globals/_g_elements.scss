@@ -1,0 +1,485 @@
+/*------------------------------
+Clases Globales
+------------------------------*/
+.usv-g{
+    &-shadow{
+        box-shadow: 1px 2px 3px 0px lighten(rgba(0,0,0,0.75), 70);
+    }
+    &-dm_l{
+        margin-left: 11px !important;
+    }
+    &-dm_r{
+        margin-right: 11px !important;
+    }
+    &-dm_b{
+        margin-bottom: 1rem;
+    }
+    &-dm_t{
+        margin-top: 1rem;
+    }
+    &-dm_none{
+        margin:0;
+    }
+    &-dm-v_xs{
+        margin: 2px 0; 
+    }
+    &-display{
+        &_block{
+            display:block !important;
+        }
+        &_none{
+            display:none !important;
+        }
+    }
+    &-icontext{
+        height: 30px;
+        width: 100%;
+        display:flex;
+        align-items: center;
+        opacity: 0.7;
+        h2{
+            color: color('secundary');
+            font-size: text('btn');
+            text-transform: uppercase;
+        }
+        i{
+            position: absolute;
+            left:4px;
+            top:4px;
+            color: color('light');
+            font-size: 0.5rem;
+        }
+        &-cicon{
+            height: 15px;
+            width:15px;
+            position:relative;
+            margin-right:0.5rem;
+            background: color('secundary');
+            border-radius: 100%;
+        }
+    }
+    &-line{
+        &_h{
+            height: 1px;
+            width: 100%;
+            margin: 0.75rem auto;
+            background: color('secundary');
+            opacity: 0.3;
+        }
+    }
+}
+//Clase para cortar el codigo
+.usv-t-cut{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+//classes para fondos
+.usv-bg{
+    &-primary{
+        background: color('primary');
+    }
+    &-secundary{
+        background: color('secundary');
+    }
+}
+//Clases para hover y cursor
+.usv-cursor-hov{
+    &:hover{
+        cursor: pointer;
+    }
+}
+//clases para el checkbox
+.usv-g-checkbox-cont{
+    height: 20px;
+    width:  20px;
+    position:relative;
+    margin: auto;
+    &_wtext{//si contiene algun span
+       width:  calc(100% - 22px); 
+       display: flex;
+       margin: 0 11px 10px 11px;
+    }
+    &_sqr{
+        text-align: center;
+        background: color('light');
+        color: color('light');
+        font-size: 14px;
+        border-radius: 3px;
+        box-shadow: 1px 1px 5px 0px lighten(color('secundary'), 50);
+        &_r{
+            height: 20px;
+            width: 20px;
+            line-height: 22px;
+        }
+        &_xs{
+            height: 15px;
+            width: 15px;
+            line-height: 17px;
+        }
+    }
+    &_input{
+        position: absolute;
+        top:0;
+        left:0;
+        opacity:0;
+        &:hover{
+            cursor: pointer;
+        }
+        &_r{
+            height: 22px;
+            width: 22px;
+        }
+        &_xs{
+            height: 17px;
+            width: 17px;
+        }
+    }
+    &_input:checked + &_sqr{
+        color: color('secundary');
+    }
+    &_span{
+        margin-left: 1.25rem;
+        color: color('secundary');
+        font-size: text('h3');
+        font-weight: 700;
+        text-transform: uppercase;
+        &_r{
+            font-size: text('h3');
+            line-height: 23px;
+        }
+        &_xs{
+            font-size: text('btn');
+            line-height: 17px;
+        }
+    }
+}
+/*------------------------------
+Textos
+------------------------------*/
+html{
+    font-size: text('html');
+    background: color('base');
+}
+*{
+    font-family: $font-family;
+}
+.usv{
+    &-t{
+        @each $e, $size in $title {
+            &-s-#{$e} {
+                color: color('secundary');
+                font-size: $size;
+            }
+        }
+        @each $e, $weight in $title-weight {
+            &-w-#{$e} {
+                font-weight: $weight;
+            }
+        }
+        &-nospace{
+            display: inline;
+        }
+    }
+}
+/*------------------------------
+Titles
+------------------------------*/
+.usv{
+    &-mt{
+        width:  100%;
+        margin: 0 0 20px 0;
+        &-margin-reduced{
+            margin: 0 0 0.35rem 0;
+        }
+        &_h1, &_h2, &_h3{
+            margin-bottom: 0.25rem;
+            color: lighten(color('secundary'), 20);
+            font-weight: 900;
+            &-lineS{
+                height: 2px;
+                background: color('primary');
+            }
+            &-lineB{
+                height: 1px;
+                background: color('primary');
+            }
+        }
+        &_h1{
+            &-lineB{
+                width: 100%;
+            }
+            &-lineS{
+                width: 150px;
+            }
+        }
+        &_h2{
+            margin-left: 11px;
+            &-lineB, &-lineS{
+                background: color('secundary');
+                margin-left: 11px;
+            }
+            &-lineB{
+                width: 200px;
+            }
+            &-lineS{
+                width: 80px;
+            }
+        }
+        &_h3{
+            &-lineS{
+                width: 25px;
+            }
+        }
+    }
+}
+/*------------------------------
+Inputs
+------------------------------*/
+.usv{
+    &-i, &-btn, &-a{
+        display: block;
+        margin:auto;
+        font-size: text('btn');
+        border-radius: 3px;    
+        outline: none;
+    }
+    &-i{//Input solo
+        height: 25px;
+        width: calc(100% - 2px - 0.5rem);
+        margin:0 auto 10px auto;
+        padding:0 0 0 0.5rem;
+        color: lighten(color('secundary'), 20);
+        border: 1px solid lighten(color('secundary'), 70);
+        &_s{
+            height: 27px;
+            width: 100%;
+        }
+        &_a{//textarea
+            height: calc(80px - 0.5rem);
+            padding-top: 0.5rem;
+            resize: none;
+        }
+        &:active,&:focus{
+            border-bottom: 2px solid lighten(color('secundary'),50);
+        }
+    }
+    &-i-cnt{//input container
+        width: calc(100% - 5px);
+        margin:0 auto 10px auto; // espacio entre elementos abajo
+        &_lb{
+            font-size: text('btn');
+            font-weight: 700;
+            opacity: 0.5;
+        }
+        &_i{
+            margin: 1px auto 5px auto;
+        }
+        &_e{
+            padding-left:0.25rem;
+            font-size: text('e');
+            border-left: 3px solid color('alert');
+            opacity: 0.5;
+        }
+    }
+    //Botones
+    &-btn{
+        height: 30px;
+        width:  100%;
+        //margin: 0 11px 10px 11px;
+        margin: 0 auto;
+        text-align: center;
+        border:0px;
+        opacity: 0.75;
+        &:hover{
+            cursor: pointer;
+            opacity: 1;
+        }
+        &-s{//size
+            &_xs{
+                max-width: 150px;
+            }
+            &_r{
+                max-width: 250px;
+            }
+        }
+        &-a{//align
+            &_l{
+                float: left;
+            }
+            &_r{
+                float: right;
+            }
+            &_c{
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+        &-c{//color
+            &s{
+                &_primary{
+                    background: color('primary');
+                    color: color('light');
+                }
+                &_white{
+                    background: color('light');
+                    color: color('secundary');
+                }
+            }
+            &o{
+                background: none;
+                color: color('secundary');
+                border: 1px solid color('secundary');
+            }
+        }
+    }
+}
+.usv{
+    &-i-cnt-options_c{
+        width: 100%;
+        position:relative;
+        &-icon{
+            position: absolute;
+            top:3px;
+            right:7px;
+            opacity:0.5;
+        }
+    }
+    &-i-options{
+        width: calc(100% - 2px);
+        position: absolute;
+        //display:none;
+        margin:-5px auto;
+        background:color('light');
+        border: 1px solid lighten(color('secundary'), 70);
+        border-radius: 0 0 3px 3px;
+        z-index:2;
+        &_o{
+            padding: 0.2rem 0 0 0.5rem;
+            height: 20px;
+            border-bottom: 1px solid color('base');
+            &:hover{
+                background: color('base');
+            }
+        }
+    }
+}
+/*------------------------------
+Sociales
+------------------------------*/
+.usv{
+    &-n{
+        height: 30px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin: 0 11px 10px 11px;
+        background: color('light');
+        border: 1px solid lighten(color('secundary'), 70);
+        border-radius: 3px;
+        &-t{
+            width: calc(100% - 40px);
+            font-size: text('h3');
+            opacity: 0.5;
+        }
+        &-icon{
+            font-size: 1rem;
+            opacity: 0.5;
+        }
+        &-s_l{
+            width:  calc(100% - 22px);
+        }
+        &-s_s{
+            width: 225px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+}
+/*------------------------------
+Configuraciones
+------------------------------*/
+.usv{
+    &-conf{
+        height: 30px;
+        width:  100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0;
+        margin-bottom: 10px;
+        &-c{
+            height: 100%;
+            width: 85%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background: color('light');
+            border: 1px solid lighten(color('secundary'), 70);
+            border-radius: 3px;
+            &-t{
+                width: calc(100% - 40px);
+                font-size: text('h3');
+                opacity: 0.5;
+            }
+            &-icon{
+                font-size: 1rem;
+                opacity: 0.5;
+            }
+        }
+        &-ck{
+            height: 30px;
+            width: 30px;
+            position: relative;
+            margin-right: 10px;
+            text-align: center;
+            background: color('light');
+            border: 1px solid lighten(color('secundary'), 70);
+            input[type='checkbox']{
+                width: 30px;
+                height: 30px;
+                left:0;
+                top:0;
+                opacity:0;
+                position: absolute;
+            }
+            input[type='checkbox']:checked ~ i{
+                color: color('secundary');
+            }
+            i{
+                line-height: 30px;
+                color: color('light');
+
+            }
+        }
+    }
+}
+/*------------------------------
+Alerts
+------------------------------*/
+.usv{
+    &-alert{
+        margin: 0 11px;
+        margin-bottom: 10px;
+        padding-left: 10px;
+        line-height: 30px;
+        font-size: text('btn');
+        font-weight: 300;
+        border-radius: 3px;
+        &_r{
+            height: 30px;
+            width:  calc(100% - 22px - 10px);
+            background: color('alert');
+            color: color('light');
+        }
+        &_o{
+            height: 28px;
+            width:  calc(100% - 22px - 10px - 4px);
+            background:none;
+            color: color('secundary');
+            font-weight: 400;
+            border: 1px solid lighten(color('secundary'), 50);
+            border-left: 4px solid color('alert');
+        }
+    }
+}

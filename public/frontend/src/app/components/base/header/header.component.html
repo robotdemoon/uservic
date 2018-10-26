@@ -1,0 +1,98 @@
+<header class="usv-header usv-g-shadow_h">
+  <div class="usv-header-mr">
+      <i class="fas fa-bars usv-cursor-hov usv-header-mr-icon" (click)="navleftOperationStyle()" *ngIf="status"></i>
+      <img class="usv-header-mr-image usv-cursor-hov" src="assets/images/general/logo.svg" routerLink="/">
+  </div>
+  <div class="usv-header-br">
+      <div class="usv-header-br-browse">
+        <form (submit)="createQuery()" #serviceForm="ngForm">
+          <input type="text" class="usv-header-br-browse-input" [(ngModel)]="searchQuery"  placeholder="Buscar algún Servicio" name="search" minlength="1" required>
+          <i class="fas fa-search usv-header-br-browse-icon usv-cursor-hov" (click)="createQuery()"></i>
+          <input type="submit" style="display:none" [disabled]="!serviceForm.form.valid">
+        </form>
+      </div>
+      <div class="usv-header-br-m usv-hov" clickOutside (clickOutside)="AOptMenu = false" >
+          <a class="usv-cursor-hov usv-header-br-m-a" (click)="AOptMenu = design.visibilityItem(AOptMenu)"> Advanced Options</a>
+          <i class="fas fa-sort-down usv-header-br-m-icon usv-cursor-hov" (click)="AOptMenu = design.visibilityItem(AOptMenu)"></i>
+          <div class="usv-s-menu usv-s-menu_header" [ngClass]="{'usv-g-display_none': !AOptMenu}">
+              <div class="usv-i-cnt">
+                <label class="usv-i-cnt_lb usv-t-r">Categoria:</label>
+                <select class="usv-i usv-i_s usv-i-cnt_i" [(ngModel)]="filter.category">
+                    <<option value="">Category</option>
+                    <option value="{{category.category}}" *ngFor="let category of categories">{{category.value}}</option>
+                </select>
+              </div>
+              <div class="usv-i-cnt">
+                <label class="usv-i-cnt_lb usv-t-r">Experiencia:</label>
+                <select class="usv-i usv-i_s usv-i-cnt_i" [(ngModel)]="filter.experience">
+                  <option [ngValue]="+0">Experiencia dando el Servicio</option>
+                  <option [ngValue]="+1">1 año</option>
+                  <option [ngValue]="+2">2 años</option>
+                  <option [ngValue]="+3">3 años</option>
+                  <option [ngValue]="+4">4 años</option>
+                  <option [ngValue]="+5">5 años</option>
+                  <option [ngValue]="+6">mas de 6 años</option>
+                </select>
+              </div>
+              <div class="usv-i-cnt">
+                <label class="usv-i-cnt_lb usv-t-r">Pais:</label>
+                <select class="usv-i usv-i_s usv-i-cnt_i" [(ngModel)]="filter.country" (ngModelChange)="covertureChange(filter.country, 'States'); filter.state = 0; filter.city = 0; cities = []">
+                  <option [ngValue]="+0">Selecciona un Pais</option>
+                  <option *ngFor="let country of countries$ | async" [ngValue]="+country.id">{{country.name}}</option>
+                </select>
+              </div>
+              <div class="usv-i-cnt">
+                <label class="usv-i-cnt_lb usv-t-r">Estado:</label>
+                <select class="usv-i usv-i_s usv-i-cnt_i" [(ngModel)]="filter.state" (ngModelChange)="covertureChange(filter.state, 'Cities'); filter.city = 0">
+                  <option [ngValue]="+0">Selecciona un Estado</option>
+                  <option *ngFor="let state of states$ | async" [ngValue]="+state.id">{{state.name}}</option>
+                </select>
+              </div>
+              <div class="usv-i-cnt">
+                <label class="usv-i-cnt_lb usv-t-r">Ciudad:</label>
+                <select class="usv-i usv-i_s usv-i-cnt_i" [(ngModel)]="filter.city" id="serviceCity">
+                  <option [ngValue]="+0">Selecciona una Ciudad</option>
+                  <option *ngFor="let city of cities$ | async" [ngValue]="+city.id">{{city.name}}</option>
+                </select>
+              </div>
+              <div class="row">
+                <div class="clm-xs-12">
+                  <div class="usv-i-cnt">
+                      <label class="usv-i-cnt_lb usv-t-w-r">Dias Habiles:</label>
+                      <div class="usv-i-cnt-options_c" clickOutside (clickOutside)="days_menu = false">
+                          <input type="text" class="usv-i usv-i-cnt_i usv-cursor-hov" placeholder="Lunes,Martes,Miercoles" (click)="days_menu = design.visibilityItem(days_menu)" [(ngModel)]="daysSelected" name="days" autocomplete="off">
+                          <i class="fas fa-sort-down usv-i-cnt-options_c-icon usv-cursor-hov"></i>
+                          <div class="usv-i-options" [ngClass]="{'usv-g-display_none':!days_menu}">
+                              <div class="usv-i-options_o" *ngFor="let day of days">
+                                  <div class="usv-g-checkbox-cont usv-g-checkbox-cont_wtext">
+                                      <input  type="checkbox" class="usv-g-checkbox-cont_input usv-g-checkbox-cont_input_xs" (change)="daysSelected = input.filterCheckbox(days, true, false, 'value'); filter.business_days = input.filterCheckbox(days, true)" [(ngModel)]="day.checked" name="day">
+                                      <div class="usv-g-checkbox-cont_sqr usv-g-checkbox-cont_sqr_xs usv-g-shadow"><i class="fas fa-check"></i></div>
+                                      <span class="usv-g-checkbox-cont_span usv-g-checkbox-cont_span_xs">{{day.value}}</span>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                </div>
+              </div>
+              <div class="usv-i-cnt">
+                  <label class="usv-i-cnt_lb usv-t-w-r">Horario de Apertura:</label>
+                  <input type="time" class="usv-i usv-i-cnt_i" [(ngModel)]="filter.fromtime">
+              </div>
+              <div class="usv-i-cnt">
+                  <label class="usv-i-cnt_lb usv-t-w-r">Horario de Clausura:</label>
+                  <input type="time" class="usv-i usv-i-cnt_i" [(ngModel)]="filter.totime">
+              </div>
+              <div class="usv-page-service-flex">
+                <input  class="usv-btn usv-btn-s_xs usv-btn-a_r usv-btn-co usv-bg-light usv-g-shadow_l" type="button" value="Limpiar Filtros" (click)="clearArray(filter)">
+                <input  class="usv-page-service-flex-e usv-btn usv-btn-s_xs usv-btn-a_c usv-g-shadow usv-bg-primary usv-color-light" type="button" value="Buscar" (click)="createQuery()">
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="usv-header-btn">
+      <input type="button" value="Cerrar Sesion" class="usv-header-btn-input usv-cursor-hov" (click)="conn.logOut()" *ngIf="status">
+      <input type="button" value="LogIn" class="usv-header-btn-input usv-cursor-hov" routerLink="login" *ngIf="!status">
+      <p class="usv-header-btn-p">USERVIC</p>
+  </div>
+</header>

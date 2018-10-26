@@ -1,0 +1,59 @@
+/*------------------------------------
+Configuracion Global
+------------------------------------*/
+$font_family:'Lato', sans-serif;
+$titles:( //Estilos para titulos Predeterminados
+	'html': 12px,
+	'h1': 1.75rem,
+	'h2': 1.5rem,
+	'h3': 1.25rem,
+	'h4': 1.125rem,
+	'h5': 1rem, 
+	'p': 0.75rem,
+	'a': 0.75rem
+);
+$titles_proy: ( //Estilos para textos del Proyecto
+	'html_b': 14px,
+	'btn': 0.875rem,
+	'e': 0.625rem,
+	'min': 10px
+);
+$titles-weight:(
+    'l': 300,
+    'r': 400,
+    'bk': 700,
+    'bd': 900
+);
+/*------------------------------------
+Paleta de Colores
+------------------------------------*/
+$paleta: (
+	'primary' : #1E88E5,
+	'secundary' : #4E1C1C,
+	'alert' : #81090D,
+	'light' : #fff,
+	'base' :#f8f8f8
+);
+/*------------------------------------
+Espacio entre lineas
+------------------------------------*/
+$space_lines: 0.6rem;
+$space_titles_r: 1.2rem;
+$space_titles_xs: 0.6rem; 
+/*------------------------------------
+Numero de Columnas y Contenedor Principal
+------------------------------------*/
+$ncol : 12;
+
+$max-size-container:1200px; //Max-size for limited Divs or Sections
+
+/*------------------------------------
+Puntos de Ruptura en el Diseño
+------------------------------------*/
+$breakpoints:(
+	'xs': 0px,
+	'sm': 544px,
+	'md': 768px,
+	'lg': 992px,
+	'xl': 1200px
+);
